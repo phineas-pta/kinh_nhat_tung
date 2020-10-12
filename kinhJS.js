@@ -15,14 +15,17 @@ $(window).on({
 
 		hamburgerHeight = $("#hamburger").outerHeight(true).toString() + "px";
 
-		// adjust space within ruby annotation
-		$("rb").each(rubyAdjust); // for each ruby base
-
-		// set locale for all ruby text
+		// set locale for Viet ruby annotation of Chinese texts (font rendering problem)
 		$("rt:lang(zh-Hant)").attr("lang", "vi");
 
 		// insert carriage return character to improve readability when wrapping text
 		$(".multi-lang br").before('<span class="CR-LF">&nbsp;↵</span');
+
+		// make some passages in bold
+		$(".mantra-seg > :lang(vi), .multi-lang:not(header) > :lang(zh-Hant)").addClass("in-dam");
+
+		// adjust space within ruby annotation
+		$("rb").each(rubyAdjust); // for each ruby base
 
 		// hamburger button: open sidenav
 		$("#hamburger button:has(svg)").on("click", openNav);
