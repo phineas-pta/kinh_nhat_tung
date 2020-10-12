@@ -21,9 +21,6 @@ $(window).on({
 		// insert carriage return character to improve readability when wrapping text
 		$(".multi-lang br").before('<span class="CR-LF">&nbsp;↵</span');
 
-		// make some passages in bold
-		$(".mantra-seg > :lang(vi), .multi-lang:not(header) > :lang(zh-Hant)").addClass("in-dam");
-
 		// adjust space within ruby annotation
 		$("rb").each(rubyAdjust); // for each ruby base
 
