@@ -27,8 +27,8 @@ $(window).on({
 		// hamburger button: open sidenav
 		$("#hamburger button:has(svg)").on("click", openNav);
 
-		// sidenav links: close sidenav
-		$("#sidenav").on("click", closeNav); // also delegate to all children
+		// close sidenav when clicking a link or the main content
+		$("#sidenav, main").on("click", closeNav); // also delegate to all children of #sidenav
 
 		// langForm checkboxes: show/hide langs
 		$("#langForm").on("change", "input", langToggle);
