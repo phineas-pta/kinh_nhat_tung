@@ -21,7 +21,15 @@ $(window).on({
 		// insert carriage return character to improve readability when wrapping text
 		$(".multi-lang br").before('<span class="CR-LF">&nbsp;↵</span');
 
-		// adjust space within ruby annotation
+		// change font style
+		$(".mantra-seg > :lang(vi),\
+		  .multi-lang > :lang(zh-Hant):not(:last-child) rt:lang(vi),\
+		  .wait-multi-lang > :lang(zh-Hant):not(:last-child) rt:lang(vi)").addClass("in-dam");
+		$(".mantra-seg > :lang(sa),\
+		  .multi-lang > :lang(sa),\
+		  .multi-lang > :lang(pi)").addClass("to-vang");
+
+		// adjust space within ruby annotation // ATTENTION ORDER
 		$("rb").each(rubyAdjust); // for each ruby base
 
 		// hamburger button: open sidenav
@@ -65,7 +73,7 @@ function rubyAdjust(i, el) { // for each ruby base
 
 // hamburger button: open sidenav
 function openNav() {
-	$("#sidenav").css("width", "250px");
+	$("#sidenav").css("width", "300px");
 	$("#page-header, #hamburger, main").css("filter", "blur(5px)");
 }
 
