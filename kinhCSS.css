@@ -92,7 +92,7 @@ h3 {
 }
 
 /* color for each language */
-.multi-lang > :lang(vi) {color: var(--text-vi);}
+.multi-lang > :lang(vi), .wait-multi-lang > :lang(vi) {color: var(--text-vi);}
 :lang(en) {color: var(--text-en);}
 :lang(fr) {color: var(--text-fr);}
 :lang(de) {color: var(--text-de);}
