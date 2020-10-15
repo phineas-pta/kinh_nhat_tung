@@ -166,7 +166,7 @@ rt { /* ruby text */
 	text-align: left; /* remove weird align because of letter spacing */
 }
 
-rt:lang(pi) {
+rt:lang(sa), rt:lang(pi) {
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 }

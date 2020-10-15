@@ -19,13 +19,13 @@ $(window).on({
 		$("rt:lang(zh-Hant)").attr("lang", "vi");
 
 		// insert carriage return character to improve readability when wrapping text
-		$(".multi-lang br").before('<span class="CR-LF">&nbsp;↵</span');
+		$(".multi-lang br, .wait-multi-lang br").before('<span class="CR-LF">&nbsp;↵</span');
 
 		// change font style
-		$(".mantra-seg > :lang(vi),\
-		  .multi-lang > :lang(zh-Hant):not(:last-child) rt:lang(vi),\
-		  .wait-multi-lang > :lang(zh-Hant):not(:last-child) rt:lang(vi)").addClass("in-dam");
-		$(".mantra-seg > :lang(sa),\
+		$(".mantra-seg span:lang(vi),\
+		  .multi-lang rt:lang(vi),\
+		  .wait-multi-lang rt:lang(vi)").addClass("in-dam");
+		$(".mantra-seg span:lang(sa),\
 		  .multi-lang > :lang(sa),\
 		  .multi-lang > :lang(pi)").addClass("to-vang");
 
