@@ -18,7 +18,7 @@
 [data-theme="dark"] {
 	word-spacing: .05em;
 	filter: invert(100%) hue-rotate(180deg); /* photoshop trick: inverted luminance */
-	img {filter: grayscale(50%);}
+	img {filter: grayscale(50%);};
 }
 
 /* ******************************overall style******************************* */
