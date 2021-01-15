@@ -122,10 +122,10 @@ function tabClick() {
 	if (itemsCount > 1) {openNav();}
 }
 
-// insert HTML file using <iframe>, only if not local file
+// insert HTML file using <iframe>, copy from somewhere
 function importHTML(obj) {
 	for (let ele of obj.contentWindow.document.body.children) { // access content
 		obj.before(ele); // inject content
 	}
-	obj.remove() // remove <iframe>
+	obj.remove(); // remove <iframe>
 }
