@@ -1,19 +1,18 @@
 const stdSpace = "1em"; // for ruby annotation spacing
-var prevScrollpos = 0,
-    hamburgerHeight; // cannot set before load
+var prevScrollpos = 0;
 
 $(window).on({
 	"scroll": function () { // when scroll down, hide the topbar, when scroll up, show the topbar
 		var currentScrollPos = $(window).scrollTop(),
-		    effectScrollPos = (currentScrollPos > 50) ? currentScrollPos : 0, // meaningful only
-		    pxToHide = (prevScrollpos > effectScrollPos) ? "0" : ("-" + hamburgerHeight);
+		    effectScrollPos = (currentScrollPos > 500) ? currentScrollPos : 0, // meaningful only
+		    pxToHide = (prevScrollpos > effectScrollPos) ? "0" : ("-" + hamburgerHeight); // see def below
 		$("#hamburger").css("top", pxToHide); // cannot use toggle because of sticky position
 		prevScrollpos = effectScrollPos;
 	},
 
 	"load": function () {
 
-		hamburgerHeight = $("#hamburger").outerHeight(true).toString() + "px";
+		const hamburgerHeight = $("#hamburger").outerHeight(true).toString() + "px";
 
 		// set locale for Viet ruby annotation of Chinese texts (font rendering problem)
 		$("rt:lang(zh-Hant)").attr("lang", "vi");
@@ -77,10 +76,11 @@ function openNav() {
 	$("#page-header, #hamburger, main").css("filter", "blur(5px)");
 }
 
-// sidenav links: close sidenav
+// sidenav links: close sidenav, also close top bar
 function closeNav() {
 	$("#sidenav").css("width", "0");
 	$("#page-header, #hamburger, main").css("filter", "none");
+	$("#hamburger").css("top", "0"); // also close top bar
 }
 
 // langForm checkboxes: show/hide langs
