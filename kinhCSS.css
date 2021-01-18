@@ -134,6 +134,12 @@ li.multi-lang {
 	width: fit-content;
 }
 
+.fixed-width {
+	font-family: monospace;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
 table.inline-table {
 	display: inline-table;
 	vertical-align: middle;
