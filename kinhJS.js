@@ -1,18 +1,18 @@
 const stdSpace = "1em"; // for ruby annotation spacing
-var prevScrollpos = 0;
+var prevScrollPos = 0, hamburgerHeight = "0"; // placeholder value
 
 $(window).on({
 	"scroll": function () { // when scroll down, hide the topbar, when scroll up, show the topbar
 		var currentScrollPos = $(window).scrollTop(),
 		    effectScrollPos = (currentScrollPos > 500) ? currentScrollPos : 0, // meaningful only
-		    pxToHide = (prevScrollpos > effectScrollPos) ? "0" : ("-" + hamburgerHeight); // see def below
+		    pxToHide = prevScrollPos > effectScrollPos ? "0" : hamburgerHeight; // value def below
 		$("#hamburger").css("top", pxToHide); // cannot use toggle because of sticky position
-		prevScrollpos = effectScrollPos;
+		prevScrollPos = effectScrollPos;
 	},
 
 	"load": function () {
 
-		const hamburgerHeight = $("#hamburger").outerHeight(true).toString() + "px";
+		hamburgerHeight = "-" + $("#hamburger").outerHeight(true).toString() + "px";
 
 		// set locale for Viet ruby annotation of Chinese texts (font rendering problem)
 		$("rt:lang(zh-Hant)").attr("lang", "vi");
@@ -22,11 +22,11 @@ $(window).on({
 
 		// change font style
 		$(".mantra-seg span:lang(vi),\
-		  .multi-lang rt:lang(vi),\
-		  .wait-multi-lang rt:lang(vi)").addClass("in-dam");
+		   .multi-lang rt:lang(vi),\
+		   .wait-multi-lang rt:lang(vi)").addClass("in-dam");
 		$(".mantra-seg span:lang(sa),\
-		  .multi-lang > :lang(sa),\
-		  .multi-lang > :lang(pi)").addClass("to-vang");
+		   .multi-lang > :lang(sa),\
+		   .multi-lang > :lang(pi)").addClass("to-vang");
 
 		// adjust space within ruby annotation // ATTENTION ORDER
 		$("rb").each(rubyAdjust); // for each ruby base
@@ -65,8 +65,8 @@ function rubyAdjust(i, el) { // for each ruby base
 	      rtW = $(el).next("rt").width(), // its associated ruby text width
 	      diff = (rtW - rbW).toFixed(0), // excess amount
 	      addSpace = diff > 0
-	      	? `calc(${stdSpace} + ${diff.toString()}px)`
-	      	: stdSpace;
+	                 ? `calc(${stdSpace} + ${diff.toString()}px)`
+	                 : stdSpace;
 	$(el).css("margin-right", addSpace);
 }
 
@@ -80,7 +80,6 @@ function openNav() {
 function closeNav() {
 	$("#sidenav").css("width", "0");
 	$("#page-header, #hamburger, main").css("filter", "none");
-	$("#hamburger").css("top", "0"); // also close top bar
 }
 
 // langForm checkboxes: show/hide langs
@@ -90,7 +89,8 @@ function langToggle() {
 	$(`:lang(${langCheck})`)
 		.toggle(checked) // checked = shown, unchecked = hidden
 		.prev("br").toggle(checked); // also line break
-	$(`.multi-lang > span:lang(${langCheck})`).prev("br").prev("span.CR-LF").toggle(checked); // also carriage return character
+	$(`.multi-lang > span:lang(${langCheck})`)
+		.prev("br").prev("span.CR-LF").toggle(checked); // also carriage return character
 }
 
 // dark mode toggle
