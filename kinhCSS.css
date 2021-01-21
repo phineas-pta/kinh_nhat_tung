@@ -38,7 +38,6 @@ body > * { /* remove all blank gap between elements*/
 
 #page-header {
 	background-color: var(--topbar-background);
-	text-align: center;
 	padding: .5em;
 }
 
@@ -49,18 +48,27 @@ main {
 }
 
 #page-footer {
-	text-align: center;
 	background-color: var(--background);
+	font-size: large;
 }
 
 #loader {
-	position: absolute;
+	font-size: x-large;
+	line-height: normal;
+	position: fixed;
+	left: calc(50% - 40px);
+	top: calc(50% - 60px);
+	z-index: 1;
+}
+#loader::before { /* draw border independently to the text */
+	content: "";
+	position: fixed;
 	left: 50%;
 	top: 50%;
 	z-index: 1;
 	width: 150px;
 	height: 150px;
-	margin: -75px 0 0 -75px;
+	margin: -75px 0 0 -75px; /* 150÷2 */
 	border-width: 16px;
 	border-style: solid;
 	border-radius: 50%;
@@ -138,6 +146,10 @@ li.multi-lang {
 	font-family: monospace;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+}
+
+.center-text {
+	text-align: center;
 }
 
 table.inline-table {
