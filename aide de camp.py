@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 
+def escapeHTML(txt: str) -> str:
+	"""transform Unicode character  -> DEC numerical entity"""
+	return txt.encode('ascii', 'xmlcharrefreplace').decode()
+
 # %%
 
-def pali(textDeva, textLatn):
-	textDeva_, textLatn_ = textDeva.split(" "), textLatn.split(" ") # split each word
+def pali(textDeva, textLatn, esc = True):
+	textLatn_ = textLatn.split(" ") # split each word
+	if esc:
+		textDeva_ = [escapeHTML(x) for x in textDeva.split(" ")]
+	else:
+		textDeva_ = textDeva.split(" ")
 	if len(textDeva_) != len(textLatn_): raise ValueError
 	res = "<ruby>"
 	for i in range(len(textDeva_)):
@@ -20,15 +28,19 @@ while prompt != "stop":
 
 # %%
 
-def combo(textHan, textViet, printed = True):
+def combo(textHan, textViet, esc = True, printed = True):
 	"""combine text (1 line) into ruby annotation in HTML"""
-	textHan_ = [x for x in list(textHan) if x != " "] # split each character + remove spaces
+	if esc:
+		textHan_ = [escapeHTML(x) for x in list(textHan) if x != " "] # split each character + remove spaces
+	else:
+		textHan_ = [x for x in list(textHan) if x != " "] # split each character + remove spaces
 	textHan__, i = [], 0 # combine punctuation character with a loop (see below)
 	while i < len(textHan_):
 		try:
 			x, y = textHan_[i], textHan_[i+1]
-			if (x in ["『", "［"] or
-			    y in ["，", "：", "；", "、", "。", "！", "？", "』", "］"]):
+			if (x in ["『", "［", '&#12302;', '&#65339;'] or
+			    y in ["，", "：", "；", "、", "。", "！", "？", "』", "］",
+			          '&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#65341;']):
 				textHan__.append(x + y)
 				i += 2
 			else:
@@ -47,12 +59,12 @@ def combo(textHan, textViet, printed = True):
 	if printed: print(res)
 	else: return res
 
-def verse_noTabs(textHan, textViet, tabs, printed = True):
+def verse_noTabs(textHan, textViet, tabs, esc = True, printed = True):
 	"""ombine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
 	res = ""
 	for i in range(len(text1)):
-		res += "\t"*tabs + combo(text1[i], text2[i], False) + "<br />\n"
+		res += "\t"*tabs + combo(text1[i], text2[i], esc, False) + "<br />\n"
 	if printed: print(res)
 	else: return res
 
@@ -61,12 +73,12 @@ def verse_noTabs(textHan, textViet, tabs, printed = True):
 langs = ["en", "fr", "de", "it"]
 span = lambda x, y: '<span lang="{}">{}</span>'.format(x, y)
 
-def header(text, printed = True):
+def header(text, esc = True, printed = True):
 	"""parse a header (2 lines)"""
 	text1 = text.split("\n") # split each line
 	res = '<span lang="zh-Hant">'
 	textViet, textHan = text1[0].split("\t") #1st line
-	res += combo(textHan, textViet, False) + "</span><br />\n" + "\t"*4
+	res += combo(textHan, textViet, esc, False) + "</span><br />\n" + "\t"*4
 	text2 = text1[1].split(" / ") #2nd line
 	if len(text2) != 4: raise ValueError
 	else:
@@ -75,22 +87,22 @@ def header(text, printed = True):
 		if printed: print(res)
 		else: return res
 
-def verse(text, tabs, printed = True):
+def verse(text, tabs, esc = True, printed = True):
 	"""parse a verse (multiple lines) into ruby annotation"""
 	text1 = text.split("\n") # split each line
 	res = ""
 	for txt in text1:
 		textViet, textHan = txt.split("\t") # normal layout
-		res += "\t"*tabs + combo(textHan, textViet, False) + "<br />\n"
+		res += "\t"*tabs + combo(textHan, textViet, esc, False) + "<br />\n"
 	res = res[tabs:-7] # trailing line break
 	if printed: print(res)
 	else: return res
 
-def multiverse(text, tabs, lines, printed = True):
+def multiverse(text, tabs, lines, esc = True, printed = True):
 	"""parse a multi-lang verse"""
 	text1 = text.split("\n") # split each line
 	res = '<span lang="zh-Hant" class="in-dam">\n' + "\t"*(tabs +1)
-	res += verse("\n".join(text1[:lines]), tabs +1, False) + "\n" + "\t"*tabs + "</span><br />\n" # han viet
+	res += verse("\n".join(text1[:lines]), tabs +1, esc, False) + "\n" + "\t"*tabs + "</span><br />\n" # han viet
 	res += "\t"*tabs + '<span lang="vi">\n'
 	for i in range(lines, 2*lines-1): # vi text
 		res += "\t"*(tabs +1) + text1[i] + "<br />\n"
@@ -103,10 +115,10 @@ def multiverse(text, tabs, lines, printed = True):
 		if printed: print(res)
 		else: return res
 
-def multiphrase(text, tabs, printed = True):
+def multiphrase(text, tabs, esc = True, printed = True):
 	"""parse a verse (multiple lines) into ruby annotation"""
 	text1 = text.split("\n") # split each line
-	res = '<span lang="zh-Hant" class="in-dam">' + combo(text1[1], text1[0], False) + "</span><br />\n"
+	res = '<span lang="zh-Hant" class="in-dam">' + combo(text1[1], text1[0], esc, False) + "</span><br />\n"
 	res += "\t"*tabs + '<span lang="vi">' + text1[2] + "</span><br />\n"
 	for i in range(3,6):
 		res += "\t"*tabs + span(langs[i-3], text1[i]) + "<br />\n"
@@ -116,10 +128,12 @@ def multiphrase(text, tabs, printed = True):
 
 # %%
 
-def thanChu_seg(text, tabs, printed = True):
+def thanChu_seg(text, tabs, esc = True, printed = True):
 	"""parse a mantra segment: vi + sa + en"""
 	text1 = text.split("\n")
 	if len(text1) != 3: raise ValueError
+	if esc:
+		text1[0] = escapeHTML(text1[0])
 	else:
 		res = '<span lang="vi" class="in-dam">' + text1[0] + "</span><br />\n"
 		res += "\t"*tabs + '<span lang="sa" class="to-vang">' + text1[1] + "</span><br />\n"
@@ -127,7 +141,7 @@ def thanChu_seg(text, tabs, printed = True):
 		if printed: print(res)
 		else: return res
 
-def thanChu(text, tabs, printed = True):
+def thanChu(text, tabs, esc = True, printed = True):
 	"""parse a mantra"""
 	text1 = text.split("\n")
 	len_text = len(text1)
@@ -135,7 +149,7 @@ def thanChu(text, tabs, printed = True):
 	else:
 		res = ""
 		for i in range(0, len_text, 3):
-			res += "\t"*(tabs-1) + '<p class="than-chu-seg">\n' + "\t"*tabs + thanChu_seg("\n".join(text1[i:i+3]), tabs, False) + "\n" + "\t"*(tabs-1) + "</p>\n"
+			res += "\t"*(tabs-1) + '<p class="than-chu-seg">\n' + "\t"*tabs + thanChu_seg("\n".join(text1[i:i+3]), tabs, esc, False) + "\n" + "\t"*(tabs-1) + "</p>\n"
 		if printed: print(res)
 		else: return res
 
@@ -177,3 +191,17 @@ print('<p class="multi-lang">\n' +\
 	"\t"*tabs + '<span lang="de">' + textde + "</span><br />\n" +\
 	"\t"*tabs + '<span lang="it">' + textit + "</span>\n" +\
 	"\t"*(tabs-1) + "</p>")
+
+# %% batch escape/unescape HTML & unicode entities
+
+import os, re, html
+pattern = r"(?<=<rb>)[^<]+(?=</rb>)"
+basepath = "pathtodir/DataFiles/"
+for filename in os.listdir(basepath):
+	print(filename)
+	if filename.endswith('.html'):
+		with open(basepath + filename, mode = "r", encoding = "utf-8") as file:
+			tmp = file.readlines()
+		with open(basepath + filename, mode = "w", encoding = "utf-8") as file:
+			file.writelines([re.sub(pattern, lambda x: escapeHTML(x.group(0)), txt) for txt in tmp]) # escape
+			#file.writelines([re.sub(pattern, lambda x: html.unescape(x.group(0)), txt) for txt in tmp]) # unescape
