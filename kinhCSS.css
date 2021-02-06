@@ -1,4 +1,4 @@
-/* ****************************light & dark mode***************************** */
+/* *************************** light & dark mode **************************** */
 
 :root {
 	--background: #FAFAFA;
@@ -7,6 +7,7 @@
 	--text-fr: #3A8098;
 	--text-de: #B023F5;
 	--text-it: #388256;
+	--text-rt: #939597;
 	--topbar-background: #4CAF50;
 	--topbar-background-hover: green;
 	--current-tab: #347B98;
@@ -21,7 +22,7 @@
 	img {filter: grayscale(50%);};
 }
 
-/* ******************************overall style******************************* */
+/* ***************************** overall style ****************************** */
 
 body {
 	padding: 0;
@@ -165,7 +166,14 @@ table.inline-table td { /* indent for wrapped text */
 	border-width: thin;
 }
 
-/* *****************************ruby annotations***************************** */
+/* **************************** ruby annotations **************************** */
+
+/* font to render Siddham script:
+https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf */
+@font-face {
+	font-family: 'MyWebFont';
+	src: url('NotoSansSiddham-Regular.ttf') format('truetype');
+}
 
 rb { /* ruby base */
 	font: inherit;
@@ -179,17 +187,22 @@ rb:lang(zh-Hant) {
 	font-family: serif;
 }
 
+rb:lang(sa) {
+	font-family: 'MyWebFont';
+}
+
 rt { /* ruby text */
 	font: inherit;
 	text-align: left; /* remove weird align because of letter spacing */
 }
 
 rt:lang(sa), rt:lang(pi) {
+	color: var(--text-rt);
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 }
 
-/* ********************************topnav bar******************************** */
+/* ******************************* topnav bar ******************************* */
 
 #hamburger {
 	position: sticky;
@@ -203,7 +216,7 @@ rt:lang(sa), rt:lang(pi) {
 
 #hamburger > section[role="application"] { /* top most bar */
 	display: flex; /* flexible box layout */
-	justify-content: space-between; /* items are evenly distributed in the line; 1st item is at the beginning, last item at the end */
+	justify-content: space-between; /* items are evenly distributed in the line */
 	align-items: stretch; /* stretch to fill the container */
 }
 
@@ -241,7 +254,7 @@ rt:lang(sa), rt:lang(pi) {
 	background-color: var(--topbar-background-hover);
 }
 
-/* ****************************navigation sidebar**************************** */
+/* *************************** navigation sidebar *************************** */
 
 #sidenav { /* side navigation menu */
 	height: 100vh;
