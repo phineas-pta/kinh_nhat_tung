@@ -138,7 +138,7 @@ li.multi-lang {
 	border-style: dashed;
 	border-width: thin;
 	border-radius: 8px;
-	padding: 0 10px;
+	padding: 10px 10px 0;
 	margin: 5px 0;
 	width: fit-content;
 }
@@ -157,6 +157,7 @@ table.inline-table {
 	display: inline-table;
 	vertical-align: middle;
 	border-collapse: collapse;
+	margin-bottom: 1em;
 }
 
 table.inline-table td { /* indent for wrapped text */
@@ -282,6 +283,7 @@ rt:lang(sa), rt:lang(pi) {
 	position: absolute;
 	top: 0;
 	right: 25px;
+	z-index: -1;
 	font-size: 2em;
 	margin-left: 50px;
 }
