@@ -149,7 +149,8 @@ def thanChu(text, tabs, esc = True, printed = True):
 	else:
 		res = ""
 		for i in range(0, len_text, 3):
-			res += "\t"*(tabs-1) + '<p class="than-chu-seg">\n' + "\t"*tabs + thanChu_seg("\n".join(text1[i:i+3]), tabs, esc, False) + "\n" + "\t"*(tabs-1) + "</p>\n"
+			res += "\t"*(tabs-1) + '<p class="than-chu-seg">\n' + "\t"*tabs +\
+			       thanChu_seg("\n".join(text1[i:i+3]), tabs, esc, False) + "\n" + "\t"*(tabs-1) + "</p>\n"
 		if printed: print(res)
 		else: return res
 
@@ -194,8 +195,8 @@ print('<p class="multi-lang">\n' +\
 
 # %% batch escape/unescape HTML & unicode entities
 
-import os, re, html
-pattern = r"(?<=<rb>)[^<]+(?=</rb>)"
+import re, os, html
+pattern = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
 basepath = "pathtodir/DataFiles/"
 for filename in os.listdir(basepath):
 	print(filename)
@@ -203,5 +204,5 @@ for filename in os.listdir(basepath):
 		with open(basepath + filename, mode = "r", encoding = "utf-8") as file:
 			tmp = file.readlines()
 		with open(basepath + filename, mode = "w", encoding = "utf-8") as file:
-			file.writelines([re.sub(pattern, lambda x: escapeHTML(x.group(0)), txt) for txt in tmp]) # escape
-			#file.writelines([re.sub(pattern, lambda x: html.unescape(x.group(0)), txt) for txt in tmp]) # unescape
+			fn = lambda x: escapeHTML(x.group(0)) # escape # to unescape: html.unescape
+			file.writelines([pattern.sub(fn, txt) for txt in tmp])
