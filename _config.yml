@@ -5,8 +5,8 @@ author: PTA
 email: phantuananh@hotmail.com.vn
 description: >- # this means to ignore newlines
   Vietnamese Mahayana Buddhism rituals in multiple languages
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://phineas-pta.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/kinh_nhat_tung" # the subpath of your site, e.g. /blog
 github_username: phineas-pta
 
 # Build settings
