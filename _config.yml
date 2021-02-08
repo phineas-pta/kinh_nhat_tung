@@ -1,0 +1,70 @@
+# Welcome to Jekyll!
+
+title: Kinh nhật tụng
+author: PTA
+email: phantuananh@hotmail.com.vn
+description: >- # this means to ignore newlines
+  Vietnamese Mahayana Buddhism rituals in multiple languages
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: phineas-pta
+
+# Build settings
+markdown:
+  kramdown:
+    input: GFM # GitHub Flavored Markdown
+    auto_ids: true
+    hard_wrap: false
+theme: null
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: default
+
+collections_dir: texts
+collections:
+  than-chu:
+    collname: Các thần chú
+    order: 1
+    output: true
+    sort_by: numb
+  mo-dau:
+    collname: Kệ mở đầu
+    order: 2
+    output: true
+    sort_by: numb
+  khai-kinh:
+    collname: Kệ khai kinh
+    order: 3
+    output: true
+    sort_by: numb
+  chanh-kinh:
+    collname: Chánh kinh
+    order: 4
+    output: true
+    sort_by: numb
+  thu-kinh:
+    collname: Kệ thu kinh
+    order: 5
+    output: true
+    sort_by: numb
+  ket-thuc:
+    collname: Kệ kết thúc
+    order: 6
+    output: true
+    sort_by: numb
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - .git/
+  - README.md
+  - LICENSE
+  - aide de camp.py
