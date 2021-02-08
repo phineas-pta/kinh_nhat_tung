@@ -15,7 +15,7 @@ markdown:
     input: GFM # GitHub Flavored Markdown
     auto_ids: true
     hard_wrap: false
-theme: null
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-sass-converter
   - jekyll-sitemap
