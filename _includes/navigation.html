@@ -1,14 +1,14 @@
 <nav lang="vi" id="sidenav"> <!-- sidenav content depends on currently selected tab -->
 	<button type="button">×</button> <!-- close button -->
 	<ul>
-		<li><a href="/">Giới thiệu</a></li>
+		<li><a href="{{ site.baseurl }}">Giới thiệu</a></li>
 
 		{% assign mycollecs = site.collections | sort: 'order' %}
 		{% for collec in mycollecs offset:1 %} <!-- 1st collec is `post`, cannot change -->
 			<li>{{ collec.collname }}:<ul>
 			{% assign myitems = collec.docs | sort: 'numb' %}
 			{% for item in myitems %}
-				<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+				<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
 			{% endfor %}
 			</ul></li>
 		{% endfor %}
