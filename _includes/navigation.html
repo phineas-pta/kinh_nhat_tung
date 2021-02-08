@@ -8,7 +8,7 @@
 			<li>{{ collec.collname }}:<ul>
 			{% assign myitems = collec.docs | sort: 'numb' %}
 			{% for item in myitems %}
-				<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+				<li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
 			{% endfor %}
 			</ul></li>
 		{% endfor %}
