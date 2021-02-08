@@ -17,7 +17,7 @@ markdown:
     hard_wrap: false
 theme: null
 plugins:
-  - sass
+  - jekyll-sass-converter
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-coffeescript
