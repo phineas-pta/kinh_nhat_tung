@@ -1,248 +1,89 @@
-<!DOCTYPE html>
-<html lang="mul"> <!-- Multiple languages -->
-<head>
-	<title>Kinh nhật tụng</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- typical mobile-optimized site -->
-	<meta name="author" content="PTA" />
-	<meta name="description" content="Vietnamese Mahayana Buddhism rituals in multiple languages" />
-	<meta name="keywords" content="buddhism, vietnamese, mahayana, rituals, liturgy" />
-	<meta name="google-site-verification" content="vCTcDhJZfixdl9M1bHZeg1214kmgM14IGKdNmk4jGkU" /> <!-- set up Google Search Console -->
-	<link rel="icon" href="./favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="kinhCSS.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="kinhJS.js"></script>
-</head>
-<body>
+---
+title: Home
+---
 
-	<div id="loader" class="center-text"><br />loading…<br />better in<br />landscape</div> <!-- preloader, created with CSS, to be removed once page loaded -->
-
-<!-- --------------------------------header--------------------------------- -->
-
-	<header lang="vi" id="page-header" class="center-text"><h1>Kinh nhật tụng - Bắc tông</h1></header>
-	<nav id="hamburger">
-		<section role="application">
-			<button type="button"> <!-- hamburger button, copy from SuttaCentral -->
-				<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-			</button>
-			<form id="langForm"> <!-- checkbox to show/hide language -->
-				<label><input type="checkbox" value="en" />en</label>
-				<label><input type="checkbox" value="fr" />fr</label>
-				<label><input type="checkbox" value="de" />de</label>
-				<label><input type="checkbox" value="it" />it</label>
-				<!-- zh-Hant shown by default -->
-			</form>
-			<label><input type="checkbox" id="themeSwitch" />☀️</label> <!-- dark mode toggle -->
-		</section>
-		<section role="tabpanel" id="tabPanel">
-			<button type="button" value="home">Giới thiệu</button><!-- problem: inline-block whitespace in HTML becomes visual space on screen
-		 --><button type="button" value="than-chu">Các thần chú</button><!-- clever hack: wrap space with comment
-		 --><button type="button" value="mo-dau">Kệ mở đầu</button><!--
-		 --><button type="button" value="khai-kinh">Kệ khai kinh</button><!--
-		 --><button type="button" value="chanh-kinh">Chánh kinh</button><!--
-		 --><button type="button" value="thu-kinh">Kệ thu kinh</button><!--
-		 --><button type="button" value="ket-thuc">Kệ kết thúc</button>
-		</section>
-	</nav>
-
-<!-- --------------------------navigation sidebar--------------------------- -->
-
-	<nav lang="vi" id="sidenav"> <!-- sidenav content depends on currently selected tab -->
-		<button type="button">×</button> <!-- close button -->
-		<ul>
-			<section class="tabcontent home">
-				<li><a href="#home">Giới thiệu</a></li>
-			</section>
-			<section class="tabcontent than-chu">
-				<li><a href="#than-chu-mo-dau">Các chân ngôn mở đầu</a></li>
-				<li><a href="#chu-dai-bi">Chú Đại Bi</a></li>
-				<li><a href="#thap-chu">Thập Chú</a></li>
-			</section>
-			<section class="tabcontent mo-dau">
-				<li><a href="#cung-huong-tan-phat">Cúng Hương Tán Phật</a></li>
-				<li><a href="#tan-phat">Tán Phật</a></li>
-				<li><a href="#quan-tuong">Quán Tưởng</a></li>
-				<li><a href="#quy-y">Quy Y</a></li>
-			</section>
-			<section class="tabcontent khai-kinh">
-				<li><a href="#tan-lu-huong">Tán Lư Hương</a></li>
-				<li><a href="#tan-duong-chi">Tán dương chi</a></li>
-				<li><a href="#bai-van-phat-nguyen">bài văn phát nguyện</a></li>
-				<li><a href="#khai-kinh-ke">Khai Kinh Kệ</a></li>
-				<li><a href="#khen-kinh-phap-hoa">bài kệ khen kinh Pháp Hoa</a></li>
-				<li><a href="#ke-tua-lang-nghiem">bài tựa chú Lăng Nghiêm</a></li>
-			</section>
-			<section class="tabcontent chanh-kinh">
-				<li><a href="#cung-ngo">Cúng Ngọ</a></li>
-				<li><a href="#sam-hong-danh">Hồng Danh Bảo Sám</a></li>
-				<li><a href="#mong-son">Mông Sơn Thí Thực</a></li>
-				<li><a href="#bat-nha-tam-kinh">Ma-ha Bát-nhã Ba-la-mật-đa Tâm Kinh</a></li>
-			</section>
-			<section class="tabcontent thu-kinh">
-				<li><a href="#cat-tuong-ke">Cát Tường Kệ</a></li>
-				<li><a href="#sam-pho-hien">Sám Phổ Hiền</a></li>
-				<li><a href="#thien-a-tu-la">Thiên A-tu-la</a></li>
-				<li><a href="#ke-tan-lang-nghiem">kệ tán chú Lăng Nghiêm</a></li>
-				<li><a href="#tan-phat-thich-ca">Tán Phật Thích-ca</a></li>
-			</section>
-			<section class="tabcontent ket-thuc">
-				<li><a href="#tan-phat-a-di-da">Tán Phật A-di-đà</a></li>
-				<li><a href="#hoi-huong">Hồi Hướng</a></li>
-				<li><a href="#tam-quy-y">Tam Quy y</a></li>
-			</section>
-		</ul>
-	</nav>
-
-<!-- -----------------------------main content------------------------------ -->
-
-	<main>
-
-		<article lang="vi" id="home" class="tabcontent home">
-			<header class="center-text">
-				<h2>
-					<span lang="zh-Hant"><ruby><rb>禪</rb><rt>Thiền </rt><rb>門</rb><rt>Môn </rt><rb>日</rb><rt>Nhật </rt><rb>誦</rb><rt>Tụng</rt></ruby></span><br />
-					<span lang="en">Daily Recitations of the Meditation School</span><br />
-					<span lang="fr">Récitations quotidiennes de l'école de méditation</span><br />
-					<span lang="de">Die täglichen Rezitationen der Meditationsschule</span><br />
-					<span lang="it">Recitazioni quotidiane della scuola di meditazione</span>
-				</h2>
-				<h4 lang="vi">Bản rút gọn</h4>
-			</header>
-			<p class="multi-lang" class="center-text">
-				<span lang="zh-Hant" class="in-dam"><ruby><rb>南</rb><rt>Nam </rt><rb>無</rb><rt>mô </rt><rb>本</rb><rt>Bổn </rt><rb>師</rb><rt>Sư </rt><rb>釋</rb><rt>Thích </rt><rb>迦</rb><rt>ca </rt><rb>牟</rb><rt>Mâu </rt><rb>尼</rb><rt>ni </rt><rb>佛</rb><rt>Phật</rt></ruby></span><br />
-				<span lang="en">Veneration to the original master, the Buddha Shakyamuni!</span><br />
-				<span lang="fr">Vénération à notre Maître Suprême Bouddha Shakyamuni</span><br />
-				<span lang="de">Verehrung dem ursprünglichen Meister, dem Buddha Sakyamuni!</span><br />
-				<span lang="it">Lode al nostro Maestro originale Buddha Shakyamuni</span>
-			</p>
-			<p>Nguồn tư liệu chính: công trình biên tập và phiên dịch của thầy Thích Như Điển – chùa Viên Giác, Hannover</p>
-			<p>Các ngôn ngữ:<ul>
-				<li>tiếng Hán Việt (<span class="in-dam">chữ đậm</span>)</li>
-				<li>tiếng Hán cổ</li>
-				<li>Việt dịch</li>
-				<li>Đức (<span style="color: var(--text-de);">chữ tím</span>)</li>
-				<li>Anh (<span style="color: var(--text-en);">chữ đỏ</span>)</li>
-				<li>Pháp (<span style="color: var(--text-fr);">chữ xanh biển</span>)</li>
-				<li>Ý (<span style="color: var(--text-it);">chữ xanh lá</span>)</li>
-				<li>tiếng Phạn - Sanskrit (<span class="to-vang">chữ tô vàng</span>): các thần chú</li>
-			</ul></p>
-			<p>Favicon: SuttaCentral</p>
-			<p>Các nguồn bổ sung:<ul>
-				<li>Tuệ Quang 慧光 Foundation (kinh Pháp Hoa)</li>
-				<li>đại lão hoà thượng Thích Trí Tịnh (kinh Pháp Hoa)</li>
-				<li>kinh tụng – 萬佛聖城 Vạn Phật Thánh Thành (City of 10 Thousand Buddhas)</li>
-				<li>kinh tụng - thầy Thích Thiện Thanh – chùa Phật Tổ, Long Beach, California</li>
-				<li>kinh tụng - thầy Thích Hạnh Tấn – tu viện Vô Lượng Thọ, Dresden</li>
-				<li>kinh tụng - Tu viện Linh Sơn Pháp quốc</li>
-				<li>Cư sĩ Huyền Thanh – Nguyễn Vũ Tài <span class="fixed-width">https://kinhmatgiao.wordpress.com/</span></li>
-				<li><span class="fixed-width">http://www.geocities.ws/mahayanazengong/</span></li>
-			</ul></p>
-			<p><span class="in-dam">LICENSE & DISCLAIMER</span>:<ul>
-				<li>the German translation by Dr. Markus Günzel – Universität Göttingen, Die Morgen- und Abendliturgie der chinesischen Buddhisten, 1994, DOI: <span class="fixed-width">10.11588/heidok.00015318</span> is copyrighted, but later provided online</li>
-				<li>all the texts, except the immediately above work, are freely provided online, so they are assumed to be in public domain</li>
-				<li>this website is a hobby project and work of compilation, not assured for authenticity</li>
-			</ul></p>
-			<p>Danh sách các phần:<ul>
-				<li>Các thần chú:<ul>
-					<li>các chân ngôn mở đầu: tịnh pháp giới, tịnh thân / khẩu / ý / tam nghiệp, an thổ địa</li>
-					<li>chú đại bi</li>
-					<li>thập chú</li>
-					<li><em>trong tương lai:</em> chú Lăng Nghiêm</li>
-				</ul></li>
-				<li>kệ mở đầu:<ul>
-					<li>cúng hương tán phật</li>
-					<li>tán phật</li>
-					<li>quán tưởng</li>
-					<li>quy y</li>
-				</ul></li>
-				<li>kệ khai kinh:<ul>
-					<li>tán lư hương</li>
-					<li>tán dương chi</li>
-					<li>khai kinh kệ</li>
-					<li>bài tựa chú Lăng Nghiêm</li>
-					<li>bài kệ kinh Pháp Hoa <em>(chưa dịch)</em></li>
-				</ul></li>
-				<li>chánh kinh:<ul>
-					<li>cúng ngọ <em>(chưa dịch)</em></li>
-					<li>hồng danh bảo sám</li>
-					<li>mông sơn thí thực</li>
-					<li>ma ha bát nhã ba la mật đa tâm kinh</li>
-					<li><em>trong tương lai:</em> cầu siêu (kinh a di đà), cầu an (phẩm phổ môn)</li>
-				</ul></li>
-				<li>văn sám / phát nguyện:<ul>
-					<li>cát tường kệ</li>
-					<li>sám phổ hiền</li>
-					<li>thiên a tu la</li>
-					<li>kệ tán / hồi hướng chú Lăng Nghiêm</li>
-					<li>Tán Phật Thích-ca</li>
-					<li><em>trong tương lai:</em> sám khể thủ</li>
-				</ul></li>
-				<li>kệ kết thúc:<ul>
-					<li>tán phật a di đà</li>
-					<li>hồi hướng</li>
-					<li>tam quy y</li>
-				</ul></li>
-			</ul></p>
-		</article>
-
-		<hr /><!-- ----------------------next article----------------------- -->
-		<iframe src="texts/than-chu-mo-dau.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/chu-dai-bi.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/thap-chu.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/cung-huong-tan-phat.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/tan-phat.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/quan-tuong.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/quy-y.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/tan-lu-huong.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/tan-duong-chi.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/bai-van-phat-nguyen.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/khai-kinh-ke.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/khen-kinh-phap-hoa.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/ke-tua-lang-nghiem.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/cung-ngo.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/sam-hong-danh.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/mong-son.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/bat-nha-tam-kinh.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/cat-tuong-ke.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/sam-pho-hien.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/thien-a-tu-la.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/ke-tan-lang-nghiem.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/tan-phat-thich-ca.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/tan-phat-a-di-da.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/hoi-huong.html" onload="importHTML(this);"></iframe>
-		<hr />
-		<iframe src="texts/tam-quy-y.html" onload="importHTML(this);"></iframe>
-		<p class="tabcontent ket-thuc wait-multi-lang center-text" lang="zh-Hant"><ruby><rb>和</rb><rt>Hoà </rt><rb>南</rb><rt>nam </rt><rb>聖</rb><rt>Thánh </rt><rb>眾</rb><rt>chúng</rt></ruby></p>
-		<hr />
-
-	</main>
-
-<!-- -----------------------------footer & end------------------------------ -->
-
-	<footer lang="und" id="page-footer" class="center-text"><a href="https://github.com/phineas-pta/kinh_nhat_tung/">Source code</a></footer>
-
-</body>
-</html>
+<header class="center-text">
+	<h2>
+		<span lang="zh-Hant"><ruby><rb>禪</rb><rt>Thiền </rt><rb>門</rb><rt>Môn </rt><rb>日</rb><rt>Nhật </rt><rb>誦</rb><rt>Tụng</rt></ruby></span><br />
+		<span lang="en">Daily Recitations of the Meditation School</span><br />
+		<span lang="fr">Récitations quotidiennes de l'école de méditation</span><br />
+		<span lang="de">Die täglichen Rezitationen der Meditationsschule</span><br />
+		<span lang="it">Recitazioni quotidiane della scuola di meditazione</span>
+	</h2>
+	<h4 lang="vi">Bản rút gọn</h4>
+</header>
+<p class="multi-lang" class="center-text">
+	<span lang="zh-Hant" class="in-dam"><ruby><rb>南</rb><rt>Nam </rt><rb>無</rb><rt>mô </rt><rb>本</rb><rt>Bổn </rt><rb>師</rb><rt>Sư </rt><rb>釋</rb><rt>Thích </rt><rb>迦</rb><rt>ca </rt><rb>牟</rb><rt>Mâu </rt><rb>尼</rb><rt>ni </rt><rb>佛</rb><rt>Phật</rt></ruby></span><br />
+	<span lang="en">Veneration to the original master, the Buddha Shakyamuni!</span><br />
+	<span lang="fr">Vénération à notre Maître Suprême Bouddha Shakyamuni</span><br />
+	<span lang="de">Verehrung dem ursprünglichen Meister, dem Buddha Sakyamuni!</span><br />
+	<span lang="it">Lode al nostro Maestro originale Buddha Shakyamuni</span>
+</p>
+<p>Nguồn tư liệu chính: công trình biên tập và phiên dịch của thầy Thích Như Điển – chùa Viên Giác, Hannover</p>
+<p>Các ngôn ngữ:<ul>
+	<li>tiếng Hán Việt (<span class="in-dam">chữ đậm</span>)</li>
+	<li>tiếng Hán cổ</li>
+	<li>Việt dịch</li>
+	<li>Đức (<span style="color: var(--text-de);">chữ tím</span>)</li>
+	<li>Anh (<span style="color: var(--text-en);">chữ đỏ</span>)</li>
+	<li>Pháp (<span style="color: var(--text-fr);">chữ xanh biển</span>)</li>
+	<li>Ý (<span style="color: var(--text-it);">chữ xanh lá</span>)</li>
+	<li>tiếng Phạn - Sanskrit (<span class="to-vang">chữ tô vàng</span>): các thần chú</li>
+</ul></p>
+<p>Favicon: SuttaCentral</p>
+<p>Các nguồn bổ sung:<ul>
+	<li>Tuệ Quang 慧光 Foundation (kinh Pháp Hoa)</li>
+	<li>đại lão hoà thượng Thích Trí Tịnh (kinh Pháp Hoa)</li>
+	<li>kinh tụng – 萬佛聖城 Vạn Phật Thánh Thành (City of 10 Thousand Buddhas)</li>
+	<li>kinh tụng - thầy Thích Thiện Thanh – chùa Phật Tổ, Long Beach, California</li>
+	<li>kinh tụng - thầy Thích Hạnh Tấn – tu viện Vô Lượng Thọ, Dresden</li>
+	<li>kinh tụng - Tu viện Linh Sơn Pháp quốc</li>
+	<li>Cư sĩ Huyền Thanh – Nguyễn Vũ Tài <span class="fixed-width">https://kinhmatgiao.wordpress.com/</span></li>
+	<li><span class="fixed-width">http://www.geocities.ws/mahayanazengong/</span></li>
+</ul></p>
+<p><span class="in-dam">LICENSE & DISCLAIMER</span>:<ul>
+	<li>the German translation by Dr. Markus Günzel – Universität Göttingen, Die Morgen- und Abendliturgie der chinesischen Buddhisten, 1994, DOI: <span class="fixed-width">10.11588/heidok.00015318</span> is copyrighted, but later provided online</li>
+	<li>all the texts, except the immediately above work, are freely provided online, so they are assumed to be in public domain</li>
+	<li>this website is a hobby project and work of compilation, not assured for authenticity</li>
+</ul></p>
+<p>Danh sách các phần:<ul>
+	<li>Các thần chú:<ul>
+		<li>các chân ngôn mở đầu: tịnh pháp giới, tịnh thân / khẩu / ý / tam nghiệp, an thổ địa</li>
+		<li>chú đại bi</li>
+		<li>thập chú</li>
+		<li><em>trong tương lai:</em> chú Lăng Nghiêm</li>
+	</ul></li>
+	<li>kệ mở đầu:<ul>
+		<li>cúng hương tán phật</li>
+		<li>tán phật</li>
+		<li>quán tưởng</li>
+		<li>quy y</li>
+	</ul></li>
+	<li>kệ khai kinh:<ul>
+		<li>tán lư hương</li>
+		<li>tán dương chi</li>
+		<li>khai kinh kệ</li>
+		<li>bài tựa chú Lăng Nghiêm</li>
+		<li>bài kệ kinh Pháp Hoa <em>(chưa dịch)</em></li>
+	</ul></li>
+	<li>chánh kinh:<ul>
+		<li>cúng ngọ <em>(chưa dịch)</em></li>
+		<li>hồng danh bảo sám</li>
+		<li>mông sơn thí thực</li>
+		<li>ma ha bát nhã ba la mật đa tâm kinh</li>
+		<li><em>trong tương lai:</em> cầu siêu (kinh a di đà), cầu an (phẩm phổ môn)</li>
+	</ul></li>
+	<li>văn sám / phát nguyện:<ul>
+		<li>cát tường kệ</li>
+		<li>sám phổ hiền</li>
+		<li>thiên a tu la</li>
+		<li>kệ tán / hồi hướng chú Lăng Nghiêm</li>
+		<li>Tán Phật Thích-ca</li>
+		<li><em>trong tương lai:</em> sám khể thủ</li>
+	</ul></li>
+	<li>kệ kết thúc:<ul>
+		<li>tán phật a di đà</li>
+		<li>hồi hướng</li>
+		<li>tam quy y</li>
+	</ul></li>
+</ul></p>

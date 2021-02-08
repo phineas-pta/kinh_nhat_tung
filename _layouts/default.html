@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="mul"> <!-- Multiple languages -->
+<head>
+	<title>{{ page.title }} | {{ site.title }}</title>
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="buddhism, vietnamese, mahayana, rituals, liturgy" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- typical mobile-optimized site -->
+	<meta name="google-site-verification" content="vCTcDhJZfixdl9M1bHZeg1214kmgM14IGKdNmk4jGkU" /> <!-- set up Google Search Console -->
+	<link rel="icon" href="/assets/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/assets/kinhCSS.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/assets/kinhJS.js"></script>
+	{% seo %}
+</head>
+<body>
+	<div id="loader" class="center-text"><br />loading…<br />better in<br />landscape</div> <!-- preloader, created with CSS, to be removed once page loaded -->
+	{% include header.html %}
+	{% include navigation.html %}
+	<main><article>
+		{{ content }}
+	</article></main>
+	{% include footer.html %}
+</body>
+</html>
