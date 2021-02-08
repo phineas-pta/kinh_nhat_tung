@@ -7,29 +7,15 @@ search: exclude
 
 <style type="text/css">
 
-body, h1, p, a {
-  color: #e0e2f4;
-}
+body, h1, p, a {color: #e0e2f4;}
+body, p {font: normal 20px/1.25rem monospace;}
+h1 {font: normal 2.75rem/1.05em monospace;}
+body {background: #0414a7;}
 
-body, p {
-  font: normal 20px/1.25rem monospace;
-}
-
-h1 {
-  font: normal 2.75rem/1.05em monospace;
-}
-
-body {
-  background: #0414a7;
-}
-
-.container {
+.bsod {
   width: 90%;
   margin: auto;
   max-width: 640px;
-}
-
-.bsod {
   padding-top: 10%;
 }
 .bsod .neg {
@@ -57,10 +43,8 @@ body {
 }
 </style>
 
-<main class="bsod container">
+<main class="bsod">
   <h1 class="neg title"><span class="bg">Error - 404</span></h1>
   <p>An error has occured, to continue: Return to the homepage.</p>
-  <nav class="nav">
-    <a href="{{ site.baseurl }}" class="link">HOME</a>
-  </nav>
+  <nav class="nav"><a href="{{ site.baseurl }}/" class="link">HOME</a></nav>
 </main>
