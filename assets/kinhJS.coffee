@@ -2,6 +2,8 @@
 # placholder for Jekyll to recognize this file
 ---
 
+y = 'yesssss' # to save some data
+dkey = 'dark' # keyword for dark theme
 stdSpace = '1em' # for ruby annotation spacing
 prevScrollPos = 0 # placeholder value
 hamburgerHeight = '0' # placeholder value
@@ -41,11 +43,15 @@ $(window).on({
 
 		# langForm checkboxes: show/hide langs
 		$('#langForm').on 'change', 'input', langToggle
+		for langg in ['en', 'fr', 'de', 'it'] # check previous state
+			if window.localStorage.getItem(langg) == y
+				$("#langForm input[value=#{langg}]").prop "checked", true
 		$('#langForm input').trigger 'change' # check initial state
 
 		# dark mode toggle
 		$('#themeSwitch').on 'change', darkToggle
-		if window.matchMedia('(prefers-color-scheme: dark)').matches # if dark-theme is set
+		dstate = window.localStorage.getItem(dkey)
+		if dstate == y or (dstate is null and window.matchMedia("(prefers-color-scheme: #{dkey})").matches)
 			$('#themeSwitch').prop 'checked', true # pre-check the dark-theme checkbox
 		$('#themeSwitch').trigger 'change' # check initial state
 
@@ -82,19 +88,27 @@ closeNav = ->
 langToggle = ->
 	langCheck = $(this).val()
 	checked = $(this).prop 'checked'
+
 	$ ":lang(#{langCheck})"
 		.toggle checked  # checked = shown, unchecked = hidden
 		.prev('br').toggle checked # also line break
 	$ ".multi-lang > span:lang(#{langCheck})"
 		.prev('br').prev('span.CR-LF').toggle checked # also carriage return character
+
+	if checked
+		window.localStorage.setItem langCheck, y
+	else
+		window.localStorage.removeItem langCheck
 	return null
 
 # dark mode toggle
 darkToggle = ->
 	if $(this).prop 'checked'
-		$('html').attr 'data-theme', 'dark'
+		$('html').attr 'data-theme', dkey
 		this.nextSibling.textContent = '🌙' # no jQuery equivalent
+		window.localStorage.setItem dkey, y
 	else
 		$('html').removeAttr 'data-theme'
 		this.nextSibling.textContent = '☀️' # no jQuery equivalent
+		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something not important
 	return null

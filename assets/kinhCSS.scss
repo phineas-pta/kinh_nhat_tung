@@ -11,9 +11,8 @@ $text-fr: #3A8098;
 $text-de: #B023F5;
 $text-it: #388256;
 $text-rt: #939597;
-$topbar-background: #4CAF50;
-$topbar-background-hover: green;
-$current-tab: #347B98;
+$topbar-background: #6D4C41;
+$topbar-background-hover: #9C786C;
 $sidenav-background: #EBF7E3;
 $sidenav-links: #1A3D00;
 $sidenav-links-hover: #5EE000;
@@ -48,6 +47,8 @@ main {
 	padding: .5em;
 	background-color: $background;
 	filter: blur(5px); /* at preload, to be remove once page loaded */
+
+	ul > li::marker {content: "👉";}
 }
 
 #page-footer {
@@ -90,14 +91,9 @@ main {
 
 /* ************************************************************************** */
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-}
-
-h2 {
-	color: $topbar-background;
-}
-
+h1, h2, h3, h4, h5, h6 {margin: 0;}
+h1 {color: $background;}
+h2 {color: $topbar-background;}
 h3 {
 	color: $sidenav-links;
 	font-style: italic;
@@ -117,25 +113,15 @@ button {
 	background-color: inherit;
 }
 
-ul, ol { /* position of the list-item markers */
-	list-style-position: inside;
-}
+ul, ol {list-style-position: inside;} /* position of the list-item markers */
 
-li.multi-lang {
-	margin: 0.5em 0;
-}
+li.multi-lang {margin: 0.5em 0;}
 
-.multi-lang span.CR-LF {
-	user-select: none;
-}
+.multi-lang span.CR-LF {user-select: none;}
 
-.in-dam {
-	font-weight: bold;
-}
+.in-dam {font-weight: bold;}
 
-.to-vang {
-	background-color: yellow;
-}
+.to-vang {background-color: yellow;}
 
 .dong-khung {
 	border-style: dashed;
@@ -152,9 +138,7 @@ li.multi-lang {
 	word-wrap: break-word;
 }
 
-.center-text {
-	text-align: center;
-}
+.center-text {text-align: center;}
 
 table.inline-table {
 	display: inline-table;
@@ -189,13 +173,8 @@ rb { /* ruby base */
 	user-select: none; /* prevent text copying */
 	display: inline-block; /* fluid word spacing with JS using margin */
 
-	&:lang(zh-Hant) {
-		font-family: serif;
-	}
-
-	&:lang(sa) {
-		font-family: 'MyWebFont';
-	}
+	&:lang(zh-Hant) {font-family: serif;}
+	&:lang(sa) {font-family: 'MyWebFont';}
 }
 
 rt { /* ruby text */
@@ -216,34 +195,20 @@ rt { /* ruby text */
 	top: 0;
 	background-color: $topbar-background;
 
-	button:hover, label:hover {
-		background-color: $topbar-background-hover;
-	}
+	button:hover, label:hover {background-color: $topbar-background-hover;}
 
 	> section[role="application"] { /* top most bar */
 		display: flex; /* flexible box layout */
 		justify-content: space-between; /* items are evenly distributed in the line */
-		align-items: stretch; /* stretch to fill the container */
+		align-items: center; /* items are centered in the cross-axis */
 
-		> button { /* hamburger button */
-			width: 4rem;
-		}
-
-		> label { /* darkmode toggle */
-			font-size: 2.5rem;
-		}
+		> button {width: 4rem;} /* hamburger button */
+		> label {font-size: 2.5rem;} /* darkmode toggle */
+		/* langForm below */
 	}
 }
 
-#langForm > label {
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-
-	> input {
-		vertical-align: middle;
-	}
-}
+#langForm label {color: $background;}
 
 /* *************************** navigation sidebar *************************** */
 

@@ -12,6 +12,5 @@ here: https://phineas-pta.github.io/kinh_nhat_tung/
 
 # use locally
 
-download source code, navigate to the directory then use Python3 (or any similar local web server)
-
-`python -m http.server`
+ - *master* branch: use Python3 (or any similar local web server) `python -m http.server`
+ - *jekyll* branch: use Jekyll `bundle install` to install all dependencies then `bundle exec jekyll serve`
