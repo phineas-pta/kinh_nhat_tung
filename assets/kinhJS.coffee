@@ -74,13 +74,13 @@ rubyAdjust = (i, el) -> # for each ruby base
 
 # hamburger button: open sidenav
 openNav = ->
-	$('#sidenav').show()
+	$('#sidenav').css 'width', 'min(700px, 75%)'
 	$('#page-header, #hamburger, main').css 'filter', 'blur(5px)'
 	return null
 
 # sidenav links: close sidenav, also close top bar
 closeNav = ->
-	$('#sidenav').hide()
+	$('#sidenav').css 'width', '0'
 	$('#page-header, #hamburger, main').css 'filter', 'none'
 	return null
 
