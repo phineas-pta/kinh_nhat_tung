@@ -174,7 +174,7 @@ rb { /* ruby base */
 	display: inline-block; /* fluid word spacing with JS using margin */
 
 	&:lang(zh-Hant) {font-family: serif;}
-	&:lang(sa) {font-family: 'MyWebFont';}
+	&:lang(sa), &:lang(pi) {font-family: 'MyWebFont';}
 }
 
 rt { /* ruby text */
