@@ -22,7 +22,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-coffeescript
 
-defaults:
+defaults: # make setup for all HTML, no need to do for each file
   -
     scope:
       path: "" # an empty string here means all files in the project
