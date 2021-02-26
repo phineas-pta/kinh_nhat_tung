@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
 
-def escapeHTML(txt: str) -> str:
+import re, os, html, requests as req
+
+def escapeHTML(txt: str) -> str: # to unescape: html.unescape
 	"""transform Unicode character  -> DEC numerical entity"""
 	return txt.encode('ascii', 'xmlcharrefreplace').decode()
+
+# API conversion multiple scripts
+escapeHTML(req.get( # romanization: "IAST", "IPA", "ISO"
+	"https://aksharamukha-plugin.appspot.com/api/public",
+	params = dict(source = "Devanagari", target = "Siddham", text = "बुद्ध")
+).text)
 
 # %%
 
@@ -195,7 +203,6 @@ print('<p class="multi-lang">\n' +\
 
 # %% batch escape/unescape HTML & unicode entities
 
-import re, os, html
 pattern = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
 basepath = "pathtodir/DataFiles/"
 for filename in os.listdir(basepath):
@@ -204,5 +211,5 @@ for filename in os.listdir(basepath):
 		with open(basepath + filename, mode = "r", encoding = "utf-8") as file:
 			tmp = file.readlines()
 		with open(basepath + filename, mode = "w", encoding = "utf-8") as file:
-			fn = lambda x: escapeHTML(x.group(0)) # escape # to unescape: html.unescape
+			fn = lambda x: escapeHTML(x.group(0)) # escape
 			file.writelines([pattern.sub(fn, txt) for txt in tmp])
