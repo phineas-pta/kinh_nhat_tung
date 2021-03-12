@@ -67,6 +67,7 @@ exclude:
   - Gemfile.lock
   - .gitignore
   - .git/
+  - .bundle/
   - README.md
   - LICENSE
   - aide de camp.py
