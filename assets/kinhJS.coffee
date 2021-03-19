@@ -26,7 +26,7 @@ $(window).on({
 		$('rt:lang(zh-Hant)').attr 'lang', 'vi'
 
 		# insert carriage return character to improve readability when wrapping text
-		$('.multi-lang br, .wait-multi-lang br').before '<span class="CR-LF">&nbsp;↵</span'
+		$('.multi-lang br, .wait-multi-lang br').before '<span class="CR-LF">&nbsp;↵</span>'
 
 		# change font style
 		$('.mantra-seg span:lang(vi), .multi-lang rt:lang(vi), .wait-multi-lang rt:lang(vi)').addClass 'in-dam'
