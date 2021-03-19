@@ -1,0 +1,250 @@
+---
+# placholder for Jekyll to recognize this file
+---
+
+/* *************************** light & dark mode **************************** */
+
+$background: #FAFAFA
+$text-vi: #BF8F00
+$text-en: #F73B08
+$text-fr: #3A8098
+$text-de: #B023F5
+$text-it: #388256
+$text-rt: #939597
+$topbar-background: #6D4C41
+$topbar-background-hover: #9C786C
+$sidenav-background: #EBF7E3
+$sidenav-links: #1A3D00
+$sidenav-links-hover: #5EE000
+
+[data-theme="dark"]
+	word-spacing: .05em
+	filter: invert(100%) hue-rotate(180deg) /* photoshop trick: inverted luminance */
+	img
+		filter: grayscale(50%)
+
+/* ***************************** overall style ****************************** */
+
+body
+	padding: 0
+	margin: 0
+	font-family: sans-serif
+	font-size: calc(1em + 1vmin) /* fluid typography */
+	line-height: calc(1.1em + 1vmin) /* molten leading */
+
+	> * /* remove all blank gap between elements */
+		padding: inherit
+		margin: inherit
+
+#page-header
+	background-color: $topbar-background
+	padding: .5em
+
+main
+	padding: .5em
+	background-color: $background
+	filter: blur(5px) /* at preload, to be remove once page loaded */
+
+	ul > li::marker
+		content: "👉"
+
+#page-footer
+	background-color: $background
+	font-size: large
+
+#loader
+	font-size: x-large
+	line-height: normal
+	position: fixed
+	left: calc(50% - 40px)
+	top: calc(50% - 60px)
+	z-index: 1
+
+	&::before /* draw border independently to the text */
+		content: ""
+		position: fixed
+		left: 50%
+		top: 50%
+		z-index: 1
+		width: 150px
+		height: 150px
+		margin: -75px 0 0 -75px /* 150÷2 */
+		border-width: 16px
+		border-style: solid
+		border-radius: 50%
+		border-color: #f3f3f3
+		border-top-color: #3498db
+		animation-name: spin /* see below */
+		animation-duration: 1s
+		animation-iteration-count: infinite
+
+@keyframes spin
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+
+/* ************************************************************************** */
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+h1
+	color: $background
+h2
+	color: $topbar-background
+h3
+	color: $sidenav-links
+	font-style: italic
+
+/* color for each language */
+.multi-lang > :lang(vi), .wait-multi-lang > :lang(vi)
+	color: $text-vi
+*:lang(en) /* error in SASS if not `*` */
+	color: $text-en
+*:lang(fr)
+	color: $text-fr
+*:lang(de)
+	color: $text-de
+*:lang(it)
+	color: $text-it
+
+button
+	cursor: pointer
+	border: none
+	outline: none
+	background-color: inherit
+
+ul, ol /* position of the list-item markers */
+	list-style-position: inside
+
+li.multi-lang
+	margin: 0.5em 0
+
+.multi-lang span.CR-LF
+	user-select: none
+
+.in-dam
+	font-weight: bold
+
+.to-vang
+	background-color: yellow
+
+.dong-khung
+	border-style: dashed
+	border-width: thin
+	border-radius: 8px
+	padding: 10px 10px 0
+	margin: 5px 0
+	width: fit-content
+
+.fixed-width
+	font-family: monospace
+	overflow-wrap: break-word
+	word-wrap: break-word
+
+.center-text
+	text-align: center
+
+table.inline-table
+	display: inline-table
+	vertical-align: middle
+	border-collapse: collapse
+	margin-bottom: 1em
+
+	tr
+		margin-top: 5px
+		margin-left: 5px
+
+	/* indent for wrapped text, if this comment is placed in below SASS raises error */
+	td
+		padding-left: 1em
+		text-indent: -1em
+		border-style: solid
+		border-width: thin
+
+/* **************************** ruby annotations **************************** */
+
+/* font to render Siddham script: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf */
+@font-face
+	font-family: 'MyWebFont'
+	src: url('NotoSansSiddham-Regular.ttf') format('truetype')
+
+/* ruby base, if this comment is placed in below SASS raises error */
+rb
+	font: inherit /* because font unexpectedly got smaller */
+	user-select: none /* prevent text copying */
+	display: inline-block /* fluid word spacing with JS using margin */
+
+	&:lang(zh-Hant)
+		font-family: serif
+	&:lang(sa), &:lang(pi)
+		font-family: 'MyWebFont'
+
+/* ruby text, if this comment is placed in below SASS raises error */
+rt
+	font: inherit /* because font unexpectedly got smaller */
+	text-align: left /* to work together with rb margin */
+
+	&:lang(sa), &:lang(pi)
+		color: $text-rt
+		overflow-wrap: break-word
+		word-wrap: break-word
+
+/* ******************************* topnav bar ******************************* */
+
+#hamburger
+	position: sticky
+	top: 0
+	background-color: $topbar-background
+	transition: 0.5s
+
+	button:hover, label:hover
+		background-color: $topbar-background-hover
+
+	> section[role="application"] /* top most bar */
+		display: flex
+		justify-content: space-between /* items are evenly distributed in the line */
+		align-items: center /* items are centered in the cross-axis */
+
+		> button /* hamburger button */
+			width: 4rem
+		> label /* darkmode toggle */
+			font-size: 2.5rem
+
+#langForm label
+	color: $background
+
+/* *************************** navigation sidebar *************************** */
+
+#sidenav
+	height: 90%
+	width: 0 /* hidden ◄ change this with JavaScript */
+	position: fixed /* Stay in place */
+	z-index: 1 /* Stay on top */
+	top: 0 /* Stay at the top */
+	left: 0
+	background-color: $sidenav-background
+	overflow-x: hidden /* Disable horizontal scroll */
+	overflow-y: auto
+	padding: 40px 0
+	transition: 0.5s
+
+	> ul
+		margin: 0.5em
+
+		/* navigation menu links, if this comment is placed in below SASS raises error */
+		a
+			text-decoration: none
+			color: $sidenav-links
+
+	/* Position and style the close button (top right corner), if this comment is placed in below SASS raises error */
+	> button
+		position: absolute
+		top: 0
+		right: 25px
+		z-index: -1
+		font-size: 2em
+		margin-left: 50px
+
+	a:hover, button:hover
+		color: $sidenav-links-hover
