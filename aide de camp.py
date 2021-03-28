@@ -7,10 +7,10 @@ def escapeHTML(txt: str) -> str: # to unescape: html.unescape
 	return txt.encode('ascii', 'xmlcharrefreplace').decode()
 
 # API conversion multiple scripts
-escapeHTML(req.get( # romanization: "IAST", "IPA", "ISO"
-	"https://aksharamukha-plugin.appspot.com/api/public",
-	params = dict(source = "Devanagari", target = "Siddham", text = "बुद्ध")
-).text)
+baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
+reqdict = dict(source = "Devanagari", target = "Siddham") # romanization: "IAST", "IPA", "ISO"
+reqdict["text"] = "बुद्ध"
+escapeHTML(req.get(baseurl, params = reqdict).text)
 
 # %%
 
@@ -33,6 +33,13 @@ while prompt != "stop":
 	textLatn = input("text Latn: ")
 	print(pali(textDeva, textLatn))
 	prompt = input("continue? ")
+
+reqdict = dict(source = "IAST", target = "Siddham")
+def toSiddham(textIAST, esc = True):
+	"""convert romanized text to Siddham script"""
+	reqdict["text"] = textIAST
+	textSidd = escapeHTML(req.get(baseurl, params = reqdict).text)
+	return pali(textSidd, textIAST, esc)
 
 # %%
 
@@ -75,6 +82,18 @@ def verse_noTabs(textHan, textViet, tabs, esc = True, printed = True):
 		res += "\t"*tabs + combo(text1[i], text2[i], esc, False) + "<br />\n"
 	if printed: print(res)
 	else: return res
+
+prompt = ""
+while prompt != "stop":
+	textIAST = input("text IAST: ")
+	textHan = input("text Han: ")
+	textViet = input("text Viet: ")
+	print()
+	print(toSiddham(textIAST))
+	print()
+	print(combo(textHan, textViet))
+	print()
+	prompt = input("continue? ")
 
 # %%
 
