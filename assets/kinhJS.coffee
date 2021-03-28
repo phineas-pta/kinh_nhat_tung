@@ -30,7 +30,7 @@ $(window).on({
 
 		# change font style
 		$('.mantra-seg span:lang(vi), .multi-lang rt:lang(vi), .wait-multi-lang rt:lang(vi)').addClass 'in-dam'
-		$('.mantra-seg span:lang(sa), .multi-lang > :lang(sa), .multi-lang > :lang(pi)').addClass 'to-vang'
+		$('.mantra-seg span:lang(sa), .multi-lang ruby:lang(sa), .wait-multi-lang ruby:lang(sa), .multi-lang ruby:lang(pi)').addClass 'to-vang'
 
 		# adjust space within ruby annotation # ATTENTION ORDER
 		$('rb').each rubyAdjust # for each ruby base
