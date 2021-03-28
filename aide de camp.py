@@ -2,7 +2,7 @@
 
 import re, os, html, requests as req
 
-def escapeHTML(txt: str) -> str: # to unescape: html.unescape
+def escapeHTML(txt): # to unescape: html.unescape
 	"""transform Unicode character  -> DEC numerical entity"""
 	return txt.encode('ascii', 'xmlcharrefreplace').decode()
 
@@ -35,11 +35,23 @@ while prompt != "stop":
 	prompt = input("continue? ")
 
 reqdict = dict(source = "IAST", target = "Siddham")
-def toSiddham(textIAST, esc = True):
+def toSiddham(textIAST, ruby = True, esc = True):
 	"""convert romanized text to Siddham script"""
 	reqdict["text"] = textIAST
-	textSidd = escapeHTML(req.get(baseurl, params = reqdict).text)
-	return pali(textSidd, textIAST, esc)
+	textSidd = req.get(baseurl, params = reqdict).text
+	if ruby: return pali(textSidd, textIAST, esc)
+	else: return textSidd
+
+def stanzas(textIAST, tabs, esc = True, printed = True):
+	"""stanzas of Siddham"""
+	textSidd = toSiddham(textIAST, ruby = False)
+	_textIAST, _textSidd = textIAST.split("\n"), textSidd.split("\n")
+	res = ""
+	for i in range(len(_textIAST)):
+		res += "\t"*tabs + pali(_textSidd[i], _textIAST[i], esc) + "<br />\n"
+	res = res[:-7]
+	if printed: print(res)
+	else: return res
 
 # %%
 
@@ -74,12 +86,13 @@ def combo(textHan, textViet, esc = True, printed = True):
 	if printed: print(res)
 	else: return res
 
-def verse_noTabs(textHan, textViet, tabs, esc = True, printed = True):
-	"""ombine text (multiple lines) into ruby annotation in HTML"""
+def verse_HanViet(textHan, textViet, tabs, esc = True, printed = True):
+	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
 	res = ""
 	for i in range(len(text1)):
 		res += "\t"*tabs + combo(text1[i], text2[i], esc, False) + "<br />\n"
+	res = res[:-7]
 	if printed: print(res)
 	else: return res
 
@@ -91,67 +104,9 @@ while prompt != "stop":
 	print()
 	print(toSiddham(textIAST))
 	print()
-	print(combo(textHan, textViet))
+	print(combo(textHan, textViet, printed = False))
 	print()
 	prompt = input("continue? ")
-
-# %%
-
-langs = ["en", "fr", "de", "it"]
-span = lambda x, y: '<span lang="{}">{}</span>'.format(x, y)
-
-def header(text, esc = True, printed = True):
-	"""parse a header (2 lines)"""
-	text1 = text.split("\n") # split each line
-	res = '<span lang="zh-Hant">'
-	textViet, textHan = text1[0].split("\t") #1st line
-	res += combo(textHan, textViet, esc, False) + "</span><br />\n" + "\t"*4
-	text2 = text1[1].split(" / ") #2nd line
-	if len(text2) != 4: raise ValueError
-	else:
-		for i in range(3): res += span(langs[i], text2[i]) + "<br />\n"  + "\t"*4
-		res += span(langs[3], text2[3]) # last ele: IT
-		if printed: print(res)
-		else: return res
-
-def verse(text, tabs, esc = True, printed = True):
-	"""parse a verse (multiple lines) into ruby annotation"""
-	text1 = text.split("\n") # split each line
-	res = ""
-	for txt in text1:
-		textViet, textHan = txt.split("\t") # normal layout
-		res += "\t"*tabs + combo(textHan, textViet, esc, False) + "<br />\n"
-	res = res[tabs:-7] # trailing line break
-	if printed: print(res)
-	else: return res
-
-def multiverse(text, tabs, lines, esc = True, printed = True):
-	"""parse a multi-lang verse"""
-	text1 = text.split("\n") # split each line
-	res = '<span lang="zh-Hant" class="in-dam">\n' + "\t"*(tabs +1)
-	res += verse("\n".join(text1[:lines]), tabs +1, esc, False) + "\n" + "\t"*tabs + "</span><br />\n" # han viet
-	res += "\t"*tabs + '<span lang="vi">\n'
-	for i in range(lines, 2*lines-1): # vi text
-		res += "\t"*(tabs +1) + text1[i] + "<br />\n"
-	res += "\t"*(tabs +1) + text1[2*lines-1] + "\n" + "\t"*tabs + "</span><br />\n"
-	if len(text1[2*lines:]) != 4: raise ValueError
-	else:
-		for i in range(3):
-			res += "\t"*tabs + span(langs[i], text1[2*lines+i]) + "<br />\n"
-		res += "\t"*tabs + span(langs[3], text1[-1])
-		if printed: print(res)
-		else: return res
-
-def multiphrase(text, tabs, esc = True, printed = True):
-	"""parse a verse (multiple lines) into ruby annotation"""
-	text1 = text.split("\n") # split each line
-	res = '<span lang="zh-Hant" class="in-dam">' + combo(text1[1], text1[0], esc, False) + "</span><br />\n"
-	res += "\t"*tabs + '<span lang="vi">' + text1[2] + "</span><br />\n"
-	for i in range(3,6):
-		res += "\t"*tabs + span(langs[i-3], text1[i]) + "<br />\n"
-	res += "\t"*tabs + span(langs[3], text1[6])
-	if printed: print(res)
-	else: return res
 
 # %%
 
@@ -180,25 +135,6 @@ def thanChu(text, tabs, esc = True, printed = True):
 			       thanChu_seg("\n".join(text1[i:i+3]), tabs, esc, False) + "\n" + "\t"*(tabs-1) + "</p>\n"
 		if printed: print(res)
 		else: return res
-
-# %%
-
-def css(text):
-	yolo = 74 - len(text)
-	a1, a2 = divmod(yolo, 2)
-	if a2: print("/* " + "*"*a1 + text + "*"*(a1+1) + " */")
-	else: print("/* " + "*"*a1 + text + "*"*a1 + " */")
-
-def html(text):
-	yolo = 71 - len(text)
-	a1, a2 = divmod(yolo, 2)
-	if a2: print("<!-- " + "-"*a1 + text + "-"*(a1+1) + " -->")
-	else: print("<!-- " + "-"*a1 + text + "-"*a1 + " -->")
-
-# %%
-
-with open(r"temp.txt", mode = "w", encoding = "utf-8") as file:
-	file.write("\n".join([]))
 
 # %%
 
