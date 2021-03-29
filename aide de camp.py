@@ -6,12 +6,6 @@ def escapeHTML(txt): # to unescape: html.unescape
 	"""transform Unicode character  -> DEC numerical entity"""
 	return txt.encode('ascii', 'xmlcharrefreplace').decode()
 
-# API conversion multiple scripts
-baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
-reqdict = dict(source = "Devanagari", target = "Siddham") # romanization: "IAST", "IPA", "ISO"
-reqdict["text"] = "बुद्ध"
-escapeHTML(req.get(baseurl, params = reqdict).text)
-
 # %%
 
 def pali(textDeva, textLatn, esc = True):
@@ -34,13 +28,17 @@ while prompt != "stop":
 	print(pali(textDeva, textLatn))
 	prompt = input("continue? ")
 
-reqdict = dict(source = "IAST", target = "Siddham")
+# API conversion multiple scripts
+baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
+reqdict = dict(source = "IAST", target = "Siddham") # romanization: "IAST", "IPA", "ISO" # "Devanagari"
 def toSiddham(textIAST, ruby = True, esc = True):
 	"""convert romanized text to Siddham script"""
-	reqdict["text"] = textIAST
+	reqdict["text"] = textIAST.replace("|", ".").replace(" .", ".") # to have Siddham punctuation
 	textSidd = req.get(baseurl, params = reqdict).text
 	if ruby: return pali(textSidd, textIAST, esc)
-	else: return textSidd
+	else:
+		if esc: return escapeHTML(textSidd)
+		else: return textSidd
 
 def stanzas(textIAST, tabs, esc = True, printed = True):
 	"""stanzas of Siddham"""
