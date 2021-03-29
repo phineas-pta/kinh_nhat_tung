@@ -55,6 +55,10 @@ def stanzas(textIAST, tabs, esc = True, printed = True):
 
 # %%
 
+Han_punc_left = ["『", "「", "［", '&#12302;', '&#12300;', '&#65339;',]
+Han_punc_right = ["，", "：", "；", "、", "。", "！", "？", "』", "」", "］", "　",
+'&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#12301;', '&#65341;', '&#12288;',]
+
 def combo(textHan, textViet, esc = True, printed = True):
 	"""combine text (1 line) into ruby annotation in HTML"""
 	if esc:
@@ -65,9 +69,7 @@ def combo(textHan, textViet, esc = True, printed = True):
 	while i < len(textHan_):
 		try:
 			x, y = textHan_[i], textHan_[i+1]
-			if (x in ["『", "［", '&#12302;', '&#65339;'] or
-			    y in ["，", "：", "；", "、", "。", "！", "？", "』", "］",
-			          '&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#65341;']):
+			if x in Han_punc_left or y in Han_punc_right:
 				textHan__.append(x + y)
 				i += 2
 			else:
