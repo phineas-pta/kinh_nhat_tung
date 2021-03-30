@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import re, os, html, requests as req
+from unicodedata import normalize as uni_norm
 
-def escapeHTML(txt): # to unescape: html.unescape
+def escapeHTML(txt):
 	"""transform Unicode character  -> DEC numerical entity"""
 	return txt.encode('ascii', 'xmlcharrefreplace').decode()
+
+html.unescape('&#21335;') # to unescape
+escapeHTML(uni_norm('NFC','đức')) # composed form
+escapeHTML(uni_norm('NFD','đức')) # decomposed form
 
 # %%
 
@@ -54,8 +59,8 @@ def stanzas(textIAST, tabs, esc = True, printed = True):
 # %%
 
 Han_punc_left = ["『", "「", "［", '&#12302;', '&#12300;', '&#65339;',]
-Han_punc_right = ["，", "：", "；", "、", "。", "！", "？", "』", "」", "］", "　",
-'&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#12301;', '&#65341;', '&#12288;',]
+Han_punc_right = ["，", "：", "；", "、", "。", "！", "？", "』", "」", "］",
+'&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#12301;', '&#65341;',]
 
 def combo(textHan, textViet, esc = True, printed = True):
 	"""combine text (1 line) into ruby annotation in HTML"""

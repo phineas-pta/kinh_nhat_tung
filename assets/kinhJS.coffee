@@ -89,7 +89,7 @@ langToggle = ->
 	langCheck = $(this).val()
 	checked = $(this).prop 'checked'
 
-	$ ":lang(#{langCheck})"
+	$ "header :lang(#{langCheck}), .multi-lang :lang(#{langCheck})"
 		.toggle checked  # checked = shown, unchecked = hidden
 		.prev('br').toggle checked # also line break
 	$ ".multi-lang > span:lang(#{langCheck})"
