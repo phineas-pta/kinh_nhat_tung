@@ -38,9 +38,11 @@ baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
 reqdict = dict(source = "IAST", target = "Siddham") # romanization: "IAST", "IPA", "ISO" # "Devanagari"
 def toSiddham(textIAST, ruby = True, esc = True):
 	"""convert romanized text to Siddham script"""
-	reqdict["text"] = textIAST.replace("|", ".").replace(" .", ".") # to have Siddham punctuation
+	# some typo when copied from Digital Sanskrit Buddhist
+	textIASTbis = textIAST.replace("|", ".").replace(" .", ".").replace(" ?", "?")
+	reqdict["text"] = textIASTbis
 	textSidd = req.get(baseurl, params = reqdict).text
-	if ruby: return pali(textSidd, textIAST, esc)
+	if ruby: return pali(textSidd, textIASTbis.replace("..", "."), esc) # replace after to have special Siddham punctuation
 	else:
 		if esc: return escapeHTML(textSidd)
 		else: return textSidd
@@ -58,9 +60,9 @@ def stanzas(textIAST, tabs, esc = True, printed = True):
 
 # %%
 
-Han_punc_left = ["『", "「", "［", '&#12302;', '&#12300;', '&#65339;',]
-Han_punc_right = ["，", "：", "；", "、", "。", "！", "？", "』", "」", "］",
-'&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#12301;', '&#65341;',]
+Han_punc_left = ["『", "「", "［", "《", '&#12302;', '&#12300;', '&#65339;', '&#12298;']
+Han_punc_right = ["，", "：", "；", "、", "。", "！", "？", "』", "」", "］", "》",
+'&#65292;', '&#65306;', '&#65307;', '&#12289;', '&#12290;', '&#65281;', '&#65311;', '&#12303;', '&#12301;', '&#65341;', '&#12299;']
 
 def combo(textHan, textViet, esc = True, printed = True):
 	"""combine text (1 line) into ruby annotation in HTML"""
@@ -70,16 +72,18 @@ def combo(textHan, textViet, esc = True, printed = True):
 		textHan_ = [x for x in list(textHan) if x != " "] # split each character + remove spaces
 	textHan__, i = [], 0 # combine punctuation character with a loop (see below)
 	while i < len(textHan_):
+		x = textHan_[i]
 		try:
-			x, y = textHan_[i], textHan_[i+1]
+			y = textHan_[i+1]
 			if x in Han_punc_left or y in Han_punc_right:
 				textHan__.append(x + y)
 				i += 2
 			else:
 				textHan__.append(x)
 				i += 1
-		except IndexError:
-			textHan__.append(textHan_[i])
+		except IndexError: # last elem
+			if x in Han_punc_right: textHan__[-1] += x
+			else: textHan__.append(x)
 			i += 1
 
 	textViet_ = textViet.split(" ") # split each word
