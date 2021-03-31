@@ -1,0 +1,2 @@
+# exclude multiples HTML files from GitHub stats
+texts/* linguist-vendored
