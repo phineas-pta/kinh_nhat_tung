@@ -66,6 +66,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - .gitignore
+  - .gitattributes
   - .git/
   - .bundle/
   - README.md
