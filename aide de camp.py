@@ -26,13 +26,6 @@ def pali(textDeva, textLatn, esc = True):
 	res = res[:-7] + "</rt></ruby>" # remove last space
 	return res
 
-prompt = ""
-while prompt != "stop":
-	textDeva = input("text Deva: ")
-	textLatn = input("text Latn: ")
-	print(pali(textDeva, textLatn))
-	prompt = input("continue? ")
-
 # API conversion multiple scripts
 baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
 reqdict = dict(source = "IAST", target = "Siddham") # romanization: "IAST", "IPA", "ISO" # "Devanagari"
@@ -46,6 +39,10 @@ def toSiddham(textIAST, ruby = True, esc = True):
 	else:
 		if esc: return escapeHTML(textSidd)
 		else: return textSidd
+
+while True:
+	print(toSiddham(input("text IAST: ")))
+	print()
 
 def stanzas(textIAST, tabs, esc = True, printed = True):
 	"""stanzas of Siddham"""
@@ -105,8 +102,7 @@ def verse_HanViet(textHan, textViet, tabs, esc = True, printed = True):
 	if printed: print(res)
 	else: return res
 
-prompt = ""
-while prompt != "stop":
+while True:
 	textIAST = input("text IAST: ")
 	textHan = input("text Han: ")
 	textViet = input("text Viet: ")
@@ -115,55 +111,6 @@ while prompt != "stop":
 	print()
 	print(combo(textHan, textViet, printed = False))
 	print()
-	prompt = input("continue? ")
-
-# %%
-
-def thanChu_seg(text, tabs, esc = True, printed = True):
-	"""parse a mantra segment: vi + sa + en"""
-	text1 = text.split("\n")
-	if len(text1) != 3: raise ValueError
-	if esc:
-		text1[0] = escapeHTML(text1[0])
-	else:
-		res = '<span lang="vi" class="in-dam">' + text1[0] + "</span><br />\n"
-		res += "\t"*tabs + '<span lang="sa" class="to-vang">' + text1[1] + "</span><br />\n"
-		res += "\t"*tabs + '<span lang="en">' + text1[2] + "</span>"
-		if printed: print(res)
-		else: return res
-
-def thanChu(text, tabs, esc = True, printed = True):
-	"""parse a mantra"""
-	text1 = text.split("\n")
-	len_text = len(text1)
-	if len_text % 3 != 0: raise ValueError
-	else:
-		res = ""
-		for i in range(0, len_text, 3):
-			res += "\t"*(tabs-1) + '<p class="than-chu-seg">\n' + "\t"*tabs +\
-			       thanChu_seg("\n".join(text1[i:i+3]), tabs, esc, False) + "\n" + "\t"*(tabs-1) + "</p>\n"
-		if printed: print(res)
-		else: return res
-
-# %%
-
-textzh = input("zh: ")
-textha = input("ha: ")
-textvi = input("vi: ")
-texten = input("en: ")
-textfr = input("fr: ")
-textde = input("de: ")
-textit = input("it: ")
-tabs = int(input("tabs: "))
-
-print('<p class="multi-lang">\n' +\
-	"\t"*tabs + '<span lang="zh-Hant" class="to-dam">' + combo(textzh, textha, False) + "</span><br />\n" +\
-	"\t"*tabs + '<span lang="vi">' + textvi + "</span><br />\n" +\
-	"\t"*tabs + '<span lang="en">' + texten + "</span><br />\n" +\
-	"\t"*tabs + '<span lang="fr">' + textfr + "</span><br />\n" +\
-	"\t"*tabs + '<span lang="de">' + textde + "</span><br />\n" +\
-	"\t"*tabs + '<span lang="it">' + textit + "</span>\n" +\
-	"\t"*(tabs-1) + "</p>")
 
 # %% batch escape/unescape HTML & unicode entities
 
