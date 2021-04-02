@@ -25,13 +25,6 @@ $(window).on({
 		# set locale for Viet ruby annotation of Chinese texts (font rendering problem)
 		$('rt:lang(zh-Hant)').attr 'lang', 'vi'
 
-		# insert carriage return character to improve readability when wrapping text
-		$('.multi-lang br, .wait-multi-lang br').before '<span class="CR-LF">&nbsp;↵</span>'
-
-		# change font style
-		$('.mantra-seg span:lang(vi), .multi-lang rt:lang(vi), .wait-multi-lang rt:lang(vi)').addClass 'in-dam'
-		$('.mantra-seg span:lang(sa), .multi-lang ruby:lang(sa), .wait-multi-lang ruby:lang(sa), .multi-lang ruby:lang(pi)').addClass 'to-vang'
-
 		# adjust space within ruby annotation # ATTENTION ORDER
 		$('rb').each rubyAdjust # for each ruby base
 
@@ -105,10 +98,10 @@ langToggle = ->
 darkToggle = ->
 	if $(this).prop 'checked'
 		$('html').attr 'data-theme', dkey
-		this.nextSibling.textContent = '🌙' # no jQuery equivalent
+		this.nextSibling.textContent = '\uD83C\uDF19' # 🌙 surrogate pair
 		window.localStorage.setItem dkey, y
 	else
 		$('html').removeAttr 'data-theme'
-		this.nextSibling.textContent = '☀️' # no jQuery equivalent
+		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ surrogate pair
 		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something not important
 	return null
