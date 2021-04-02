@@ -10,11 +10,6 @@ baseurl: "/kinh_nhat_tung" # the subpath of your site, e.g. /blog
 github_username: phineas-pta
 
 # Build settings
-markdown:
-  kramdown:
-    input: GFM # GitHub Flavored Markdown
-    auto_ids: true
-    hard_wrap: false
 theme: null
 plugins:
   - jekyll-sass-converter

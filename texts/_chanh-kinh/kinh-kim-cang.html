@@ -7,7 +7,7 @@ numb: 8
 body {counter-reset: section;} /* Set a counter named 'section', and its initial value is 0. */
 section.chapter > header > h3::before {
 	counter-increment: section; /* Increment the value of section counter by 1 */
-	content: counter(section) ". ";
+	content: "§ " counter(section) ". ";
 	user-select: none;
 }
 </style>

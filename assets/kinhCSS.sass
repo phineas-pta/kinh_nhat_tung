@@ -5,11 +5,7 @@
 /* *************************** light & dark mode **************************** */
 
 $background: #FAFAFA
-$text-vi: #BF8F00
-$text-en: #F73B08
-$text-fr: #3A8098
-$text-de: #B023F5
-$text-it: #388256
+$langs: ("vi": #BF8F00, "en": #F73B08, "fr": #3A8098, "de": #B023F5, "it": #388256)
 $text-rt: #939597
 $topbar-background: #6D4C41
 $topbar-background-hover: #9C786C
@@ -20,10 +16,8 @@ $sidenav-links-hover: #5EE000
 [data-theme="dark"]
 	word-spacing: .05em
 	filter: invert(100%) hue-rotate(180deg) /* photoshop trick: inverted luminance */
-	img
-		filter: grayscale(50%)
 
-/* ***************************** overall style ****************************** */
+/* **************************** page components ***************************** */
 
 body
 	padding: 0
@@ -46,7 +40,7 @@ main
 	filter: blur(5px) /* at preload, to be remove once page loaded */
 
 	ul > li::marker
-		content: "👉"
+		content: "\1F449" /* 👉 */
 
 #page-footer
 	background-color: $background
@@ -84,7 +78,7 @@ main
 	100%
 		transform: rotate(360deg)
 
-/* ************************************************************************** */
+/* ***************************** HTML elements ****************************** */
 
 h1, h2, h3, h4, h5, h6
 	margin: 0
@@ -97,16 +91,17 @@ h3
 	font-style: italic
 
 /* color for each language */
-.multi-lang > :lang(vi), .wait-multi-lang > :lang(vi)
-	color: $text-vi
-*:lang(en) /* error in SASS if not `*` */
-	color: $text-en
-*:lang(fr)
-	color: $text-fr
-*:lang(de)
-	color: $text-de
-*:lang(it)
-	color: $text-it
+h2, .multi-lang, .wait-multi-lang
+	@each $name, $color in $langs
+		& > :lang(#{$name})
+			color: $color
+
+/* change some font style */
+.mantra-seg, .multi-lang, .wait-multi-lang
+	span:lang(vi), rt:lang(vi)
+		font-weight: bold
+	span:lang(sa), ruby:lang(sa), ruby:lang(pi)
+		background-color: yellow
 
 button
 	cursor: pointer
@@ -120,15 +115,6 @@ ul, ol /* position of the list-item markers */
 li.multi-lang
 	margin: 0.5em 0
 
-.multi-lang span.CR-LF
-	user-select: none
-
-.in-dam
-	font-weight: bold
-
-.to-vang
-	background-color: yellow
-
 .dong-khung
 	border-style: dashed
 	border-width: thin
@@ -136,11 +122,6 @@ li.multi-lang
 	padding: 10px 10px 0
 	margin: 5px 0
 	width: fit-content
-
-.fixed-width
-	font-family: monospace
-	overflow-wrap: break-word
-	word-wrap: break-word
 
 .center-text
 	text-align: center
@@ -161,6 +142,9 @@ table.inline-table
 		text-indent: -1em
 		border-style: solid
 		border-width: thin
+
+a[target="_blank"]::before
+	content: "\1F517" /* 🔗 */
 
 /* **************************** ruby annotations **************************** */
 
