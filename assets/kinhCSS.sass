@@ -90,18 +90,18 @@ h3
 	color: $sidenav-links
 	font-style: italic
 
-/* color for each language */
-h2, .multi-lang, .wait-multi-lang
+/* color for each language + change some font style */
+h2, .multi-lang, .wait-multi-lang, .mantra-seg
 	@each $name, $color in $langs
 		& > :lang(#{$name})
 			color: $color
-
-/* change some font style */
-.mantra-seg, .multi-lang, .wait-multi-lang
-	span:lang(vi), rt:lang(vi)
+	rt:lang(vi)
 		font-weight: bold
 	span:lang(sa), ruby:lang(sa), ruby:lang(pi)
 		background-color: yellow
+.mantra-seg > span:lang(vi)
+	font-weight: bold
+	color: unset /* remove color from above */
 
 button
 	cursor: pointer
