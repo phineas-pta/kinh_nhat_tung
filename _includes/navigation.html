@@ -1,14 +1,14 @@
-<nav lang="vi" id="sidenav"> <!-- sidenav content depends on currently selected tab -->
-	<button type="button">×</button> <!-- close button -->
+<nav lang="vi" id="sidenav"><!-- sidenav content depends on currently selected tab -->
+	<button type="button">×</button><!-- close button -->
 	<ul>
-		<li><a href="{{ site.baseurl }}/">Giới thiệu</a></li>
+		<li><a rel="prev" href="{{ site.baseurl }}/">Giới thiệu</a></li>
 
 		{% assign mycollecs = site.collections | sort: 'order' %}
-		{% for collec in mycollecs offset:1 %} <!-- 1st collec is `post`, cannot change -->
+		{% for collec in mycollecs offset:1 %}<!-- 1st collec is `post`, cannot change -->
 			<li>{{ collec.collname }}:<ul>
 			{% assign myitems = collec.docs | sort: 'numb' %}
 			{% for item in myitems %}
-				<li><a href="{{ site.baseurl }}{{ item.url }}" {% if page.url == item.url %}style="color: red;"{% endif %}>{{ item.title }}</a></li>
+				<li><a {% if page.url == item.url %} style="color: red;" {% else %} rel="next" href="{{ site.baseurl }}{{ item.url }}" {% endif %}>{{ item.title }}</a></li>
 			{% endfor %}
 			</ul></li>
 		{% endfor %}
