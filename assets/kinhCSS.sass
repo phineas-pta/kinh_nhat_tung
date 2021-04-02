@@ -143,8 +143,13 @@ table.inline-table
 		border-style: solid
 		border-width: thin
 
-a[target="_blank"]::before
-	content: "\1F517" /* 🔗 */
+/* links to external sources */
+a[target="_blank"]
+	overflow-wrap: break-word
+	word-wrap: break-word
+
+	&::before
+		content: "\1F517" /* 🔗 */
 
 /* **************************** ruby annotations **************************** */
 
