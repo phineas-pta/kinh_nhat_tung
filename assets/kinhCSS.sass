@@ -6,7 +6,7 @@
 
 $background: #FAFAFA
 $langs: ("vi": #BF8F00, "en": #F73B08, "fr": #3A8098, "de": #B023F5, "it": #388256)
-$text-rt: #939597
+$text-rb: #939597
 $topbar-background: #6D4C41
 $topbar-background-hover: #9C786C
 $sidenav-background: #EBF7E3
@@ -108,8 +108,6 @@ h2, .multi-lang, .wait-multi-lang, .mantra-seg
 			color: $color
 	rt:lang(vi)
 		font-weight: bold
-	span:lang(sa), ruby:lang(sa), ruby:lang(pi)
-		background-color: yellow
 .mantra-seg > span:lang(vi)
 	font-weight: bold
 	color: unset /* remove color from above */
@@ -155,7 +153,8 @@ table.inline-table
 
 /* links to external sources */
 a[target="_blank"]
-	overflow-wrap: break-word
+	overflow-wrap: anywhere
+	word-break: break-all
 	word-wrap: break-word
 
 	&::before
@@ -163,11 +162,17 @@ a[target="_blank"]
 
 /* **************************** ruby annotations **************************** */
 
+ruby
+	overflow-wrap: anywhere
+	word-break: break-all
+	word-wrap: break-word
+
 /* ruby base, if this comment is placed in below SASS raises error */
 rb
 	font: inherit /* because font unexpectedly got smaller */
 	user-select: none /* prevent text copying */
 	display: inline-block /* fluid word spacing with JS using margin */
+	color: $text-rb
 
 	&:lang(zh-Hant)
 		font-family: 'ChineseFont'
@@ -180,11 +185,6 @@ rb
 rt
 	font: inherit /* because font unexpectedly got smaller */
 	text-align: left /* to work together with rb margin */
-
-	&:lang(sa), &:lang(pi)
-		color: $text-rt
-		overflow-wrap: break-word
-		word-wrap: break-word
 
 /* ******************************* topnav bar ******************************* */
 
