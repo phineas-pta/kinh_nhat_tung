@@ -12,6 +12,7 @@ $topbar-background-hover: #9C786C
 $sidenav-background: #EBF7E3
 $sidenav-links: #1A3D00
 $sidenav-links-hover: #5EE000
+$lineHeight: calc(1.1em + 1vmin) /* molten leading */
 
 [data-theme="dark"]
 	word-spacing: .05em
@@ -24,7 +25,7 @@ body
 	margin: 0
 	font-family: sans-serif
 	font-size: calc(1em + 1vmin) /* fluid typography */
-	line-height: calc(1.1em + 1vmin) /* molten leading */
+	line-height: $lineHeight
 
 	> * /* remove all blank gap between elements */
 		padding: inherit
@@ -112,15 +113,13 @@ button
 ul, ol /* position of the list-item markers */
 	list-style-position: inside
 
-li.multi-lang
-	margin: 0.5em 0
-
 .dong-khung
 	border-style: dashed
 	border-width: thin
 	border-radius: 8px
-	padding: 10px 10px 0
-	margin: 5px 0
+	padding-top: $lineHeight
+	padding-left: 1rem
+	margin: 1rem 0
 	width: fit-content
 
 .center-text
@@ -200,6 +199,8 @@ rt
 
 #langForm > label
 	color: $background
+	&:hover
+		background-color: $topbar-background-hover
 
 /* *************************** navigation sidebar *************************** */
 

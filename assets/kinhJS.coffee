@@ -20,7 +20,7 @@ $(window).on({
 
 	'load': ->
 
-		hamburgerHeight = "-#{$('#hamburger').outerHeight(true).toString()}px"
+		hamburgerHeight = "-#{$('#hamburger').outerHeight(true)}px"
 
 		# set locale for Viet ruby annotation of Chinese texts (font rendering problem)
 		$('rt:lang(zh-Hant)').attr 'lang', 'vi'
@@ -36,8 +36,8 @@ $(window).on({
 
 		# langForm checkboxes: show/hide langs
 		$('#langForm').on 'change', 'input', langToggle
-		for langg in ['en', 'fr', 'de', 'it'] # check previous state
-			if window.localStorage.getItem(langg) == y
+		for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # compatibility with old site
+			if window.localStorage.getItem(langg) == y # check previous state
 				$("#langForm input[value=#{langg}]").prop "checked", true
 		$('#langForm input').trigger 'change' # check initial state
 
@@ -82,11 +82,9 @@ langToggle = ->
 	langCheck = $(this).val()
 	checked = $(this).prop 'checked'
 
-	$ "header :lang(#{langCheck}), .multi-lang :lang(#{langCheck})"
+	$ "article header :lang(#{langCheck}), .multi-lang :lang(#{langCheck}), .wait-multi-lang :lang(#{langCheck})"
 		.toggle checked  # checked = shown, unchecked = hidden
 		.prev('br').toggle checked # also line break
-	$ ".multi-lang > span:lang(#{langCheck})"
-		.prev('br').prev('span.CR-LF').toggle checked # also carriage return character
 
 	if checked
 		window.localStorage.setItem langCheck, y
