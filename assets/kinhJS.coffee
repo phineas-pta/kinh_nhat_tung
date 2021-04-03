@@ -58,10 +58,20 @@ $(window).on({
 
 # adjust space within ruby annotation
 rubyAdjust = (i, el) -> # for each ruby base
-	rbW = $(el).width() # take its width
-	rtW = $(el).next('rt').width() # its associated ruby text width
-	diff = (rtW - rbW).toFixed(0) # excess amount
-	addSpace = if diff > 0 then "calc(#{stdSpace} + #{diff.toString()}px)" else stdSpace
+	rt_elem = $(el).next()
+	if $(rt_elem).is(':empty') # punctuation
+		addSpace = "0"
+	else
+		next_rb_elem = $(rt_elem).next()
+		if $(next_rb_elem).length == 0 # end of sentence
+			addSpace = "0"
+		else if $(next_rb_elem).next().is(':empty') # punctuation
+			addSpace = "0"
+		else
+			rbW = $(el).width() # take its width
+			rtW = $(rt_elem).width() # its associated ruby text width
+			diff = (rtW - rbW).toFixed(0) # excess amount
+			addSpace = if diff > 0 then "calc(#{stdSpace} + #{diff.toString()}px)" else stdSpace
 	$(el).css 'margin-right', addSpace
 	return null
 
