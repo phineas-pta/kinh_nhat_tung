@@ -4,7 +4,7 @@
 
 y = 'yesssss' # to save some data
 dkey = 'dark' # keyword for dark theme
-stdSpace = '1em' # for ruby annotation spacing
+stdSpace = '0.5em' # for ruby annotation spacing
 prevScrollPos = 0 # placeholder value
 hamburgerHeight = '0' # placeholder value
 
