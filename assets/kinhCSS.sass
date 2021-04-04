@@ -18,6 +18,9 @@ $lineHeight: calc(1.1em + 1.1vmax) // molten leading
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
 	filter: invert(100%) hue-rotate(180deg) // photoshop trick: inverted luminance
 
+	.mantra-seg span:lang(vi)
+		font-weight: bolder // more distinguishable from sanskrit
+
 // Chinese font: traditional + KaiTi 楷体: https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
 @font-face
 	font-family: 'ChineseFont'
@@ -35,7 +38,6 @@ body
 	margin: 0
 	font-family: sans-serif
 	font-size: calc(1em + 1vmin) // fluid typography
-	line-height: $lineHeight
 
 	> * // remove all blank gap between elements
 		padding: inherit
@@ -108,7 +110,7 @@ h2, .multi-lang, .wait-multi-lang, .mantra-seg
 			color: $color
 	rt:lang(vi)
 		font-weight: bold
-.mantra-seg > span:lang(vi)
+.mantra-seg span:lang(vi)
 	font-weight: bold
 	color: unset // remove color from above
 
@@ -166,6 +168,7 @@ ruby
 	overflow-wrap: anywhere
 	word-break: break-all
 	word-wrap: break-word
+	line-height: $lineHeight
 
 // ruby base, if this comment is placed in below SASS raises error
 rb
