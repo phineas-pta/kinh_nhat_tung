@@ -22,9 +22,8 @@ def pali(textDeva, textLatn, esc = True):
 	if len(textDeva_) != len(textLatn_): raise ValueError
 	res = "<ruby>"
 	for i in range(len(textDeva_)):
-		res += "<rb>" + textDeva_[i] + "</rb><rt>" + textLatn_[i] + " </rt> "
-	res = res[:-7] + "</rt></ruby>" # remove last space
-	return res
+		res += "<rb>" + textDeva_[i] + "</rb><rt>" + textLatn_[i] + "</rt>"
+	return res + "</ruby>"
 
 # API conversion multiple scripts
 baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
@@ -41,9 +40,7 @@ def toSiddham(textIAST, ruby = True, esc = True):
 		if esc: return escapeHTML(textSidd)
 		else: return textSidd
 
-while True:
-	print(toSiddham(input("text IAST: ")))
-	print()
+while True: print(toSiddham(input("text IAST: ")), "\n")
 
 def stanzas(textIAST, tabs, esc = True, printed = True):
 	"""stanzas of Siddham"""
@@ -61,39 +58,43 @@ def stanzas(textIAST, tabs, esc = True, printed = True):
 Han_punc = list("，、：；．。！？…～／‧•●『』「」（）《》〈〉［］【】〖〗〔〕｛｝")
 punc_search = re.compile("(" + "|".join(Han_punc) + ")")
 
-def combo(textHan, textViet, esc = True, printed = True):
+def combo(textHan, textViet, esc = True, printed = True, debug = False):
 	test0 = textHan.replace(" ", "") # remove spaces
 	test1 = punc_search.sub("", test0) # without punc
-
-	test2, test3 = list(test0), list(test1)
-	test4 = list(map(escapeHTML, test2)) if esc else test2 # split each character
-	test5 = list(map(escapeHTML, test3)) if esc else test3 # without punc
+	test2, test3 = list(test0), list(test1) # split each character: with & without punc
+	if debug: print("ckpt1", test2, test3)
 
 	textViet_ = textViet.split(" ") # split each word
-	if len(test5) != len(textViet_): raise ValueError("Han-Viet divergence")
+	if debug: print("ckpt2", textViet_)
+	if len(test3) != len(textViet_): raise ValueError("Han-Viet divergence")
 
 	res, i, j = "<ruby>", 0, 0 # combine punctuation character with a loop (see below)
-	while (n := i+j) < len(test4):
-		x = test4[n]
+	while (n := i+j) < len(test2):
+		x = test2[n] # to be processed
+		if debug: print("ckpt3", x)
+		y = escapeHTML(x) if esc else x
 		if x in Han_punc:
-			res += "<rb>" + x + "</rb><rt></rt>"
+			res += "<rb>" + y + "</rb><rt></rt>"
 			j += 1
 		else:
-			if x != test5[i]: raise ValueError("punctuation error")
-			res += "<rb>" + x + "</rb><rt>" + textViet_[i] + " </rt>"
+			if debug: print("ckpt4", test3[i])
+			if x != test3[i]: raise ValueError("punctuation error")
+			if debug: print("ckpt5", textViet_[i])
+			res += "<rb>" + y + "</rb><rt>" + textViet_[i] + "</rt>"
 			i += 1
 
-	if res[:-6] == " </rt>": res = res[:-6] + "</rt></ruby>" # remove trailing space
-	else: res += "</ruby>"
+	res += "</ruby>"
 	if printed: print(res)
 	else: return res
+
+while True: print(combo(input("text Hant: "), input("text Viet: ")), "\n")
 
 def verse_HanViet(textHan, textViet, tabs, esc = True, printed = True):
 	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
 	res = ""
 	for i in range(len(text1)):
-		res += "\t"*tabs + combo(text1[i], text2[i], esc, False) + "<br />\n"
+		res += "\t"*tabs + combo(text1[i], text2[i], esc, False, False) + "<br />\n"
 	res = res[:-7]
 	if printed: print(res)
 	else: return res
@@ -111,10 +112,10 @@ while True:
 # %% batch escape/unescape HTML & unicode entities
 
 ruby_base = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
-"".join(list(map(
+"".join(map(
 	html.unescape,
 	ruby_base.findall("<ruby><rb>&#21335;</rb><rt>Nam </rt><rb>&#28961;</rb><rt>mô</rt></ruby>")
-)))
+))
 
 basepath = "pathtodir/DataFiles/"
 for filename in os.listdir(basepath):
