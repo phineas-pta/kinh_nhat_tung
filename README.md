@@ -6,15 +6,18 @@ Vietnamese Mahayana Buddhism rituals in multiple languages
 
 to be used in liturgy, please ask for a Vietnamese to guide you
 
-**DISCLAIMER: this is a work of compilation, not assured for authenticity**
+**DISCLAIMER: this is a work of compilation, not garanted for authenticity**
 
-*additional setup*: I used the favicon from SuttaCentral and Google Noto Sans Siddham font
+*additional setup*:
+ - Favicon: SuttaCentral: https://suttacentral.net/img/favicon.ico
+ - Google Noto Sans Siddham: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
+ - cw TeX Q Kai ZH: https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
 
 feel free to contact me if you need more detailed references
 
-here: https://phineas-pta.github.io/kinh_nhat_tung/
+the site is online here: https://phineas-pta.github.io/kinh_nhat_tung/
 
-*additional file*: `quotations.html`: precursor of the site
+*additional file*: `quotations.html`: predecessor of the site
 
 # use locally
 

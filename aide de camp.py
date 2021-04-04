@@ -28,14 +28,15 @@ def pali(textDeva, textLatn, esc = True):
 
 # API conversion multiple scripts
 baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
-reqdict = dict(source = "IAST", target = "Siddham") # romanization: "IAST", "IPA", "ISO" # "Devanagari"
+reqdict = dict(source = "IAST", target = "Siddham") # "IAST", "IPA", "ISO", "Devanagari"
 def toSiddham(textIAST, ruby = True, esc = True):
 	"""convert romanized text to Siddham script"""
 	# some typo when copied from Digital Sanskrit Buddhist
 	textIASTbis = textIAST.replace("|", ".").replace(" .", ".").replace(" ?", "?")
 	reqdict["text"] = textIASTbis
 	textSidd = req.get(baseurl, params = reqdict).text
-	if ruby: return pali(textSidd, textIASTbis.replace("..", "."), esc) # replace after to have special Siddham punctuation
+	if ruby: # replace after to have special Siddham punctuation
+		return pali(textSidd, textIASTbis.replace("..", "."), esc)
 	else:
 		if esc: return escapeHTML(textSidd)
 		else: return textSidd
@@ -57,7 +58,7 @@ def stanzas(textIAST, tabs, esc = True, printed = True):
 
 # %%
 
-Han_punc = ["『", "「", "（", "［", "【", "《", "〈", "，", "：", "；", "、", "。", "！", "？", "』", "」", "）", "］", "】", "》", "〉", "‧"]
+Han_punc = list("，、：；．。！？…～／‧•●『』「」（）《》〈〉［］【】〖〗〔〕｛｝")
 punc_search = re.compile("(" + "|".join(Han_punc) + ")")
 
 def combo(textHan, textViet, esc = True, printed = True):
@@ -109,7 +110,12 @@ while True:
 
 # %% batch escape/unescape HTML & unicode entities
 
-pattern = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
+ruby_base = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
+"".join(list(map(
+	html.unescape,
+	ruby_base.findall("<ruby><rb>&#21335;</rb><rt>Nam </rt><rb>&#28961;</rb><rt>mô</rt></ruby>")
+)))
+
 basepath = "pathtodir/DataFiles/"
 for filename in os.listdir(basepath):
 	print(filename)
@@ -118,4 +124,4 @@ for filename in os.listdir(basepath):
 			tmp = file.readlines()
 		with open(basepath + filename, mode = "w", encoding = "utf-8") as file:
 			fn = lambda x: escapeHTML(x.group(0)) # escape
-			file.writelines([pattern.sub(fn, txt) for txt in tmp])
+			file.writelines([ruby_base.sub(fn, txt) for txt in tmp])
