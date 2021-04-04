@@ -66,4 +66,5 @@ exclude:
   - .bundle/
   - README.md
   - LICENSE
-  - aide de camp.py
+  - assets/aide_de_camp.py
+  - assets/example_heart_sutra.png
