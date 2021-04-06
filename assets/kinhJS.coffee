@@ -29,10 +29,10 @@ $(window).on({
 		$('rb').each rubyAdjust # for each ruby base
 
 		# hamburger button: open sidenav
-		$('#hamburger button:has(svg)').on 'click', openNav
+		$('#hamburger button:has(svg)').on 'click', {cmd: 'open'}, open_close_sidenav
 
 		# close sidenav when clicking a link or the main content
-		$('#sidenav, main').on 'click', closeNav # also delegate to all children of #sidenav
+		$('#sidenav').on 'click', {cmd: 'close'}, open_close_sidenav # also delegate to all children of #sidenav
 
 		# langForm checkboxes: show/hide langs
 		$('#langForm').on 'change', 'input', langToggle
@@ -65,24 +65,26 @@ rubyAdjust = (i, el) -> # for each ruby base
 		rbW = $(el).width() # take its width
 		rtW = $(rt_elem).width() # its associated ruby text width
 		diff = (rtW - rbW).toFixed(0) # excess amount
-		next_rb_elem = $(rt_elem).next() # next character (case of zh)
-		if $(next_rb_elem).length == 0 or $(next_rb_elem).next().is(':empty') # end of sentence or punctuation
+		next_rb_elem = $(rt_elem).next() # next character
+		if $(next_rb_elem).length == 0 or $(next_rb_elem).next().is(':empty') # end of sentence or before punctuation
 			addSpace = if diff > 0 then "#{diff}px" else '0'
 		else # normal
 			addSpace = if diff > 0 then "calc(#{stdSpace} + #{diff}px)" else stdSpace
 	$(el).css 'margin-right', addSpace
 	return null
 
-# hamburger button: open sidenav
-openNav = ->
-	$('#sidenav').css 'width', 'min(700px, 75%)'
-	$('#page-header, #hamburger, main').css 'filter', 'blur(5px)'
-	return null
+open_close_sidenav = (event) ->
+	switch event.data.cmd
+		when 'open' # hamburger button: open sidenav
+			sidenav_style = 'min(700px, 75%)'
+			body_style = 'blur(5px)'
+		when 'close' # sidenav links: close sidenav
+			sidenav_style = '0'
+			body_style = 'none'
+		else throw 'not recognized command'
 
-# sidenav links: close sidenav, also close top bar
-closeNav = ->
-	$('#sidenav').css 'width', '0'
-	$('#page-header, #hamburger, main').css 'filter', 'none'
+	$('#sidenav').css 'width', sidenav_style
+	$('body > *:not(#sidenav)').css 'filter', body_style
 	return null
 
 # langForm checkboxes: show/hide langs
