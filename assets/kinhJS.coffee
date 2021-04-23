@@ -111,5 +111,5 @@ darkToggle = ->
 	else
 		$('html').removeAttr 'data-theme'
 		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ surrogate pair
-		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something not important
+		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something random not important
 	return null
