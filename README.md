@@ -33,7 +33,7 @@ option to toggle dark mode
 
  - Favicon: SuttaCentral: https://suttacentral.net/img/favicon.ico
  - Google Noto Sans Siddham: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
- - cw TeX Q Kai ZH: https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
+ - AR PL (Arphic Public Licensed) UKai: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
 
 *additional file*: `quotations.html`: predecessor of the site
 
