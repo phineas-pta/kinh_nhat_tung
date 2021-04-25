@@ -21,12 +21,16 @@ $lineHeight: calc(1.1em + 1.1vmax) // molten leading
 	.mantra-seg span:lang(vi)
 		font-weight: bolder // more distinguishable from sanskrit
 
-// Chinese font: traditional + KaiTi 楷体: https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
+// Chinese font: traditional + KaiTi 楷体:
+// ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
+// https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
+// https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
 @font-face
 	font-family: 'ChineseFont'
-	src: url('cwTeXQKaiZH-Medium.ttf') format('truetype')
+	src: url('UKaiHK-02.ttf') format('truetype')
 
-// Siddham script font: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
+// Siddham script font:
+// https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
 @font-face
 	font-family: 'SiddhamFont'
 	src: url('NotoSansSiddham-Regular.ttf') format('truetype')
@@ -37,7 +41,7 @@ body
 	padding: 0
 	margin: 0
 	font-family: sans-serif
-	font-size: calc(1em + 1vmin) // fluid typography
+	font-size: calc(1em + 2vmin) // fluid typography
 
 	> * // remove all blank gap between elements
 		padding: inherit
@@ -104,7 +108,7 @@ h3
 	font-style: italic
 
 // color for each language + change some font style
-h2, .multi-lang, .wait-multi-lang, .mantra-seg
+h2, h3, .multi-lang, .wait-multi-lang, .mantra-seg
 	@each $name, $color in $langs
 		& > :lang(#{$name})
 			color: $color

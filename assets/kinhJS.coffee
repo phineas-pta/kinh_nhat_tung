@@ -89,17 +89,17 @@ open_close_sidenav = (event) ->
 
 # langForm checkboxes: show/hide langs
 langToggle = ->
-	langCheck = $(this).val()
+	lang = $(this).val()
 	checked = $(this).prop 'checked'
 
-	$ "article header :lang(#{langCheck}), .multi-lang :lang(#{langCheck}), .wait-multi-lang :lang(#{langCheck})"
+	$ "header :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})"
 		.toggle checked  # checked = shown, unchecked = hidden
 		.prev('br').toggle checked # also line break
 
 	if checked
-		window.localStorage.setItem langCheck, y
+		window.localStorage.setItem lang, y
 	else
-		window.localStorage.removeItem langCheck
+		window.localStorage.removeItem lang
 	return null
 
 # dark mode toggle
