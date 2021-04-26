@@ -12,7 +12,7 @@ $topbar-background-hover: #9C786C
 $sidenav-background: #EBF7E3
 $sidenav-links: #1A3D00
 $sidenav-links-hover: #5EE000
-$lineHeight: calc(1.1em + 1.1vmax) // molten leading
+$lineHeight: calc(1.2em + 1vw) // molten leading
 
 [data-theme="dark"]
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
@@ -21,27 +21,30 @@ $lineHeight: calc(1.1em + 1.1vmax) // molten leading
 	.mantra-seg span:lang(vi)
 		font-weight: bolder // more distinguishable from sanskrit
 
-// Chinese font: traditional + KaiTi 楷体:
+// Chinese font: traditional + KaiTi 楷体 khải thư:
 // ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
-// https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
-// https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
 @font-face
 	font-family: 'ChineseFont'
 	src: url('UKaiHK-02.ttf') format('truetype')
+// other font: https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
+// other font: https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
+// other font: https://www.fonts.net.cn/fonts-zh/tag-kaiti-1.html?previewText=摩睺羅迦
 
 // Siddham script font:
 // https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
 @font-face
 	font-family: 'SiddhamFont'
 	src: url('NotoSansSiddham-Regular.ttf') format('truetype')
+// other font: https://github.com/MihailJP/Muktamsiddham
 
 /* **************************** page components ***************************** */
 
 body
 	padding: 0
 	margin: 0
-	font-family: sans-serif
-	font-size: calc(1em + 2vmin) // fluid typography
+	font-family: Roboto, Helvetica, sans-serif
+	font-size: calc(1em + 1vw) // fluid typography
+	line-height: $lineHeight
 
 	> * // remove all blank gap between elements
 		padding: inherit
@@ -159,12 +162,15 @@ table.inline-table
 
 // links to external sources
 a[target="_blank"]
+	font-family: monospace
+	font-size: smaller
 	overflow-wrap: anywhere
 	word-break: break-all
 	word-wrap: break-word
 
 	&::before
 		content: "\1F517" // 🔗
+		font-size: smaller
 
 /* **************************** ruby annotations **************************** */
 
