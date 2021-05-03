@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: dr.doofenshmirtz:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dr.doofenshmirtz:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
