@@ -1,5 +1,7 @@
 name: Publish Docker image
-on: push
+on:
+  release:
+    types: [published]
 jobs:
   docker:
     name: Push Docker image to Docker Hub
