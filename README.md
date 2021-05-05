@@ -32,7 +32,7 @@ option to show/hide languages
 
 option to toggle dark mode
 
-*additional setup*:
+additional setup:
 
  - Favicon: SuttaCentral: https://raw.githubusercontent.com/suttacentral/suttacentral/master/client/img/favicon.ico
  - Google Noto Sans Siddham: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf, under the [SIL Open Font License (OFL) v1.1](assets/OFL.txt)

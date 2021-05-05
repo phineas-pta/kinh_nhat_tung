@@ -1,6 +1,6 @@
 FROM jekyll/minimal:pages
 
-COPY Gemfile* /srv/jekyll/
+COPY --chown=docker:docker Gemfile* /srv/jekyll/
 
 WORKDIR /srv/jekyll
 
