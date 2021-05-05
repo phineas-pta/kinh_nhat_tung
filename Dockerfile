@@ -1,6 +1,6 @@
-FROM jekyll/minimal:builder
+FROM jekyll/jekyll:builder
 
-COPY --chown=jekyll:jekyll Gemfile* /srv/jekyll/
+COPY --chown=jekyll:jekyll . /srv/jekyll/
 
 WORKDIR /srv/jekyll
 
