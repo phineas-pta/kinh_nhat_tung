@@ -1,9 +1,0 @@
-version: '3'
-services:
-  jekyll:
-    volumes:
-        - .:/site
-    ports:
-        - 4000:4000
-    image: jekyll/minimal:pages
-    command: bundle exec jekyll serve --no-watch --host 0.0.0.0

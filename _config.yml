@@ -67,7 +67,6 @@ exclude:
   - assets/ARPHICPL.txt
   - assets/example_heart_sutra.png
   - assets/OFL.txt
-  - docker-compose.yml
   - Dockerfile
   - Gemfile
   - Gemfile.lock
