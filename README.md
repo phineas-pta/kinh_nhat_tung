@@ -34,9 +34,9 @@ option to toggle dark mode
 
 *additional setup*:
 
- - Favicon: SuttaCentral: https://suttacentral.net/img/favicon.ico
- - Google Noto Sans Siddham: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
- - AR PL (Arphic Public Licensed) UKai: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
+ - Favicon: SuttaCentral: https://raw.githubusercontent.com/suttacentral/suttacentral/master/client/img/favicon.ico
+ - Google Noto Sans Siddham: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf, under the [SIL Open Font License (OFL) v1.1](assets/OFL.txt)
+ - AR PL (Arphic Public Licensed) UKai: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc, under the [Arphic public license](assets/ARPHICPL.txt)
 
 *additional file*: `quotations.html`: predecessor of the site
 

@@ -1,4 +1,4 @@
-FROM jekyll/jekyll:pages
+FROM jekyll/minimal:pages
 
 COPY Gemfile* /srv/jekyll/
 
