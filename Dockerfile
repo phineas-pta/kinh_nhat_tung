@@ -1,4 +1,4 @@
-FROM jekyll/jekyll:builder
+FROM jekyll/builder:pages
 
 COPY --chown=jekyll:jekyll . /srv/jekyll/
 
