@@ -43,6 +43,6 @@ additional setup:
 
 # use locally
 
-use Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve`
+with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve`
 
-use Docker: ``
+with Docker: `docker push horimiyasanxmiyamurakun/dr.doofenshmirtz:latest` to fetch image then `docker-compose up -d`
