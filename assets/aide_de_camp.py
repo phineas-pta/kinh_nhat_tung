@@ -5,11 +5,11 @@ from unicodedata import normalize as uni_norm
 
 def escapeHTML(txt):
 	"""transform Unicode character -> DEC numerical entity"""
-	return txt.encode('ascii', 'xmlcharrefreplace').decode()
+	return txt.encode("ascii", "xmlcharrefreplace").decode()
 
-html.unescape('&#21335;') # to unescape
-escapeHTML(uni_norm('NFC','đức')) # composed form
-escapeHTML(uni_norm('NFD','đức')) # decomposed form
+html.unescape("&#21335;") # to unescape
+escapeHTML(uni_norm("NFC","đức")) # composed form
+escapeHTML(uni_norm("NFD","đức")) # decomposed form
 
 # %%
 
@@ -19,7 +19,7 @@ def pali(textDeva, textLatn, esc = True):
 	if len(textDeva_) != len(textLatn_): raise ValueError
 	res = "<ruby>"
 	for i in range(len(textDeva_)):
-		res += "<rb>" + textDeva_[i] + "</rb><rt>" + textLatn_[i] + "</rt>"
+		res += f"<rb>{textDeva_[i]}</rb><rt>{textLatn_[i]}</rt>"
 	return res + "</ruby>"
 
 # API conversion multiple scripts
@@ -72,13 +72,13 @@ def combo(textHan, textViet, esc = True, printed = True, debug = False):
 		if debug: print("ckpt3:", x)
 		y = escapeHTML(x) if esc else x
 		if x in Han_punc:
-			res += "<rb>" + y + "</rb><rt></rt>"
+			res += f"<rb>{y}</rb><rt></rt>"
 			j += 1
 		else:
 			if debug: print("ckpt4:", test3[i])
 			if x != test3[i]: raise ValueError("punctuation error")
 			if debug: print("ckpt5:", textViet_[i])
-			res += "<rb>" + y + "</rb><rt>" + textViet_[i] + "</rt>"
+			res += f"<rb>{y}</rb><rt>{textViet_[i]}</rt>"
 			i += 1
 
 	res += "</ruby>"
@@ -120,7 +120,7 @@ esc_fn = lambda x: escapeHTML(x.group(0))
 ruby_sub = lambda txt: ruby_base.sub(esc_fn, txt)
 for filename in os.listdir(basepath):
 	print(filename)
-	if filename.endswith('.html'):
+	if filename.endswith(".html"):
 		with open(basepath + filename, mode = "r", encoding = "utf-8") as file:
 			tmp = file.readlines()
 		with open(basepath + filename, mode = "w", encoding = "utf-8") as file:
