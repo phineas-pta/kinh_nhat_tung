@@ -45,4 +45,4 @@ additional setup:
 
 with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve`
 
-with Docker: `docker run --rm --it -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz`
+with Docker: `docker-compose run --rm horimiyasanxmiyamurakun/dr.doofenshmirtz`

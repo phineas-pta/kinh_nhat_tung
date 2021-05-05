@@ -1,6 +1,6 @@
 FROM jekyll/minimal:pages
 
-COPY --chown=jekyll:jekyll Gemfile* /site
+COPY --chown=jekyll:jekyll Gemfile* /site/
 
 WORKDIR /site
 
