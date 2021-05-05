@@ -58,16 +58,18 @@ collections:
     sort_by: numb
 
 exclude:
+  - .bundle/
+  - .git/
+  - .gitattributes
+  - .github/
+  - .gitignore
+  - assets/aide_de_camp.py
+  - assets/ARPHICPL.txt
+  - assets/example_heart_sutra.png
+  - assets/OFL.txt
+  - docker-compose.yml
+  - Dockerfile
   - Gemfile
   - Gemfile.lock
-  - .gitignore
-  - .gitattributes
-  - .git/
-  - .github/
-  - .bundle/
-  - Dockerfile
-  - docker-compose.yml
-  - README.md
   - LICENSE
-  - assets/aide_de_camp.py
-  - assets/example_heart_sutra.png
+  - README.md

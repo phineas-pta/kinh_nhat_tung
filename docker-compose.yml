@@ -4,6 +4,6 @@ services:
     volumes:
         - .:/srv/jekyll
     ports:
-        - '4000:4000'
-    image: jekyll/jekyll
-    command: bundle exec jekyll serve
+        - 4000:4000
+    image: jekyll/minimal:pages
+    command: bundle exec jekyll serve --no-watch
