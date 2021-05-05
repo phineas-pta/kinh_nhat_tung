@@ -45,4 +45,4 @@ additional setup:
 
 with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve`
 
-with Docker: `docker push horimiyasanxmiyamurakun/dr.doofenshmirtz:latest` to fetch image then `docker-compose up -d`
+with Docker: `docker run --rm --it -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz`
