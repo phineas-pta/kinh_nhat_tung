@@ -43,6 +43,6 @@ additional setup:
 
 # use locally
 
-with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve`
+with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve --no-watch`
 
-with Docker: `docker run --rm -v "$PWD":/srv/jekyll -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz bundle exec jekyll serve --no-watch --host 0.0.0.0`
+with Docker: `docker run --rm -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz`
