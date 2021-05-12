@@ -22,9 +22,6 @@ $(window).on({
 
 		hamburgerHeight = "-#{$('#hamburger').outerHeight(true)}px"
 
-		# set locale for Viet ruby annotation of Chinese texts (font rendering problem)
-		$('rt:lang(zh-Hant)').attr 'lang', 'vi'
-
 		# adjust space within ruby annotation # ATTENTION ORDER
 		$('rb').each rubyAdjust # for each ruby base
 
