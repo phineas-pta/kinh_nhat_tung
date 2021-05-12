@@ -5,9 +5,9 @@
 /* *************************** light & dark mode **************************** */
 
 $background: #FAFAFA
-$langs: ("vi": #BF8F00, "en": #F73B08, "fr": #3A8098, "de": #B023F5, "it": #388256)
+$langs: ("en": #F73B08, "fr": #3A8098, "de": #B023F5, "it": #388256)
 $text-rb: #939597
-$topbar-background: #6D4C41
+$topbar-background: #BF8F00
 $topbar-background-hover: #9C786C
 $sidenav-background: #EBF7E3
 $sidenav-links: #1A3D00
@@ -18,24 +18,38 @@ $lineHeight: calc(1.2em + 1vw) // molten leading
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
 	filter: invert(100%) hue-rotate(180deg) // photoshop trick: inverted luminance
 
-	.mantra-seg span:lang(vi)
-		font-weight: bolder // more distinguishable from sanskrit
+// https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf
+@font-face
+	font-family: 'IAST-font'
+	src: url('Charmonman-Regular.ttf') format('truetype')
+
+// https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
+@font-face
+	font-family: 'SinoViet-font'
+	src: url('GrenzeGotisch-ExtraBold.ttf') format('truetype')
+
+// https://github.com/cadsondemak/itim/blob/master/fonts/Itim-Regular.ttf
+@font-face
+	font-family: 'VietFont'
+	src: url('Itim-Regular.ttf') format('truetype')
 
 // Chinese font: traditional + KaiTi 楷体 khải thư:
-// ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
+	ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
 @font-face
 	font-family: 'ChineseFont'
 	src: url('UKaiHK-02.ttf') format('truetype')
-// other font: https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
-// other font: https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
-// other font: https://www.fonts.net.cn/fonts-zh/tag-kaiti-1.html?previewText=摩睺羅迦
+// other FLOSS fonts:
+	https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
+	https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
+	https://www.fonts.net.cn/fonts-zh/tag-kaiti-1.html?previewText=摩睺羅迦
+	https://www.sentyfont.com/download.htm
 
 // Siddham script font:
-// https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
+	https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
 @font-face
 	font-family: 'SiddhamFont'
 	src: url('NotoSansSiddham-Regular.ttf') format('truetype')
-// other font: https://github.com/MihailJP/Muktamsiddham
+// other FLOSS font: https://github.com/MihailJP/Muktamsiddham
 
 /* **************************** page components ***************************** */
 
@@ -104,6 +118,7 @@ h1, h2, h3, h4, h5, h6
 	margin: 0
 h1
 	color: $background
+	font-family: 'SinoViet-font'
 h2
 	color: $topbar-background
 h3
@@ -115,11 +130,11 @@ h2, h3, .multi-lang, .wait-multi-lang, .mantra-seg
 	@each $name, $color in $langs
 		& > :lang(#{$name})
 			color: $color
-	rt:lang(vi)
-		font-weight: bold
+	& > :lang(vi)
+		font-family: 'VietFont'
 .mantra-seg span:lang(vi)
+	font-family: 'VietFont'
 	font-weight: bold
-	color: unset // remove color from above
 
 button
 	cursor: pointer
@@ -194,8 +209,12 @@ rb
 
 // ruby text, if this comment is placed in below SASS raises error
 rt
-	font: inherit // because font unexpectedly got smaller
+	font-size: inherit // because font unexpectedly got smaller
 	text-align: left // to work together with rb margin
+	&:lang(zh-Hant)
+		font-family: 'SinoViet-font'
+	&:lang(sa), &:lang(pi)
+		font-family: 'IAST-font'
 
 /* ******************************* topnav bar ******************************* */
 
