@@ -5,7 +5,7 @@
 /* *************************** light & dark mode **************************** */
 
 $background: #FAFAFA
-$langs: ("en": #F73B08, "fr": #3A8098, "de": #B023F5, "it": #388256)
+$langs: ('en': #F73B08, 'fr': #3A8098, 'de': #B023F5, 'it': #388256)
 $text-rb: #939597
 $topbar-background: #BF8F00
 $topbar-background-hover: #9C786C
@@ -14,9 +14,9 @@ $sidenav-links: #1A3D00
 $sidenav-links-hover: #5EE000
 $lineHeight: calc(1.2em + 1vw) // molten leading
 
-[data-theme="dark"]
+[data-theme='dark']
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
-	filter: invert(100%) hue-rotate(180deg) // photoshop trick: inverted luminance
+	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
 
 // https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf
 @font-face
@@ -74,7 +74,7 @@ main
 	filter: blur(5px) // at preload, to be remove once page loaded
 
 	ul > li::marker
-		content: "\1F449" // 👉
+		content: '\1F449' // 👉
 
 #page-footer
 	background-color: $background
@@ -89,7 +89,7 @@ main
 	z-index: 1
 
 	&::before // draw border independently to the text
-		content: ""
+		content: ''
 		position: fixed
 		left: 50%
 		top: 50%
@@ -176,7 +176,7 @@ table.inline-table
 		border-width: thin
 
 // links to external sources
-a[target="_blank"]
+a[target='_blank']
 	font-family: monospace
 	font-size: smaller
 	overflow-wrap: anywhere
@@ -184,7 +184,7 @@ a[target="_blank"]
 	word-wrap: break-word
 
 	&::before
-		content: "\1F517" // 🔗
+		content: '\1F517' // 🔗
 		font-size: smaller
 
 /* **************************** ruby annotations **************************** */
@@ -236,12 +236,29 @@ rt
 	> label // darkmode toggle
 		font-size: 2.5rem
 
-#langForm > label
+#langForm
+	display: none // hide dropdown content
 	color: $background
-	> input[type="checkbox"]
-		transform: scale(1.5)
-	&:hover
-		background-color: $topbar-background-hover
+	background-color: $topbar-background
+	> label
+		padding: 5px
+
+#dropdown
+	> button
+		color: $background
+		font-family: 'VietFont'
+		font-size: inherit
+		&::after
+			content: '\A0\25BC' // ▼
+
+	&:hover #langForm // show dropdown content
+		display: flex
+		flex-direction: column
+		position: absolute // display out of flexbox #hamburger
+
+// checkbox size
+input[type='checkbox']
+	transform: scale(2)
 
 /* *************************** navigation sidebar *************************** */
 

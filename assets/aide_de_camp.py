@@ -110,9 +110,9 @@ while True:
 # %% batch escape/unescape HTML & unicode entities
 
 ruby_base = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
-"".join(map(
+" ".join(map(
 	html.unescape,
-	ruby_base.findall("<ruby><rb>&#21335;</rb><rt>Nam </rt><rb>&#28961;</rb><rt>mô</rt></ruby>")
+	ruby_base.findall("<ruby><rb>&#21335;</rb><rt>Nam</rt><rb>&#28961;</rb><rt>mô</rt></ruby>")
 ))
 
 basepath = "pathtodir/DataFiles/"
