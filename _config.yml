@@ -64,9 +64,9 @@ exclude:
   - .github/
   - .gitignore
   - assets/aide_de_camp.py
-  - assets/ARPHICPL.txt
   - assets/example_heart_sutra.png
-  - assets/OFL.txt
+  - assets/fonts/ARPHICPL.txt
+  - assets/fonts/OFL.txt
   - Dockerfile
   - Gemfile
   - Gemfile.lock

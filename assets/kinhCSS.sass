@@ -21,23 +21,23 @@ $lineHeight: calc(1.2em + 1vw) // molten leading
 // https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf
 @font-face
 	font-family: 'IAST-font'
-	src: url('Charmonman-Regular.ttf') format('truetype')
+	src: url('fonts/Charmonman-Regular.woff2') format('woff2'), url('fonts/Charmonman-Regular.ttf') format('truetype')
 
 // https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
 @font-face
 	font-family: 'SinoViet-font'
-	src: url('GrenzeGotisch-ExtraBold.ttf') format('truetype')
+	src: url('fonts/GrenzeGotisch-ExtraBold.woff2') format('woff2'), url('fonts/GrenzeGotisch-ExtraBold.ttf') format('truetype')
 
 // https://github.com/cadsondemak/itim/blob/master/fonts/Itim-Regular.ttf
 @font-face
 	font-family: 'VietFont'
-	src: url('Itim-Regular.ttf') format('truetype')
+	src: url('fonts/Itim-Regular.woff2') format('woff2'), url('fonts/Itim-Regular.ttf') format('truetype')
 
 // Chinese font: traditional + KaiTi 楷体 khải thư:
 	ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
 @font-face
 	font-family: 'ChineseFont'
-	src: url('UKaiHK-02.ttf') format('truetype')
+	src: url('fonts/UKaiHK-02.woff2') format('woff2'), url('fonts/UKaiHK-02.ttf') format('truetype')
 // other FLOSS fonts:
 	https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
 	https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
@@ -48,7 +48,7 @@ $lineHeight: calc(1.2em + 1vw) // molten leading
 	https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
 @font-face
 	font-family: 'SiddhamFont'
-	src: url('NotoSansSiddham-Regular.ttf') format('truetype')
+	src: url('fonts/NotoSansSiddham-Regular.woff2') format('woff2'), url('fonts/NotoSansSiddham-Regular.ttf') format('truetype')
 // other FLOSS font: https://github.com/MihailJP/Muktamsiddham
 
 /* **************************** page components ***************************** */
@@ -57,7 +57,7 @@ body
 	padding: 0
 	margin: 0
 	font-family: Roboto, Helvetica, sans-serif
-	font-size: calc(1em + 1vw) // fluid typography
+	font-size: clamp(16px, calc(1em + 1vw), 5vw) // fluid typography
 	line-height: $lineHeight
 
 	> * // remove all blank gap between elements
@@ -132,8 +132,8 @@ h2, h3, .multi-lang, .wait-multi-lang, .mantra-seg
 			color: $color
 	& > :lang(vi)
 		font-family: 'VietFont'
+		font-size: larger
 .mantra-seg span:lang(vi)
-	font-family: 'VietFont'
 	font-weight: bold
 
 button
@@ -213,6 +213,7 @@ rt
 	text-align: left // to work together with rb margin
 	&:lang(zh-Hant)
 		font-family: 'SinoViet-font'
+		font-size: larger
 	&:lang(sa), &:lang(pi)
 		font-family: 'IAST-font'
 
@@ -237,6 +238,8 @@ rt
 
 #langForm > label
 	color: $background
+	> input[type="checkbox"]
+		transform: scale(1.5)
 	&:hover
 		background-color: $topbar-background-hover
 

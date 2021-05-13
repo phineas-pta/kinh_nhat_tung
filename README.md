@@ -36,11 +36,11 @@ option to toggle dark mode
 additional setup:
 
  - Favicon: SuttaCentral: https://raw.githubusercontent.com/suttacentral/suttacentral/master/client/img/favicon.ico
- - Google Noto Sans Siddham font: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf, under the [SIL OFL v1.1](assets/OFL.txt)
- - AR PL (Arphic Public Licensed) UKaiHK font: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc, under the [Arphic public license](assets/ARPHICPL.txt)
- - Charmonman font: https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf, under the [SIL OFL v1.1](assets/OFL.txt)
- - Grenze Gotisch font: https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf, under the [SIL OFL v1.1](assets/OFL.txt)
- - Itim font: https://github.com/cadsondemak/itim/blob/master/fonts/Itim-Regular.ttf, under the [SIL OFL v1.1](assets/OFL.txt)
+ - Google Noto Sans Siddham font: https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
+ - AR PL (Arphic Public Licensed) UKaiHK font: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc, under the [Arphic public license](assets/fonts/ARPHICPL.txt)
+ - Charmonman font: https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
+ - Grenze Gotisch font: https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
+ - Itim font: https://github.com/cadsondemak/itim/blob/master/fonts/Itim-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
 
 *additional file*: `quotations.html`: predecessor of the site
 
