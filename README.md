@@ -40,7 +40,7 @@ additional setup:
  - AR PL (Arphic Public Licensed) UKaiHK font: https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc, under the [Arphic public license](assets/fonts/ARPHICPL.txt)
  - Charmonman font: https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
  - Grenze Gotisch font: https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
- - Itim font: https://github.com/cadsondemak/itim/blob/master/fonts/Itim-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
+ - MuseoModerno font: https://github.com/Omnibus-Type/MuseoModerno/blob/master/fonts/ttf/MuseoModerno-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
 
 *additional file*: `quotations.html`: predecessor of the site
 
