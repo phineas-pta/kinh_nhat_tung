@@ -11,6 +11,9 @@ hamburgerHeight = '0' # placeholder value
 Element.prototype.isEmpty = -> # new method for all elements
 	return this.textContent.trim() == "" # cleaning + make sure it's empty
 
+Element.prototype.toggleShowHide = (boolean) ->
+	this.style.display = if boolean then 'unset' else 'none'
+
 $(window).on({
 	'scroll': -> # when scroll down, hide the topbar, when scroll up, show the topbar
 		currentScrollPos = $(window).scrollTop()
@@ -84,17 +87,19 @@ open_close_sidenav = (event) ->
 		else throw 'not recognized command'
 
 	document.getElementById("sidenav").style.width = sidenav_style
-	Array.from(document.body.children).forEach((el) => if el.id != "sidenav" then el.style.filter = body_style)
+	Array(document.body.children).forEach (el) => if el.id != "sidenav" then el.style.filter = body_style
 	return null
 
 # langForm checkboxes: show/hide langs
 langToggle = ->
-	lang = $(this).val()
-	checked = $(this).prop 'checked'
+	lang = this.value
+	checked = this.checked
 
-	$ "h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})"
-		.toggle checked # checked = shown, unchecked = hidden
-		.prev('br').toggle checked # also line break
+	Array.from(document.querySelectorAll("h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})")).forEach (el) =>
+		el.toggleShowHide checked # checked = shown, unchecked = hidden
+		prev_el = el.previousElementSibling # also line break
+		if prev_el.tagName.toLowerCase() == "br"
+			prev_el.toggleShowHide checked
 
 	if checked
 		window.localStorage.setItem lang, y
