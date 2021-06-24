@@ -109,12 +109,12 @@ langToggle = ->
 
 # dark mode toggle
 darkToggle = ->
-	if $(this).prop 'checked'
-		$('html').attr 'data-theme', dkey
+	if this.checked
+		document.body.setAttribute 'data-theme', dkey
 		this.nextSibling.textContent = '\uD83C\uDF19' # 🌙 surrogate pair
 		window.localStorage.setItem dkey, y
 	else
-		$('html').removeAttr 'data-theme'
+		document.body.removeAttribute 'data-theme'
 		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ surrogate pair
 		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something random not important
 	return null
