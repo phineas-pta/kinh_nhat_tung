@@ -16,13 +16,13 @@ Element.prototype.toggleShowHide = (boolean) ->
 
 $(window).on({
 	'scroll': -> # when scroll down, hide the topbar, when scroll up, show the topbar
-		currentScrollPos = $(window).scrollTop()
+		currentScrollPos = document.documentElement.scrollTop
 		effectScrollPos = if currentScrollPos > 500 then currentScrollPos else 0 # meaningful only
 		pxToHide = if prevScrollPos > effectScrollPos then '0' else hamburgerHeight # value def below
-		$('#hamburger').css 'top', pxToHide # cannot use toggle because of sticky position
+		document.getElementById("hamburger").style.top = pxToHide # cannot use toggle because of sticky position
 		prevScrollPos = effectScrollPos
 		return null
-	,
+	, # attention comma
 
 	'load': ->
 
