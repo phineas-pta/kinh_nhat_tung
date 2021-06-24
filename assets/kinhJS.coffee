@@ -35,10 +35,10 @@ $(window).on({
 		Array.from(document.getElementsByTagName('rb')).forEach rubyAdjust # for each ruby base
 
 		# hamburger button: open sidenav
-		document.querySelector('#hamburger > button').addEventListener 'click', () => open_close_sidenav 'open'
+		document.querySelector('#hamburger > button').addEventListener 'click', open_sidenav
 
 		# close sidenav when clicking a link or the main content: delegate to all children of #sidenav
-		Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', () => open_close_sidenav 'close'
+		Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', close_sidenav
 
 		# langForm checkboxes: show/hide langs
 		for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # zh-Hant: compatibility with old site
@@ -80,18 +80,14 @@ rubyAdjust = (el) -> # for each ruby base
 	el.style.marginRight = addSpace
 	return null
 
-open_close_sidenav = (cmd) ->
-	switch cmd
-		when 'open' # hamburger button: open sidenav
-			sidenav_style = 'min(700px, 75%)'
-			body_style = 'blur(5px)'
-		when 'close' # sidenav links: close sidenav
-			sidenav_style = '0'
-			body_style = 'none'
-		else throw 'not recognized command'
+open_sidenav = ->
+	document.getElementById("sidenav").style.width = 'min(700px, 75%)' # case of small screen = 75%
+	Array.from(document.body.children).forEach (el) => if el.id != 'sidenav' then el.style.filter = 'blur(5px)'
+	return null
 
-	document.getElementById("sidenav").style.width = sidenav_style
-	Array.from(document.body.children).forEach (el) => if el.id != 'sidenav' then el.style.filter = body_style
+close_sidenav = ->
+	document.getElementById("sidenav").style.width = '0'
+	Array.from(document.body.children).forEach (el) => if el.id != 'sidenav' then el.style.filter = 'none'
 	return null
 
 # langForm checkboxes: show/hide langs
