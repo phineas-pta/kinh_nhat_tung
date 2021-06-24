@@ -17,55 +17,51 @@ Element.prototype.toggleShowHide = (boolean) ->
 checkbox_change_ev = document.createEvent 'HTMLEvents' # to replace jQuery trigger
 checkbox_change_ev.initEvent 'change', true, false
 
-$(window).on({
-	'scroll': -> # when scroll down, hide the topbar, when scroll up, show the topbar
-		currentScrollPos = document.documentElement.scrollTop
-		effectScrollPos = if currentScrollPos > 500 then currentScrollPos else 0 # meaningful only
-		pxToHide = if prevScrollPos > effectScrollPos then '0' else "-#{hamburgerHeight}px"# value def below
-		document.getElementById('hamburger').style.top = pxToHide # cannot use toggle because of sticky position
-		prevScrollPos = effectScrollPos
-		return null
-	, # attention comma
+window.addEventListener 'scroll', -> # when scroll down, hide the topbar, when scroll up, show the topbar
+	currentScrollPos = document.documentElement.scrollTop
+	effectScrollPos = if currentScrollPos > 500 then currentScrollPos else 0 # meaningful only
+	pxToHide = if prevScrollPos > effectScrollPos then '0' else "-#{hamburgerHeight}px"# value def below
+	document.getElementById('hamburger').style.top = pxToHide # cannot use toggle because of sticky position
+	prevScrollPos = effectScrollPos
+	return null
 
-	'load': ->
+window.addEventListener 'load', ->
 
-		hamburger = document.getElementById 'hamburger' # save this to avoid repetition
-		hamburgerHeight = hamburger.offsetHeight
-		hamburgerStyle = getComputedStyle(hamburger)
-		hamburgerHeight += parseInt(hamburgerStyle.marginTop) + parseInt(hamburgerStyle.marginBottom)
+	hamburger = document.getElementById 'hamburger' # save this to avoid repetition
+	hamburgerHeight = hamburger.offsetHeight
+	hamburgerStyle = getComputedStyle(hamburger)
+	hamburgerHeight += parseInt(hamburgerStyle.marginTop) + parseInt(hamburgerStyle.marginBottom)
 
-		# adjust space within ruby annotation # ATTENTION ORDER
-		Array.from(document.getElementsByTagName 'rb').forEach rubyAdjust # for each ruby base
+	# adjust space within ruby annotation # ATTENTION ORDER
+	Array.from(document.getElementsByTagName 'rb').forEach rubyAdjust # for each ruby base
 
-		# hamburger button: open sidenav
-		document.querySelector('#hamburger > button').addEventListener 'click', open_sidenav
+	# hamburger button: open sidenav
+	document.querySelector('#hamburger > button').addEventListener 'click', open_sidenav
 
-		# close sidenav when clicking a link or the main content: delegate to all children of #sidenav
-		Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', close_sidenav
+	# close sidenav when clicking a link or the main content: delegate to all children of #sidenav
+	Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', close_sidenav
 
-		# langForm checkboxes: show/hide langs
-		for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # zh-Hant: compatibility with old site
-			if window.localStorage.getItem(langg) == y # check previous state
-				document.querySelector("#langForm input[value=#{langg}]").checked = true
-		Array.from(document.querySelectorAll('#langForm input')).forEach (el) ->
-			el.addEventListener 'change', langToggle
-			el.dispatchEvent checkbox_change_ev # check initial state
+	# langForm checkboxes: show/hide langs
+	for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # zh-Hant: compatibility with old site
+		if window.localStorage.getItem(langg) == y # check previous state
+			document.querySelector("#langForm input[value=#{langg}]").checked = true
+	Array.from(document.querySelectorAll('#langForm input')).forEach (el) ->
+		el.addEventListener 'change', langToggle
+		el.dispatchEvent checkbox_change_ev # check initial state
 
-		# dark mode toggle
-		themeSwitch = document.getElementById 'themeSwitch' # save this to avoid repetition
-		themeSwitch.addEventListener 'change', darkToggle
-		dstate = window.localStorage.getItem dkey
-		if dstate == y or (not dstate? and window.matchMedia("(prefers-color-scheme: #{dkey})").matches)
-			themeSwitch.checked = true # pre-check the dark-theme checkbox
-		themeSwitch.dispatchEvent checkbox_change_ev # check initial state
+	# dark mode toggle
+	themeSwitch = document.getElementById 'themeSwitch' # save this to avoid repetition
+	themeSwitch.addEventListener 'change', darkToggle
+	dstate = window.localStorage.getItem dkey
+	if dstate == y or (not dstate? and window.matchMedia("(prefers-color-scheme: #{dkey})").matches)
+		themeSwitch.checked = true # pre-check the dark-theme checkbox
+	themeSwitch.dispatchEvent checkbox_change_ev # check initial state
 
-		# remove the loader as page loaded
-		document.getElementsByTagName('main')[0].style.filter = 'none'
-		document.body.removeChild document.getElementById 'loader'
+	# remove the loader as page loaded
+	document.getElementsByTagName('main')[0].style.filter = 'none'
+	document.body.removeChild document.getElementById 'loader'
 
-		return null
-
-})
+	return null
 
 # adjust space within ruby annotation
 rubyAdjust = (el) -> # for each ruby base
@@ -94,25 +90,27 @@ close_sidenav = ->
 	Array.from(document.body.children).forEach (el) => if el.id != 'sidenav' then el.style.filter = 'none'
 	return null
 
-# show/hide an element of lang
-elLangShowHide = (el, checked) ->
-	el.toggleShowHide checked # checked = shown, unchecked = hidden
-	prev_el = el.previousElementSibling # also line break
-	if prev_el? and prev_el.tagName.toLowerCase() == "br" # check existence first
-		prev_el.toggleShowHide checked
-	return null
-
 # langForm checkboxes: show/hide langs
 langToggle = ->
 	lang = this.value
 	checked = this.checked
 
-	Array.from(document.querySelectorAll "h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})").forEach elLangShowHide, checked
+	queryString = "h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})"
+	# save the string because it's too long
+	Array.from(document.querySelectorAll queryString).forEach (el) => elLangShowHide el, checked
 
 	if checked
 		window.localStorage.setItem lang, y
 	else
 		window.localStorage.removeItem lang
+	return null
+
+# show/hide elem of lang
+elLangShowHide = (el, checked) ->
+	el.toggleShowHide checked # checked = shown, unchecked = hidden
+	prev_el = el.previousElementSibling # also line break
+	if prev_el? and prev_el.tagName.toLowerCase() == "br" # check existence first
+		prev_el.toggleShowHide checked
 	return null
 
 # dark mode toggle
