@@ -71,6 +71,7 @@ rubyAdjust = (i, el) -> # for each ruby base
 		else # normal
 			addSpace = if diff > 0 then "calc(#{stdSpace} + #{diff}px)" else stdSpace
 	el.style.marginRight = addSpace
+	return null
 
 open_close_sidenav = (event) ->
 	switch event.data.cmd
@@ -82,8 +83,8 @@ open_close_sidenav = (event) ->
 			body_style = 'none'
 		else throw 'not recognized command'
 
-	$('#sidenav').css 'width', sidenav_style
-	$('body > *:not(#sidenav)').css 'filter', body_style
+	document.getElementById("sidenav").style.width = sidenav_style
+	Array.from(document.body.children).forEach((el) => if el.id != "sidenav" then el.style.filter = body_style)
 	return null
 
 # langForm checkboxes: show/hide langs
