@@ -14,8 +14,8 @@ Element.prototype.isEmpty = -> # new method for all elements
 Element.prototype.toggleShowHide = (boolean) ->
 	this.style.display = if boolean then 'unset' else 'none'
 
-lang_change_ev = document.createEvent('HTMLEvents') # to replace jQuery trigger
-lang_change_ev.initEvent('change', true, false)
+checkbox_change_ev = document.createEvent('HTMLEvents') # to replace jQuery trigger
+checkbox_change_ev.initEvent('change', true, false)
 
 $(window).on({
 	'scroll': -> # when scroll down, hide the topbar, when scroll up, show the topbar
@@ -46,18 +46,19 @@ $(window).on({
 				document.querySelector("#langForm input[value=#{langg}]").checked = true
 		Array.from(document.querySelectorAll('#langForm input')).forEach (el) ->
 			el.addEventListener 'change', langToggle
-			el.dispatchEvent lang_change_ev # check initial state
+			el.dispatchEvent checkbox_change_ev # check initial state
 
 		# dark mode toggle
-		$('#themeSwitch').on 'change', darkToggle
+		themeSwitch = document.getElementById('themeSwitch') # save this to avoid repetition
+		themeSwitch.addEventListener 'change', darkToggle
 		dstate = window.localStorage.getItem(dkey)
-		if dstate == y or (dstate is null and window.matchMedia("(prefers-color-scheme: #{dkey})").matches)
-			$('#themeSwitch').prop 'checked', true # pre-check the dark-theme checkbox
-		$('#themeSwitch').trigger 'change' # check initial state
+		if dstate == y or (not dstate? and window.matchMedia("(prefers-color-scheme: #{dkey})").matches)
+			themeSwitch.checked = true # pre-check the dark-theme checkbox
+		themeSwitch.dispatchEvent checkbox_change_ev # check initial state
 
 		# remove the loader as page loaded
-		$('main').css 'filter', 'none'
-		$('#loader').remove()
+		document.getElementsByTagName('main')[0].style.filter = 'none'
+		document.body.removeChild document.getElementById('loader')
 
 		return null
 
