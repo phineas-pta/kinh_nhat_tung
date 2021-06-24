@@ -8,6 +8,9 @@ stdSpace = '0.5em' # for ruby annotation spacing
 prevScrollPos = 0 # placeholder value
 hamburgerHeight = '0' # placeholder value
 
+Element.prototype.isEmpty = -> # new method for all elements
+	return this.textContent.trim() == "" # cleaning + make sure it's empty
+
 $(window).on({
 	'scroll': -> # when scroll down, hide the topbar, when scroll up, show the topbar
 		currentScrollPos = $(window).scrollTop()
@@ -55,20 +58,19 @@ $(window).on({
 
 # adjust space within ruby annotation
 rubyAdjust = (i, el) -> # for each ruby base
-	rt_elem = $(el).next()
-	if $(rt_elem).is(':empty') # punctuation (case of zh)
+	rt_elem = el.nextElementSibling
+	if rt_elem.isEmpty() # punctuation (case of zh)
 		addSpace = '0'
 	else
-		rbW = $(el).width() # take its width
-		rtW = $(rt_elem).width() # its associated ruby text width
+		rbW = el.clientWidth # take its width
+		rtW = rt_elem.clientWidth # its associated ruby text width
 		diff = (rtW - rbW).toFixed(0) # excess amount
-		next_rb_elem = $(rt_elem).next() # next character
-		if $(next_rb_elem).length == 0 or $(next_rb_elem).next().is(':empty') # end of sentence or before punctuation
+		next_rb_elem = rt_elem.nextElementSibling # next character
+		if not next_rb_elem? or next_rb_elem.nextElementSibling.isEmpty() # end of sentence or before punctuation
 			addSpace = if diff > 0 then "#{diff}px" else '0'
 		else # normal
 			addSpace = if diff > 0 then "calc(#{stdSpace} + #{diff}px)" else stdSpace
-	$(el).css 'margin-right', addSpace
-	return null
+	el.style.marginRight = addSpace
 
 open_close_sidenav = (event) ->
 	switch event.data.cmd
