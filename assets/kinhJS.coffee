@@ -14,6 +14,9 @@ Element.prototype.isEmpty = -> # new method for all elements
 Element.prototype.toggleShowHide = (boolean) ->
 	this.style.display = if boolean then 'unset' else 'none'
 
+lang_change_ev = document.createEvent('HTMLEvents') # to replace jQuery trigger
+lang_change_ev.initEvent('change', true, false)
+
 $(window).on({
 	'scroll': -> # when scroll down, hide the topbar, when scroll up, show the topbar
 		currentScrollPos = document.documentElement.scrollTop
@@ -32,17 +35,18 @@ $(window).on({
 		Array.from(document.getElementsByTagName('rb')).forEach rubyAdjust # for each ruby base
 
 		# hamburger button: open sidenav
-		$('#hamburger button:has(svg)').on 'click', {cmd: 'open'}, open_close_sidenav
+		document.querySelector('#hamburger > button').addEventListener 'click', () => open_close_sidenav 'open'
 
-		# close sidenav when clicking a link or the main content
-		$('#sidenav').on 'click', {cmd: 'close'}, open_close_sidenav # also delegate to all children of #sidenav
+		# close sidenav when clicking a link or the main content: delegate to all children of #sidenav
+		Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', () => open_close_sidenav 'close'
 
 		# langForm checkboxes: show/hide langs
-		$('#langForm').on 'change', 'input', langToggle
-		for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # compatibility with old site
+		for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # zh-Hant: compatibility with old site
 			if window.localStorage.getItem(langg) == y # check previous state
-				$("#langForm input[value=#{langg}]").prop "checked", true
-		$('#langForm input').trigger 'change' # check initial state
+				document.querySelector("#langForm input[value=#{langg}]").checked = true
+		Array.from(document.querySelectorAll('#langForm input')).forEach (el) ->
+			el.addEventListener 'change', langToggle
+			el.dispatchEvent lang_change_ev # check initial state
 
 		# dark mode toggle
 		$('#themeSwitch').on 'change', darkToggle
@@ -76,8 +80,8 @@ rubyAdjust = (el) -> # for each ruby base
 	el.style.marginRight = addSpace
 	return null
 
-open_close_sidenav = (event) ->
-	switch event.data.cmd
+open_close_sidenav = (cmd) ->
+	switch cmd
 		when 'open' # hamburger button: open sidenav
 			sidenav_style = 'min(700px, 75%)'
 			body_style = 'blur(5px)'
@@ -95,7 +99,7 @@ langToggle = ->
 	lang = this.value
 	checked = this.checked
 
-	Array.from(document.querySelectorAll("h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})")).forEach (el) =>
+	Array.from(document.querySelectorAll("h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})")).forEach (el) ->
 		el.toggleShowHide checked # checked = shown, unchecked = hidden
 		prev_el = el.previousElementSibling # also line break
 		if prev_el? and prev_el.tagName.toLowerCase() == "br" # check existence first
