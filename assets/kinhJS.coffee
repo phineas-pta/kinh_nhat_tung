@@ -29,7 +29,7 @@ $(window).on({
 		hamburgerHeight = "-#{$('#hamburger').outerHeight(true)}px"
 
 		# adjust space within ruby annotation # ATTENTION ORDER
-		$('rb').each rubyAdjust # for each ruby base
+		Array.from(document.getElementsByTagName('rb')).forEach rubyAdjust # for each ruby base
 
 		# hamburger button: open sidenav
 		$('#hamburger button:has(svg)').on 'click', {cmd: 'open'}, open_close_sidenav
@@ -60,7 +60,7 @@ $(window).on({
 })
 
 # adjust space within ruby annotation
-rubyAdjust = (i, el) -> # for each ruby base
+rubyAdjust = (el) -> # for each ruby base
 	rt_elem = el.nextElementSibling
 	if rt_elem.isEmpty() # punctuation (case of zh)
 		addSpace = '0'
@@ -87,7 +87,7 @@ open_close_sidenav = (event) ->
 		else throw 'not recognized command'
 
 	document.getElementById("sidenav").style.width = sidenav_style
-	Array(document.body.children).forEach (el) => if el.id != "sidenav" then el.style.filter = body_style
+	Array.from(document.body.children).forEach (el) => if el.id != 'sidenav' then el.style.filter = body_style
 	return null
 
 # langForm checkboxes: show/hide langs
@@ -98,7 +98,7 @@ langToggle = ->
 	Array.from(document.querySelectorAll("h2 :lang(#{lang}), h3 :lang(#{lang}), .multi-lang :lang(#{lang}), .wait-multi-lang :lang(#{lang}), .mantra-seg :lang(#{lang})")).forEach (el) =>
 		el.toggleShowHide checked # checked = shown, unchecked = hidden
 		prev_el = el.previousElementSibling # also line break
-		if prev_el.tagName.toLowerCase() == "br"
+		if prev_el? and prev_el.tagName.toLowerCase() == "br" # check existence first
 			prev_el.toggleShowHide checked
 
 	if checked
