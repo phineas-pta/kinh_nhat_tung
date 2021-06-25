@@ -14,7 +14,7 @@ $sidenav-links: #1A3D00
 $sidenav-links-hover: #5EE000
 $lineHeight: calc(1.2em + 1vw) // molten leading
 
-[data-theme='dark']
+[data-theme='dark'] // do not set for <body> because it breaks position fixed of sidenav
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
 	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
 
@@ -195,7 +195,7 @@ ruby
 	word-wrap: break-word
 	display: inline-flex
 	flex-direction: column-reverse
-	margin-right: 1em
+	margin-right: 0.5em
 
 // ruby base, if this comment is placed in below SASS raises error
 rb
@@ -269,7 +269,7 @@ input[type='checkbox']
 /* *************************** navigation sidebar *************************** */
 
 #sidenav
-	height: 90%
+	height: 100%
 	width: 0 // hidden ◄ change this with JavaScript
 	position: fixed // Stay in place
 	z-index: 1 // Stay on top
@@ -278,7 +278,6 @@ input[type='checkbox']
 	background-color: $sidenav-background
 	overflow-x: hidden // Disable horizontal scroll
 	overflow-y: auto
-	padding: 40px 0
 	transition: 0.5s
 
 	> ul
