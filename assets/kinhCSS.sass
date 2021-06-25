@@ -149,7 +149,7 @@ ul, ol // position of the list-item markers
 	border-style: dashed
 	border-width: thin
 	border-radius: 8px
-	padding-top: $lineHeight
+	padding-top: calc($lineHeight * .75)
 	padding-left: 1rem
 	padding-right: 1rem
 	margin: 1rem 0
@@ -212,17 +212,16 @@ rb
 // ruby text, if this comment is placed in below SASS raises error
 rt
 	display: inline // with infline-flex above
+	line-height: 1.5 // with infline-flex above
 	font-size: inherit // because font unexpectedly got smaller
 	text-align: left // to work together with rb margin
 
 	&:lang(zh-Hant)
 		font-family: 'SinoViet-font'
 		font-size: larger
-		line-height: 1
 
 	&:lang(sa), &:lang(pi)
 		font-family: 'IAST-font'
-		line-height: 2
 
 /* ******************************* topnav bar ******************************* */
 

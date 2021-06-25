@@ -39,7 +39,7 @@ window.addEventListener 'load', ->
 	Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', close_sidenav
 
 	# langForm checkboxes: show/hide langs
-	for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # zh-Hant: compatibility with old site
+	for langg in ['en', 'fr', 'de', 'it']
 		if window.localStorage.getItem(langg) == y # check previous state
 			document.querySelector("#langForm input[value=#{langg}]").checked = true
 	Array.from(document.querySelectorAll('#langForm input')).forEach (el) ->
@@ -89,7 +89,7 @@ langToggle = ->
 elLangShowHide = (el, checked) ->
 	el.toggleShowHide checked # checked = shown, unchecked = hidden
 	prev_el = el.previousElementSibling # also line break
-	if prev_el? and prev_el.tagName.toLowerCase() == "br" # check existence first
+	if prev_el? and prev_el.tagName.toLowerCase() == 'br' # check existence first
 		prev_el.toggleShowHide checked
 	return null
 
