@@ -32,9 +32,6 @@ window.addEventListener 'load', ->
 	hamburgerStyle = getComputedStyle(hamburger)
 	hamburgerHeight += parseInt(hamburgerStyle.marginTop) + parseInt(hamburgerStyle.marginBottom)
 
-	# adjust space within ruby annotation # ATTENTION ORDER
-	Array.from(document.getElementsByTagName 'rb').forEach rubyAdjust # for each ruby base
-
 	# hamburger button: open sidenav
 	document.querySelector('#hamburger > button').addEventListener 'click', open_sidenav
 
@@ -42,7 +39,7 @@ window.addEventListener 'load', ->
 	Array.from(document.getElementById('sidenav').children).forEach (el) => el.addEventListener 'click', close_sidenav
 
 	# langForm checkboxes: show/hide langs
-	for langg in ['en', 'fr', 'de', 'it', 'zh-Hant'] # zh-Hant: compatibility with old site
+	for langg in ['en', 'fr', 'de', 'it']
 		if window.localStorage.getItem(langg) == y # check previous state
 			document.querySelector("#langForm input[value=#{langg}]").checked = true
 	Array.from(document.querySelectorAll('#langForm input')).forEach (el) ->
@@ -61,23 +58,6 @@ window.addEventListener 'load', ->
 	document.getElementsByTagName('main')[0].style.filter = 'none'
 	document.body.removeChild document.getElementById 'loader'
 
-	return null
-
-# adjust space within ruby annotation
-rubyAdjust = (el) -> # for each ruby base
-	rt_elem = el.nextElementSibling
-	if rt_elem.isEmpty() # punctuation (case of zh)
-		addSpace = '0'
-	else
-		rbW = el.clientWidth # take its width
-		rtW = rt_elem.clientWidth # its associated ruby text width
-		diff = (rtW - rbW).toFixed(0) # excess amount
-		next_rb_elem = rt_elem.nextElementSibling # next character
-		if not next_rb_elem? or next_rb_elem.nextElementSibling.isEmpty() # end of sentence or before punctuation
-			addSpace = if diff > 0 then "#{diff}px" else '0'
-		else # normal
-			addSpace = if diff > 0 then "calc(#{stdSpace} + #{diff}px)" else stdSpace
-	el.style.marginRight = addSpace
 	return null
 
 open_sidenav = ->
@@ -109,7 +89,7 @@ langToggle = ->
 elLangShowHide = (el, checked) ->
 	el.toggleShowHide checked # checked = shown, unchecked = hidden
 	prev_el = el.previousElementSibling # also line break
-	if prev_el? and prev_el.tagName.toLowerCase() == "br" # check existence first
+	if prev_el? and prev_el.tagName.toLowerCase() == 'br' # check existence first
 		prev_el.toggleShowHide checked
 	return null
 
