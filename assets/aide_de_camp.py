@@ -17,10 +17,10 @@ def pali(textDeva, textLatn, esc = True):
 	textLatn_, textDeva_ = textLatn.split(" "), textDeva.split(" ") # split each word
 	if esc: textDeva_ = list(map(escapeHTML, textDeva_))
 	if len(textDeva_) != len(textLatn_): raise ValueError
-	res = "<ruby>"
+	res = ""
 	for i in range(len(textDeva_)):
-		res += f"<rb>{textDeva_[i]}</rb><rt>{textLatn_[i]}</rt>"
-	return res + "</ruby>"
+		res += f"<ruby><rb>{textDeva_[i]}</rb><rt>{textLatn_[i]}</rt></ruby>"
+	return res
 
 # API conversion multiple scripts
 baseurl = "https://aksharamukha-plugin.appspot.com/api/public"
@@ -66,22 +66,21 @@ def combo(textHan, textViet, esc = True, printed = True, debug = False):
 	if debug: print("ckpt2:", textViet_)
 	if len(test3) != len(textViet_): raise ValueError("Han-Viet divergence")
 
-	res, i, j = "<ruby>", 0, 0 # combine punctuation character with a loop (see below)
+	res, i, j = "", 0, 0 # combine punctuation character with a loop (see below)
 	while (n := i+j) < len(test2):
 		x = test2[n] # to be processed
 		if debug: print("ckpt3:", x)
 		y = escapeHTML(x) if esc else x
 		if x in Han_punc:
-			res += f"<rb>{y}</rb><rt></rt>"
+			res += f"<ruby><rb>{y}</rb><rt></rt></ruby>"
 			j += 1
 		else:
 			if debug: print("ckpt4:", test3[i])
 			if x != test3[i]: raise ValueError("punctuation error")
 			if debug: print("ckpt5:", textViet_[i])
-			res += f"<rb>{y}</rb><rt>{textViet_[i]}</rt>"
+			res += f"<ruby><rb>{y}</rb><rt>{textViet_[i]}</rt></ruby>"
 			i += 1
 
-	res += "</ruby>"
 	if printed: print(res)
 	else: return res
 
@@ -112,7 +111,7 @@ while True:
 ruby_base = re.compile(r"(?<=<rb>)[^<]+(?=</rb>)")
 " ".join(map(
 	html.unescape,
-	ruby_base.findall("<ruby><rb>&#21335;</rb><rt>Nam</rt><rb>&#28961;</rb><rt>mô</rt></ruby>")
+	ruby_base.findall("<ruby><rb>&#21335;</rb><rt>Nam</rt></ruby><ruby><rb>&#28961;</rb><rt>mô</rt></ruby>")
 ))
 
 basepath = "pathtodir/DataFiles/"
