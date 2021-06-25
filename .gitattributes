@@ -1,3 +1,5 @@
 # exclude multiples HTML files from GitHub stats
 texts/*/*.html linguist-vendored
 quotations.html linguist-vendored
+_includes/*.html linguist-vendored
+_layouts/*.html  linguist-vendored

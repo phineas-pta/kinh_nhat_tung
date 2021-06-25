@@ -21,6 +21,8 @@ feel free to contact me if you need more detailed references
 
 the site is online here: https://phineas-pta.github.io/kinh_nhat_tung/
 
+many thanks to @buddhist-uni for sharing my work on [their site](https://buddhistuniversity.net/content/reference/kinh-nhat-tung_phineas-pta)
+
 # web page formatting
 
 | ![Screenshot showing Heart Sutra example](assets/example_heart_sutra.png) |
