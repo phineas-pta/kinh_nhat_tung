@@ -1,6 +1,8 @@
 # exclude multiples HTML files from GitHub stats
 texts/*/*.html linguist-vendored
 quotations.html linguist-vendored
+_includes/*.html linguist-vendored
+_layouts/*.html  linguist-vendored
 assets/images/*.png filter=lfs diff=lfs merge=lfs -text
 assets/fonts/*.woff2 filter=lfs diff=lfs merge=lfs -text
 assets/fonts/*.ttf filter=lfs diff=lfs merge=lfs -text

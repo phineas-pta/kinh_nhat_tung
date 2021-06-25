@@ -19,7 +19,7 @@ def pali(textDeva, textLatn, esc = True):
 	if len(textDeva_) != len(textLatn_): raise ValueError
 	res = ""
 	for i in range(len(textDeva_)):
-		res += f"<ruby><rb>{textDeva_[i]}</rb><rt>{textLatn_[i]}</rt></ruby>"
+		res += f"<ruby><rb>{textDeva_[i]}</rb><rt>{textLatn_[i]}</rt></ruby>\n"
 	return res
 
 # API conversion multiple scripts
@@ -40,13 +40,13 @@ def toSiddham(textIAST, ruby = True, esc = True):
 
 while True: print(toSiddham(input("text IAST: ")), "\n")
 
-def stanzas(textIAST, tabs, esc = True, printed = True):
+def stanzas(textIAST, esc = True, printed = True):
 	"""stanzas of Siddham"""
 	textSidd = toSiddham(textIAST, ruby = False)
 	textIAST_, textSidd_ = textIAST.split("\n"), textSidd.split("\n")
 	res = ""
 	for i in range(len(textIAST_)):
-		res += "\t"*tabs + pali(textSidd_[i], textIAST_[i], esc) + "<br />\n"
+		res += pali(textSidd_[i], textIAST_[i], esc) + "<br />\n"
 	res = res[:-7]
 	if printed: print(res)
 	else: return res
@@ -72,13 +72,13 @@ def combo(textHan, textViet, esc = True, printed = True, debug = False):
 		if debug: print("ckpt3:", x)
 		y = escapeHTML(x) if esc else x
 		if x in Han_punc:
-			res += f"<ruby><rb>{y}</rb><rt></rt></ruby>"
+			res += f"<ruby><rb>{y}</rb><rt></rt></ruby>\n"
 			j += 1
 		else:
 			if debug: print("ckpt4:", test3[i])
 			if x != test3[i]: raise ValueError("punctuation error")
 			if debug: print("ckpt5:", textViet_[i])
-			res += f"<ruby><rb>{y}</rb><rt>{textViet_[i]}</rt></ruby>"
+			res += f"<ruby><rb>{y}</rb><rt>{textViet_[i]}</rt></ruby>\n"
 			i += 1
 
 	if printed: print(res)
@@ -86,12 +86,12 @@ def combo(textHan, textViet, esc = True, printed = True, debug = False):
 
 while True: print(combo(input("text Hant: "), input("text Viet: ")), "\n")
 
-def verse_HanViet(textHan, textViet, tabs, esc = True, printed = True):
+def verse_HanViet(textHan, textViet, esc = True, printed = True):
 	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
 	res = ""
 	for i in range(len(text1)):
-		res += "\t"*tabs + combo(text1[i], text2[i], esc, False, False) + "<br />\n"
+		res += combo(text1[i], text2[i], esc, False, False) + "<br />\n"
 	res = res[:-7]
 	if printed: print(res)
 	else: return res
