@@ -257,7 +257,7 @@ layout: null
 						<ruby><rb>&#35258;</rb><rt>giác,</rt></ruby>
 						<ruby><rb>&#12289;</rb><rt></rt></ruby>
 					</span><br />
-				<span lang="vi">Ngài là bậc Như Lai, <abbr title="A-la-hán / Người đáng được cúng dường">Ứng Cúng</abbr>, <abbr title=""></abbr>Chánh Biến Tri / Chánh Đẳng Giác / Tam-miệu Tam-bồ-đề (Người hiểu biết đúng tất cả các pháp),</span><br />
+				<span lang="vi">Ngài là bậc Như Lai, Ứng Cúng / A-la-hán (Người đáng được cúng dường), Chánh Biến Tri / Chánh Đẳng Giác / Tam-miệu Tam-bồ-đề (Người hiểu biết đúng tất cả các pháp),</span><br />
 				<span lang="en">That Blessed One is perfected, a fully awakened Buddha,</span><br />
 				<span lang="fr">Le Fortuné / Bienheureux est un arahant pleinement éveillé,</span><br />
 				<span lang="de">Dies wahrlich ist der Erhabene, Heilige, vollkommen Erwachte,</span><br />
@@ -282,7 +282,7 @@ layout: null
 						<ruby><rb>&#35299;</rb><rt>giải,</rt></ruby>
 						<ruby><rb>&#12289;</rb><rt></rt></ruby>
 					</span><br />
-				<span lang="vi"><abbr title=""></abbr>Minh Hạnh Túc (Người có đủ tam minh và ngũ hạnh), <abbr title=""></abbr>Thiện Thệ (Người đã khéo đi qua cõi thế gian), <abbr title=""></abbr>Thế Gian Giải (Người đã thấu hiểu thế giới),</span><br />
+				<span lang="vi">Minh Hạnh Túc (Người có đủ tam minh và ngũ hạnh), Thiện Thệ (Người đã khéo đi qua cõi thế gian), Thế Gian Giải (Người đã thấu hiểu thế giới),</span><br />
 				<span lang="en">accomplished in knowledge and conduct, holy, knower of the world,</span><br />
 				<span lang="fr">accompli en connaissance et en [bonne] conduite, se portant bien, connaissant le monde,</span><br />
 				<span lang="de">der in Wissen und Handeln Vollendete, der Wohlgegangene, der Kenner der Welt,</span><br />
@@ -304,7 +304,7 @@ layout: null
 						<ruby><rb>&#22827;</rb><rt>phu,</rt></ruby>
 						<ruby><rb>&#12289;</rb><rt></rt></ruby>
 					</span><br />
-				<span lang="vi"><abbr title=""></abbr>Vô Thượng Sĩ (Đấng tối cao, không ai vượt qua), <abbr title=""></abbr>Ðiều Ngự Trượng Phu (Người đã chế ngự được bản ngã và nhân loại),</span><br />
+				<span lang="vi">Vô Thượng Sĩ (Đấng tối cao, không ai vượt qua), Ðiều Ngự Trượng Phu (Người đã chế ngự được bản ngã và nhân loại),</span><br />
 				<span lang="en">supreme guide for those who wish to train,</span><br />
 				<span lang="fr">suprême dresseur d'hommes,</span><br />
 				<span lang="de">der unübertroffene Lenker der zähmbaren Menschen,</span><br />
@@ -326,7 +326,7 @@ layout: null
 						<ruby><rb>&#19990;</rb><rt>thế</rt></ruby>
 						<ruby><rb>&#23562;</rb><rt>tôn</rt></ruby>
 					</span><br />
-				<span lang="vi"><abbr title=""></abbr>Thiên Nhân Sư (Bậc thầy của cõi người và cõi trời), <abbr title=""></abbr>Phật, <abbr title=""></abbr>Thế Tôn / Bạc-già-phạm (Bậc giác ngộ được thế gian tôn kính).</span><br />
+				<span lang="vi">Thiên Nhân Sư (Bậc thầy của cõi người và cõi trời), Phật, Thế Tôn / Bạc-già-phạm (Bậc giác ngộ được thế gian tôn kính).</span><br />
 				<span lang="en">teacher of gods and humans, awakened, blessed.</span><br />
 				<span lang="fr">enseignant des dévas et des humains, un Bouddha, un Bienheureux.</span><br />
 				<span lang="de">der Meister von Göttern und Menschen, der Erwachte, der Erhabene.</span><br />
@@ -1361,9 +1361,18 @@ layout: null
 
 		<hr /><!-- ----------------------next article----------------------- -->
 
-		<article id="10-dieu" class="wait-multi-lang">
-			<section lang="zh-Hant">
-				<header><h2>
+		<article id="10-dieu">
+			<style>
+			body {counter-reset: my-list-num;} /* Set a counter named 'my-list-num', and its initial value is 0. */
+			section.list-item::before {
+				counter-increment: my-list-num; /* Increment the value of my-list-num counter by 1 */
+				content: counter(my-list-num) ". \2935"; /* ⤵ */
+				user-select: none;
+				font-style: italic;
+			}
+			</style>
+			<header><h2>
+				<span lang="zh-Hant">
 					<ruby><rb>&#22823;</rb><rt>Đại</rt></ruby>
 					<ruby><rb>&#27491;</rb><rt>chính</rt></ruby>
 					<ruby><rb>&#26032;</rb><rt>tân</rt></ruby>
@@ -1388,904 +1397,629 @@ layout: null
 					<ruby><rb>&#31532;</rb><rt>đệ</rt></ruby>
 					<ruby><rb>&#21313;</rb><rt>thập</rt></ruby>
 					<ruby><rb>&#19971;</rb><rt>thất</rt></ruby>
-				</h2></header>
-				<ol>
-					<li class="dong-khung">
-						<ruby><rb>&#19968;</rb><rt>nhất</rt></ruby>
-						<ruby><rb>&#24565;</rb><rt>niệm</rt></ruby>
-						<ruby><rb>&#36523;</rb><rt>thân</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#30149;</rb><rt>bệnh.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#36523;</rb><rt>thân</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#30149;</rb><rt>bệnh</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#36010;</rb><rt>tham</rt></ruby>
-						<ruby><rb>&#27442;</rb><rt>dục</rt></ruby>
-						<ruby><rb>&#20035;</rb><rt>nãi</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#36010;</rb><rt>tham</rt></ruby>
-						<ruby><rb>&#27442;</rb><rt>dục</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#30772;</rb><rt>phá</rt></ruby>
-						<ruby><rb>&#25106;</rb><rt>giới</rt></ruby>
-						<ruby><rb>&#36864;</rb><rt>thối</rt></ruby>
-						<ruby><rb>&#36947;</rb><rt>đạo.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#30149;</rb><rt>bệnh</rt></ruby>
-						<ruby><rb>&#33510;</rb><rt>khổ</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#33391;</rb><rt>lương</rt></ruby>
-						<ruby><rb>&#34277;</rb><rt>dược.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#20108;</rb><rt>nhị</rt></ruby>
-						<ruby><rb>&#34389;</rb><rt>xử</rt></ruby>
-						<ruby><rb>&#19990;</rb><rt>thế</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#38627;</rb><rt>nan.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#19990;</rb><rt>thế</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#38627;</rb><rt>nan</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#39509;</rb><rt>kiêu</rt></ruby>
-						<ruby><rb>&#22882;</rb><rt>xa</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#36215;</rb><rt>khởi.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#39509;</rb><rt>kiêu</rt></ruby>
-						<ruby><rb>&#22882;</rb><rt>xa</rt></ruby>
-						<ruby><rb>&#36215;</rb><rt>khởi</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#27450;</rb><rt>khi</rt></ruby>
-						<ruby><rb>&#22739;</rb><rt>áp</rt></ruby>
-						<ruby><rb>&#19968;</rb><rt>nhất</rt></ruby>
-						<ruby><rb>&#20999;</rb><rt>thiết.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#24739;</rb><rt>hoạn</rt></ruby>
-						<ruby><rb>&#38627;</rb><rt>nan</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#35299;</rb><rt>giải</rt></ruby>
-						<ruby><rb>&#33067;</rb><rt>thoát.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#19977;</rb><rt>tam</rt></ruby>
-						<ruby><rb>&#31350;</rb><rt>cứu</rt></ruby>
-						<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#38556;</rb><rt>chướng.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#38556;</rb><rt>chướng</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#25152;</rb><rt>sở</rt></ruby>
-						<ruby><rb>&#23416;</rb><rt>học</rt></ruby>
-						<ruby><rb>&#36496;</rb><rt>liệp</rt></ruby>
-						<ruby><rb>&#31561;</rb><rt>đẳng.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#23416;</rb><rt>học</rt></ruby>
-						<ruby><rb>&#36496;</rb><rt>liệp</rt></ruby>
-						<ruby><rb>&#31561;</rb><rt>đẳng</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#26410;</rb><rt>vị</rt></ruby>
-						<ruby><rb>&#24471;</rb><rt>đắc</rt></ruby>
-						<ruby><rb>&#35586;</rb><rt>vị</rt></ruby>
-						<ruby><rb>&#24471;</rb><rt>đắc.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#38556;</rb><rt>chướng</rt></ruby>
-						<ruby><rb>&#31001;</rb><rt>ngại</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#36877;</rb><rt>tiêu</rt></ruby>
-						<ruby><rb>&#36953;</rb><rt>dao.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#22235;</rb><rt>tứ</rt></ruby>
-						<ruby><rb>&#31435;</rb><rt>lập</rt></ruby>
-						<ruby><rb>&#34892;</rb><rt>hành</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#39764;</rb><rt>ma.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#34892;</rb><rt>hành</rt></ruby>
-						<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
-						<ruby><rb>&#39764;</rb><rt>ma</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#35475;</rb><rt>thệ</rt></ruby>
-						<ruby><rb>&#39000;</rb><rt>nguyện</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#22533;</rb><rt>kiên.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#39000;</rb><rt>nguyện</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#22533;</rb><rt>kiên</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#26410;</rb><rt>vị</rt></ruby>
-						<ruby><rb>&#35657;</rb><rt>chứng</rt></ruby>
-						<ruby><rb>&#35586;</rb><rt>vị</rt></ruby>
-						<ruby><rb>&#35657;</rb><rt>chứng.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#32676;</rb><rt>quần</rt></ruby>
-						<ruby><rb>&#39764;</rb><rt>ma</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#27861;</rb><rt>pháp</rt></ruby>
-						<ruby><rb>&#20406;</rb><rt>lữ.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#20116;</rb><rt>ngũ</rt></ruby>
-						<ruby><rb>&#35584;</rb><rt>mưu</rt></ruby>
-						<ruby><rb>&#20107;</rb><rt>sự</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#26131;</rb><rt>dị</rt></ruby>
-						<ruby><rb>&#25104;</rb><rt>thành.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#20107;</rb><rt>sự</rt></ruby>
-						<ruby><rb>&#26131;</rb><rt>dị</rt></ruby>
-						<ruby><rb>&#25104;</rb><rt>thành</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#24535;</rb><rt>chí</rt></ruby>
-						<ruby><rb>&#25104;</rb><rt>thành</rt></ruby>
-						<ruby><rb>&#36629;</rb><rt>khinh</rt></ruby>
-						<ruby><rb>&#24930;</rb><rt>mạn.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#24535;</rb><rt>chí</rt></ruby>
-						<ruby><rb>&#36629;</rb><rt>khinh</rt></ruby>
-						<ruby><rb>&#24930;</rb><rt>mạn</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#31281;</rb><rt>xưng</rt></ruby>
-						<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
-						<ruby><rb>&#26377;</rb><rt>hữu</rt></ruby>
-						<ruby><rb>&#33021;</rb><rt>năng.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#20107;</rb><rt>sự</rt></ruby>
-						<ruby><rb>&#38627;</rb><rt>nan</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#23433;</rb><rt>an</rt></ruby>
-						<ruby><rb>&#27138;</rb><rt>lạc.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#20845;</rb><rt>lục</rt></ruby>
-						<ruby><rb>&#20132;</rb><rt>giao</rt></ruby>
-						<ruby><rb>&#24773;</rb><rt>tình</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#30410;</rb><rt>ích</rt></ruby>
-						<ruby><rb>&#25105;</rb><rt>ngã.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#24773;</rb><rt>tình</rt></ruby>
-						<ruby><rb>&#30410;</rb><rt>ích</rt></ruby>
-						<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#34407;</rb><rt>khuy</rt></ruby>
-						<ruby><rb>&#22833;</rb><rt>thất</rt></ruby>
-						<ruby><rb>&#36947;</rb><rt>đạo</rt></ruby>
-						<ruby><rb>&#32681;</rb><rt>nghĩa.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#34407;</rb><rt>khuy</rt></ruby>
-						<ruby><rb>&#36947;</rb><rt>đạo</rt></ruby>
-						<ruby><rb>&#32681;</rb><rt>nghĩa</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#35211;</rb><rt>kiến</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#20043;</rb><rt>chi</rt></ruby>
-						<ruby><rb>&#38750;</rb><rt>phi.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#24330;</rb><rt>tế</rt></ruby>
-						<ruby><rb>&#20132;</rb><rt>giao</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#36039;</rb><rt>tư</rt></ruby>
-						<ruby><rb>&#31975;</rb><rt>lương.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#19971;</rb><rt>thất</rt></ruby>
-						<ruby><rb>&#26044;</rb><rt>ư</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#38918;</rb><rt>thuận</rt></ruby>
-						<ruby><rb>&#36969;</rb><rt>đích.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#38918;</rb><rt>thuận</rt></ruby>
-						<ruby><rb>&#36969;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#20839;</rb><rt>nội</rt></ruby>
-						<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
-						<ruby><rb>&#33258;</rb><rt>tự</rt></ruby>
-						<ruby><rb>&#30684;</rb><rt>căng.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#20839;</rb><rt>nội</rt></ruby>
-						<ruby><rb>&#33258;</rb><rt>tự</rt></ruby>
-						<ruby><rb>&#30684;</rb><rt>căng</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#22519;</rb><rt>chấp</rt></ruby>
-						<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
-						<ruby><rb>&#20043;</rb><rt>chi</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#36870;</rb><rt>nghịch</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#22290;</rb><rt>viên</rt></ruby>
-						<ruby><rb>&#26519;</rb><rt>lâm.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#20843;</rb><rt>bát</rt></ruby>
-						<ruby><rb>&#26045;</rb><rt>thí</rt></ruby>
-						<ruby><rb>&#24503;</rb><rt>đức</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#26395;</rb><rt>vọng</rt></ruby>
-						<ruby><rb>&#22577;</rb><rt>báo.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#24503;</rb><rt>đức</rt></ruby>
-						<ruby><rb>&#26395;</rb><rt>vọng</rt></ruby>
-						<ruby><rb>&#22577;</rb><rt>báo</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#24847;</rb><rt>ý</rt></ruby>
-						<ruby><rb>&#26377;</rb><rt>hữu</rt></ruby>
-						<ruby><rb>&#25152;</rb><rt>sở</rt></ruby>
-						<ruby><rb>&#22294;</rb><rt>đồ.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#24847;</rb><rt>ý</rt></ruby>
-						<ruby><rb>&#26377;</rb><rt>hữu</rt></ruby>
-						<ruby><rb>&#22294;</rb><rt>đồ</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#33775;</rb><rt>hoa</rt></ruby>
-						<ruby><rb>&#21517;</rb><rt>danh</rt></ruby>
-						<ruby><rb>&#27442;</rb><rt>dục</rt></ruby>
-						<ruby><rb>&#25562;</rb><rt>dương.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#24066;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#24503;</rb><rt>đức</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#26820;</rb><rt>khí</rt></ruby>
-						<ruby><rb>&#23651;</rb><rt>tỉ.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#20061;</rb><rt>cửu</rt></ruby>
-						<ruby><rb>&#35211;</rb><rt>kiến</rt></ruby>
-						<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#38673;</rb><rt>triêm</rt></ruby>
-						<ruby><rb>&#20998;</rb><rt>phân.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
-						<ruby><rb>&#38673;</rb><rt>triêm</rt></ruby>
-						<ruby><rb>&#20998;</rb><rt>phân</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#30305;</rb><rt>si</rt></ruby>
-						<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#21205;</rb><rt>động.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#30305;</rb><rt>si</rt></ruby>
-						<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
-						<ruby><rb>&#21205;</rb><rt>động</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#24801;</rb><rt>ác</rt></ruby>
-						<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
-						<ruby><rb>&#27584;</rb><rt>huỷ</rt></ruby>
-						<ruby><rb>&#24049;</rb><rt>kỉ.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#36360;</rb><rt>sơ</rt></ruby>
-						<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#23500;</rb><rt>phú</rt></ruby>
-						<ruby><rb>&#36020;</rb><rt>quý.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-					<li class="dong-khung">
-						<ruby><rb>&#21313;</rb><rt>thập</rt></ruby>
-						<ruby><rb>&#34987;</rb><rt>bí</rt></ruby>
-						<ruby><rb>&#25233;</rb><rt>ức</rt></ruby>
-						<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
-						<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
-						<ruby><rb>&#30003;</rb><rt>thân</rt></ruby>
-						<ruby><rb>&#26126;</rb><rt>minh.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#25233;</rb><rt>ức</rt></ruby>
-						<ruby><rb>&#30003;</rb><rt>thân</rt></ruby>
-						<ruby><rb>&#26126;</rb><rt>minh</rt></ruby>
-						<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
-						<ruby><rb>&#26410;</rb><rt>vị</rt></ruby>
-						<ruby><rb>&#24536;</rb><rt>vong.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
-						<ruby><rb>&#65311;</rb><rt></rt></ruby>
-						<ruby><rb>&#23384;</rb><rt>tồn</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
-						<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
-						<ruby><rb>&#24616;</rb><rt>oán</rt></ruby>
-						<ruby><rb>&#24680;</rb><rt>hận</rt></ruby>
-						<ruby><rb>&#28363;</rb><rt>tư</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-						<br />
-						<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
-						<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
-						<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
-						<ruby><rb>&#65306;</rb><rt></rt></ruby>
-						<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
-						<ruby><rb>&#21463;</rb><rt>thụ</rt></ruby>
-						<ruby><rb>&#25233;</rb><rt>ức</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#34892;</rb><rt>hành</rt></ruby>
-						<ruby><rb>&#38272;</rb><rt>môn.</rt></ruby>
-						<ruby><rb>&#12290;</rb><rt></rt></ruby>
-					</li>
-				</ol>
-			</section>
-			<section lang="vi">
-				<header><h2>10 điều chướng ngại</h2></header>
-				<ol>
-					<li>
-						Nghĩ đến thân thể đừng cầu không bệnh khổ.<br />
-						Tại sao? Thân không bệnh khổ thì dục vọng dễ sanh.<br />
-						Vì sao? Tham dục khởi sanh ra phá giới thối đạo.<br />
-						Cho nên đức Phật dạy: Lấy bệnh khổ làm thuốc hay.
-					</li>
-					<li>
-						Ở đời đừng cầu không hoạn nạn.<br />
-						Tại sao? Xử thế không khó, lòng kiêu sa chắc khởi<br />
-						Vì sao? Kiêu sa khởi nên khinh khi tất cả.<br />
-						Cho nên đức Phật dạy: Lấy hoạn nạn làm giải thoát.
-					</li>
-					<li>
-						Cứu xét tâm tánh đừng cầu không khúc mắc.<br />
-						Tại sao? Đời không khúc mắc thì sở học không thấu đáo.<br />
-						Vì sao? Sở học chưa thấu nên chưa thông nói đã thông.<br />
-						Cho nên đức Phật dạy: Lấy chướng nạn làm thú vị.
-					</li>
-					<li>
-						Lập hạnh đừng cầu không bị ma chướng.<br />
-						Tại sao? Đạo hạnh không ma chướng thì thệ nguyện không kiên cố.<br />
-						Vì sao? Chí nguyện không kiên cố nên chưa chứng nói đã chứng.<br />
-						Cho nên đức Phật dạy: Lấy ma quân làm pháp lữ.
-					</li>
-					<li>
-						Làm việc gì đừng mong việc dễ thành.<br />
-						Tại sao? Việc làm dễ thành thì khinh thường kiêu ngạo.<br />
-						Vì sao? Tâm khinh mạn nên bảo có thể làm được tất.<br />
-						Cho nên đức Phật dạy: Lấy khó khăn làm an lạc.
-					</li>
-					<li>
-						Giao tiếp thân tình đừng cầu lợi lộc.<br />
-						Tại sao? Ý vì lợi mình thì mất đạo nghĩa.<br />
-						Vì sao? Thiếu đạo nghĩa nên thường thấy lỗi người.<br />
-						Cho nên đức Phật dạy: Lấy tệ bạc làm tư lương.
-					</li>
-					<li>
-						Đối với người đừng cầu thuận theo ý mình.<br />
-						Tại sao? Người người thuận theo ý mình thì tâm sanh kiêu căn.<br />
-						Vì sao? Tự kiêu căn sanh tướng chấp ngã.<br />
-						Cho nên đức Phật dạy: Lấy người chống đối làm nơi giao du.
-					</li>
-					<li>
-						Thi ân đừng mong sự đền đáp.<br />
-						Tại sao? Thi ân mong đền đáp là có ý mưu đồ.<br />
-						Vì sao? Ý có mưu đồ sanh khoe khoang khoác lác.<br />
-						Cho nên đức Phật dạy: Xem thi ân là đôi dép bỏ.
-					</li>
-					<li>
-						Thấy lợi đừng mong dính vào.<br />
-						Tại sao? Thấy lợi dính vào là si mê dấy động.<br />
-						Vì sao? Si tâm động nên ham lợi quên mình.<br />
-						Cho nên đức Phật dạy: Lấy sự xả lợi làm phú quí.
-					</li>
-					<li>
-						Bị oan ức không cần biện bạch.<br />
-						Tại sao? Oan ức mà biện bạch là chưa xả nhân ngã.<br />
-						Vì sao? Còn nhân ngã thì oán hận nảy sanh.<br />
-						Cho nên đức Phật dạy: Lấy oan ức làm cửa ngõ hành đạo.
-					</li>
-				</ol>
-			</section>
-			<section lang="en">
-				<header><h2>Treatise on the King of Treasures Samadhi / The Jeweled King Samadhi’s Direct Guidance on the Mindfulness of the Buddha</h2></header>
-				<ol>
-					<li>Do not ask for the body to be without sickness, for if the body is without sickness, greed and desire will easily arise.</li>
-					<li>Do not ask for a world without difficulty, for if the world is without difficulty, arrogance will arise.</li>
-					<li>Do not ask to investigate the mind without obstruction, for if there is no obstruction you will skip over what you have learned.</li>
-					<li>Do not ask to practice free from Mara, for practicing free from Mara weakens your vows.</li>
-					<li>Do not ask to make plans that are easily accomplished, for accomplishing things easily will lead you to despise determination.</li>
-					<li>Do not make friends that benefit yourself, for making friends that benefit yourself damages your morals and sense of justice.</li>
-					<li>Do not ask to live with others and be satisfied, for with satisfaction the mind becomes conceited.</li>
-					<li>Do not ask to give and have the favor returned, for if favors are returned then you will develop improper intentions.</li>
-					<li>Do not ask for others to share their benefits with you, for having benefits shared with you will lead to the mind moving falsely.</li>
-					<li>Do not ask to have your own oppression immediately removed, for if oppression is immediately removed anger will arise.</li>
-				</ol>
-			</section>
-		</article>
-
-		<hr /><!-- ----------------------next article----------------------- -->
-
-		<article id="20-dieu" class="wait-multi-lang">
-			<section lang="zh-Hant">
-				<header><h2>
-					<ruby><rb>&#20315;</rb><rt>Phật</rt></ruby>
-					<ruby><rb>&#23416;</rb><rt>học</rt></ruby>
-					<ruby><rb>&#35686;</rb><rt>cảnh</rt></ruby>
-					<ruby><rb>&#19990;</rb><rt>thế</rt></ruby>
-					<ruby><rb>&#35486;</rb><rt>ngữ</rt></ruby>
+				</span><br />
+				<span lang="vi">10 điều chướng ngại</span><br />
+				<span lang="en">Taisho Tripitaka Vol. 47, № 1974: Treatise on the King of Treasures Samadhi / The Jeweled King Samadhi’s Direct Guidance on the Mindfulness of the Buddha, chapter 17</span>
+			</h2></header>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#19968;</rb><rt>nhất</rt></ruby>
+					<ruby><rb>&#24565;</rb><rt>niệm</rt></ruby>
+					<ruby><rb>&#36523;</rb><rt>thân</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#30149;</rb><rt>bệnh.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
 					<br />
-					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#36523;</rb><rt>thân</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#30149;</rb><rt>bệnh</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#36010;</rb><rt>tham</rt></ruby>
+					<ruby><rb>&#27442;</rb><rt>dục</rt></ruby>
+					<ruby><rb>&#20035;</rb><rt>nãi</rt></ruby>
+					<ruby><rb>&#29983;</rb><rt>sinh.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#36010;</rb><rt>tham</rt></ruby>
+					<ruby><rb>&#27442;</rb><rt>dục</rt></ruby>
 					<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#30772;</rb><rt>phá</rt></ruby>
+					<ruby><rb>&#25106;</rb><rt>giới</rt></ruby>
+					<ruby><rb>&#36864;</rb><rt>thối</rt></ruby>
+					<ruby><rb>&#36947;</rb><rt>đạo.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#30149;</rb><rt>bệnh</rt></ruby>
+					<ruby><rb>&#33510;</rb><rt>khổ</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#33391;</rb><rt>lương</rt></ruby>
+					<ruby><rb>&#34277;</rb><rt>dược.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Nghĩ đến thân thể đừng cầu không bệnh khổ.<br />
+					Tại sao? Thân không bệnh khổ thì dục vọng dễ sanh.<br />
+					Vì sao? Tham dục khởi sanh ra phá giới thối đạo.<br />
+					Cho nên bậc thánh dạy: Lấy bệnh khổ làm thuốc hay.
+				</p>
+				<p lang="en">Do not ask for the body to be without sickness, for if the body is without sickness, greed and desire will easily arise.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
 					<ruby><rb>&#20108;</rb><rt>nhị</rt></ruby>
+					<ruby><rb>&#34389;</rb><rt>xử</rt></ruby>
+					<ruby><rb>&#19990;</rb><rt>thế</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#38627;</rb><rt>nan.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#19990;</rb><rt>thế</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#38627;</rb><rt>nan</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#39509;</rb><rt>kiêu</rt></ruby>
+					<ruby><rb>&#22882;</rb><rt>xa</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#36215;</rb><rt>khởi.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#39509;</rb><rt>kiêu</rt></ruby>
+					<ruby><rb>&#22882;</rb><rt>xa</rt></ruby>
+					<ruby><rb>&#36215;</rb><rt>khởi</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#27450;</rb><rt>khi</rt></ruby>
+					<ruby><rb>&#22739;</rb><rt>áp</rt></ruby>
+					<ruby><rb>&#19968;</rb><rt>nhất</rt></ruby>
+					<ruby><rb>&#20999;</rb><rt>thiết.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#24739;</rb><rt>hoạn</rt></ruby>
+					<ruby><rb>&#38627;</rb><rt>nan</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#35299;</rb><rt>giải</rt></ruby>
+					<ruby><rb>&#33067;</rb><rt>thoát.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Ở đời đừng cầu không hoạn nạn.<br />
+					Tại sao? Xử thế không khó, lòng kiêu sa chắc khởi<br />
+					Vì sao? Kiêu sa khởi nên khinh khi tất cả.<br />
+					Cho nên bậc thánh dạy: Lấy hoạn nạn làm giải thoát.
+				</p>
+				<p lang="en">Do not ask for a world without difficulty, for if the world is without difficulty, arrogance will arise.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#19977;</rb><rt>tam</rt></ruby>
+					<ruby><rb>&#31350;</rb><rt>cứu</rt></ruby>
+					<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#38556;</rb><rt>chướng.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#38556;</rb><rt>chướng</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#25152;</rb><rt>sở</rt></ruby>
+					<ruby><rb>&#23416;</rb><rt>học</rt></ruby>
+					<ruby><rb>&#36496;</rb><rt>liệp</rt></ruby>
+					<ruby><rb>&#31561;</rb><rt>đẳng.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#23416;</rb><rt>học</rt></ruby>
+					<ruby><rb>&#36496;</rb><rt>liệp</rt></ruby>
+					<ruby><rb>&#31561;</rb><rt>đẳng</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#26410;</rb><rt>vị</rt></ruby>
+					<ruby><rb>&#24471;</rb><rt>đắc</rt></ruby>
+					<ruby><rb>&#35586;</rb><rt>vị</rt></ruby>
+					<ruby><rb>&#24471;</rb><rt>đắc.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#38556;</rb><rt>chướng</rt></ruby>
+					<ruby><rb>&#31001;</rb><rt>ngại</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#36877;</rb><rt>tiêu</rt></ruby>
+					<ruby><rb>&#36953;</rb><rt>dao.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Cứu xét tâm tánh đừng cầu không khúc mắc.<br />
+					Tại sao? Đời không khúc mắc thì sở học không thấu đáo.<br />
+					Vì sao? Sở học chưa thấu nên chưa thông nói đã thông.<br />
+					Cho nên bậc thánh dạy: Lấy chướng nạn làm thú vị.
+				</p>
+				<p lang="en">Do not ask to investigate the mind without obstruction, for if there is no obstruction you will skip over what you have learned.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#22235;</rb><rt>tứ</rt></ruby>
+					<ruby><rb>&#31435;</rb><rt>lập</rt></ruby>
+					<ruby><rb>&#34892;</rb><rt>hạnh</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#39764;</rb><rt>ma.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#34892;</rb><rt>hạnh</rt></ruby>
+					<ruby><rb>&#28961;</rb><rt>vô</rt></ruby>
+					<ruby><rb>&#39764;</rb><rt>ma</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#35475;</rb><rt>thệ</rt></ruby>
+					<ruby><rb>&#39000;</rb><rt>nguyện</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#22533;</rb><rt>kiên.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#39000;</rb><rt>nguyện</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#22533;</rb><rt>kiên</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#26410;</rb><rt>vị</rt></ruby>
+					<ruby><rb>&#35657;</rb><rt>chứng</rt></ruby>
+					<ruby><rb>&#35586;</rb><rt>vị</rt></ruby>
+					<ruby><rb>&#35657;</rb><rt>chứng.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#32676;</rb><rt>quần</rt></ruby>
+					<ruby><rb>&#39764;</rb><rt>ma</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#27861;</rb><rt>pháp</rt></ruby>
+					<ruby><rb>&#20406;</rb><rt>lữ.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Lập hạnh đừng cầu không bị ma chướng.<br />
+					Tại sao? Đạo hạnh không ma chướng thì thệ nguyện không kiên cố.<br />
+					Vì sao? Chí nguyện không kiên cố nên chưa chứng nói đã chứng.<br />
+					Cho nên bậc thánh dạy: Lấy ma quân làm pháp lữ.
+				</p>
+				<p lang="en">Do not ask to practice free from Mara, for practicing free from Mara weakens your vows.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#20116;</rb><rt>ngũ</rt></ruby>
+					<ruby><rb>&#35584;</rb><rt>mưu</rt></ruby>
+					<ruby><rb>&#20107;</rb><rt>sự</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#26131;</rb><rt>dị</rt></ruby>
+					<ruby><rb>&#25104;</rb><rt>thành.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#20107;</rb><rt>sự</rt></ruby>
+					<ruby><rb>&#26131;</rb><rt>dị</rt></ruby>
+					<ruby><rb>&#25104;</rb><rt>thành</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#24535;</rb><rt>chí</rt></ruby>
+					<ruby><rb>&#25104;</rb><rt>thành</rt></ruby>
+					<ruby><rb>&#36629;</rb><rt>khinh</rt></ruby>
+					<ruby><rb>&#24930;</rb><rt>mạn.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#24535;</rb><rt>chí</rt></ruby>
+					<ruby><rb>&#36629;</rb><rt>khinh</rt></ruby>
+					<ruby><rb>&#24930;</rb><rt>mạn</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#31281;</rb><rt>xưng</rt></ruby>
+					<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
+					<ruby><rb>&#26377;</rb><rt>hữu</rt></ruby>
+					<ruby><rb>&#33021;</rb><rt>năng.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#20107;</rb><rt>sự</rt></ruby>
+					<ruby><rb>&#38627;</rb><rt>nan</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#23433;</rb><rt>an</rt></ruby>
+					<ruby><rb>&#27138;</rb><rt>lạc.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Làm việc gì đừng mong việc dễ thành.<br />
+					Tại sao? Việc làm dễ thành thì khinh thường kiêu ngạo.<br />
+					Vì sao? Tâm khinh mạn nên bảo có thể làm được tất.<br />
+					Cho nên bậc thánh dạy: Lấy khó khăn làm an lạc.
+				</p>
+				<p lang="en">Do not ask to make plans that are easily accomplished, for accomplishing things easily will lead you to despise determination.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#20845;</rb><rt>lục</rt></ruby>
+					<ruby><rb>&#20132;</rb><rt>giao</rt></ruby>
+					<ruby><rb>&#24773;</rb><rt>tình</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#30410;</rb><rt>ích</rt></ruby>
+					<ruby><rb>&#25105;</rb><rt>ngã.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#24773;</rb><rt>tình</rt></ruby>
+					<ruby><rb>&#30410;</rb><rt>ích</rt></ruby>
+					<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#34407;</rb><rt>khuy</rt></ruby>
+					<ruby><rb>&#22833;</rb><rt>thất</rt></ruby>
+					<ruby><rb>&#36947;</rb><rt>đạo</rt></ruby>
+					<ruby><rb>&#32681;</rb><rt>nghĩa.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#34407;</rb><rt>khuy</rt></ruby>
+					<ruby><rb>&#36947;</rb><rt>đạo</rt></ruby>
+					<ruby><rb>&#32681;</rb><rt>nghĩa</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#35211;</rb><rt>kiến</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#20043;</rb><rt>chi</rt></ruby>
+					<ruby><rb>&#38750;</rb><rt>phi.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#24330;</rb><rt>tế</rt></ruby>
+					<ruby><rb>&#20132;</rb><rt>giao</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#36039;</rb><rt>tư</rt></ruby>
+					<ruby><rb>&#31975;</rb><rt>lương.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Giao tiếp thân tình đừng cầu lợi lộc.<br />
+					Tại sao? Ý vì lợi mình thì mất đạo nghĩa.<br />
+					Vì sao? Thiếu đạo nghĩa nên thường thấy lỗi người.<br />
+					Cho nên bậc thánh dạy: Lấy tệ bạc làm tư lương.
+				</p>
+				<p lang="en">Do not make friends that benefit yourself, for making friends that benefit yourself damages your morals and sense of justice.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#19971;</rb><rt>thất</rt></ruby>
+					<ruby><rb>&#26044;</rb><rt>ư</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#38918;</rb><rt>thuận</rt></ruby>
+					<ruby><rb>&#36969;</rb><rt>đích.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#38918;</rb><rt>thuận</rt></ruby>
+					<ruby><rb>&#36969;</rb><rt>đích</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#20839;</rb><rt>nội</rt></ruby>
+					<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
+					<ruby><rb>&#33258;</rb><rt>tự</rt></ruby>
+					<ruby><rb>&#30684;</rb><rt>căng.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#20839;</rb><rt>nội</rt></ruby>
+					<ruby><rb>&#33258;</rb><rt>tự</rt></ruby>
+					<ruby><rb>&#30684;</rb><rt>căng</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#22519;</rb><rt>chấp</rt></ruby>
+					<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
+					<ruby><rb>&#20043;</rb><rt>chi</rt></ruby>
+					<ruby><rb>&#26159;</rb><rt>thị.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#36870;</rb><rt>nghịch</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#22290;</rb><rt>viên</rt></ruby>
+					<ruby><rb>&#26519;</rb><rt>lâm.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Đối với người đừng cầu thuận theo ý mình.<br />
+					Tại sao? Người người thuận theo ý mình thì tâm sanh kiêu căn.<br />
+					Vì sao? Tự kiêu căn sanh tướng chấp ngã.<br />
+					Cho nên bậc thánh dạy: Lấy người chống đối làm nơi giao du.
+				</p>
+				<p lang="en">Do not ask to live with others and be satisfied, for with satisfaction the mind becomes conceited.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#20843;</rb><rt>bát</rt></ruby>
+					<ruby><rb>&#26045;</rb><rt>thí</rt></ruby>
+					<ruby><rb>&#24503;</rb><rt>đức</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#26395;</rb><rt>vọng</rt></ruby>
+					<ruby><rb>&#22577;</rb><rt>báo.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#24503;</rb><rt>đức</rt></ruby>
+					<ruby><rb>&#26395;</rb><rt>vọng</rt></ruby>
+					<ruby><rb>&#22577;</rb><rt>báo</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#24847;</rb><rt>ý</rt></ruby>
+					<ruby><rb>&#26377;</rb><rt>hữu</rt></ruby>
+					<ruby><rb>&#25152;</rb><rt>sở</rt></ruby>
+					<ruby><rb>&#22294;</rb><rt>đồ.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#24847;</rb><rt>ý</rt></ruby>
+					<ruby><rb>&#26377;</rb><rt>hữu</rt></ruby>
+					<ruby><rb>&#22294;</rb><rt>đồ</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#33775;</rb><rt>hoa</rt></ruby>
+					<ruby><rb>&#21517;</rb><rt>danh</rt></ruby>
+					<ruby><rb>&#27442;</rb><rt>dục</rt></ruby>
+					<ruby><rb>&#25562;</rb><rt>dương.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#24066;</rb><rt>thị</rt></ruby>
+					<ruby><rb>&#24503;</rb><rt>đức</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#26820;</rb><rt>khí</rt></ruby>
+					<ruby><rb>&#23651;</rb><rt>tỉ.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Thi ân đừng mong sự đền đáp.<br />
+					Tại sao? Thi ân mong đền đáp là có ý mưu đồ.<br />
+					Vì sao? Ý có mưu đồ sanh khoe khoang khoác lác.<br />
+					Cho nên bậc thánh dạy: Xem thi ân là đôi dép bỏ.
+				</p>
+				<p lang="en">Do not ask to give and have the favor returned, for if favors are returned then you will develop improper intentions.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
+					<ruby><rb>&#20061;</rb><rt>cửu</rt></ruby>
+					<ruby><rb>&#35211;</rb><rt>kiến</rt></ruby>
+					<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#38673;</rb><rt>triêm</rt></ruby>
+					<ruby><rb>&#20998;</rb><rt>phân.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
+					<ruby><rb>&#38673;</rb><rt>triêm</rt></ruby>
+					<ruby><rb>&#20998;</rb><rt>phân</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#30305;</rb><rt>si</rt></ruby>
+					<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#21205;</rb><rt>động.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#30305;</rb><rt>si</rt></ruby>
+					<ruby><rb>&#24515;</rb><rt>tâm</rt></ruby>
+					<ruby><rb>&#21205;</rb><rt>động</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#24801;</rb><rt>ác</rt></ruby>
+					<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
+					<ruby><rb>&#27584;</rb><rt>huỷ</rt></ruby>
+					<ruby><rb>&#24049;</rb><rt>kỉ.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#36360;</rb><rt>sơ</rt></ruby>
+					<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#23500;</rb><rt>phú</rt></ruby>
+					<ruby><rb>&#36020;</rb><rt>quý.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Thấy lợi đừng mong dính vào.<br />
+					Tại sao? Thấy lợi dính vào là si mê dấy động.<br />
+					Vì sao? Si tâm động nên ham lợi quên mình.<br />
+					Cho nên bậc thánh dạy: Lấy sự xả lợi làm phú quí.
+				</p>
+				<p lang="en">Do not ask for others to share their benefits with you, for having benefits shared with you will lead to the mind moving falsely.</p>
+			</section>
+			<section class="wait-multi-lang list-item">
+				<p lang="zh-Hant">
 					<ruby><rb>&#21313;</rb><rt>thập</rt></ruby>
-					<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-				</h2></header>
-				<ol>
-					<li>
-						<ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#25973;</rb><rt>địch</rt></ruby>
-						<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#33258;</rb><rt>tự</rt></ruby>
-						<ruby><rb>&#24049;</rb><rt>kỷ</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#22833;</rb><rt>thất</rt></ruby>
-						<ruby><rb>&#25943;</rb><rt>bại</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#33258;</rb><rt>tự</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#32618;</rb><rt>tội</rt></ruby>
-						<ruby><rb>&#36942;</rb><rt>quá</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#27578;</rb><rt>sát</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#24858;</rb><rt>ngu</rt></ruby>
-						<ruby><rb>&#34850;</rb><rt>xuẩn</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#27450;</rb><rt>khi</rt></ruby>
-						<ruby><rb>&#39449;</rb><rt>phiến</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#21487;</rb><rt>khả</rt></ruby>
-						<ruby><rb>&#24801;</rb><rt>ác</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#28139;</rb><rt>dâm</rt></ruby>
-						<ruby><rb>&#20098;</rb><rt>loạn</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#21487;</rb><rt>khả</rt></ruby>
-						<ruby><rb>&#24976;</rb><rt>liên</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#23241;</rb><rt>tật</rt></ruby>
-						<ruby><rb>&#22930;</rb><rt>đố</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#30171;</rb><rt>thống</rt></ruby>
-						<ruby><rb>&#33510;</rb><rt>khổ</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#30196;</rb><rt>si</rt></ruby>
-						<ruby><rb>&#36855;</rb><rt>mê</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#32670;</rb><rt>tu</rt></ruby>
-						<ruby><rb>&#36785;</rb><rt>nhục</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#29563;</rb><rt>hiến</rt></ruby>
-						<ruby><rb>&#23194;</rb><rt>mị</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#21361;</rb><rt>nguy</rt></ruby>
-						<ruby><rb>&#38570;</rb><rt>hiểm</rt></ruby>
-						<ruby><rb>&#22659;</rb><rt>cảnh</rt></ruby>
-						<ruby><rb>&#22320;</rb><rt>địa</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#36010;</rb><rt>tham</rt></ruby>
-						<ruby><rb>&#23146;</rb><rt>lam</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#29033;</rb><rt>phiền</rt></ruby>
-						<ruby><rb>&#24817;</rb><rt>não</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#29229;</rb><rt>tranh</rt></ruby>
-						<ruby><rb>&#21517;</rb><rt>danh</rt></ruby>
-						<ruby><rb>&#21033;</rb><rt>lợi</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#21892;</rb><rt>thiện</rt></ruby>
-						<ruby><rb>&#33391;</rb><rt>lương</rt></ruby>
-						<ruby><rb>&#34892;</rb><rt>hành</rt></ruby>
-						<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#22857;</rb><rt>phụng</rt></ruby>
-						<ruby><rb>&#29563;</rb><rt>hiến</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#24184;</rb><rt>hạnh</rt></ruby>
-						<ruby><rb>&#31119;</rb><rt>phúc</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#25918;</rb><rt>phóng</rt></ruby>
-						<ruby><rb>&#24471;</rb><rt>đắc</rt></ruby>
-						<ruby><rb>&#19979;</rb><rt>hạ</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#20661;</rb><rt>trái</rt></ruby>
-						<ruby><rb>&#21209;</rb><rt>vụ</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#21463;</rb><rt>thụ</rt></ruby>
-						<ruby><rb>&#24681;</rb><rt>ân</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#27427;</rb><rt>hân</rt></ruby>
-						<ruby><rb>&#24944;</rb><rt>uỷ</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#24067;</rb><rt>bố</rt></ruby>
-						<ruby><rb>&#26045;</rb><rt>thí</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#36001;</rb><rt>tài</rt></ruby>
-						<ruby><rb>&#23500;</rb><rt>phú</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#20581;</rb><rt>kiện</rt></ruby>
-						<ruby><rb>&#24247;</rb><rt>khang</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#30772;</rb><rt>phá</rt></ruby>
-						<ruby><rb>&#29986;</rb><rt>sản</rt></ruby>
-						<ruby><rb>&#26178;</rb><rt>thì</rt></ruby>
-						<ruby><rb>&#32085;</rb><rt>tuyệt</rt></ruby>
-						<ruby><rb>&#26395;</rb><rt>vọng</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#21487;</rb><rt>khả</rt></ruby>
-						<ruby><rb>&#20329;</rb><rt>bội</rt></ruby>
-						<ruby><rb>&#26381;</rb><rt>phục</rt></ruby>
-						<ruby><rb>&#26178;</rb><rt>thì</rt></ruby>
-						<ruby><rb>&#31934;</rb><rt>tinh</rt></ruby>
-						<ruby><rb>&#36914;</rb><rt>tiến</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#32570;</rb><rt>khuyết</rt></ruby>
-						<ruby><rb>&#27424;</rb><rt>khiếm</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#26178;</rb><rt>thì</rt></ruby>
-						<ruby><rb>&#26234;</rb><rt>trí</rt></ruby>
-						<ruby><rb>&#24935;</rb><rt>tuệ</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#39640;</rb><rt>cao</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#20139;</rb><rt>hưởng</rt></ruby>
-						<ruby><rb>&#21463;</rb><rt>thụ</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#23416;</rb><rt>học</rt></ruby>
-						<ruby><rb>&#20315;</rb><rt>phật</rt></ruby>
-					</li>
-					<li><ruby><rb>&#20154;</rb><rt>Nhân</rt></ruby>
-						<ruby><rb>&#29983;</rb><rt>sinh</rt></ruby>
-						<ruby><rb>&#26368;</rb><rt>tối</rt></ruby>
-						<ruby><rb>&#24555;</rb><rt>khoái</rt></ruby>
-						<ruby><rb>&#27138;</rb><rt>nhạc</rt></ruby>
-						<ruby><rb>&#30340;</rb><rt>đích</rt></ruby>
-						<ruby><rb>&#26159;</rb><rt>thị</rt></ruby>
-						<ruby><rb>&#24565;</rb><rt>niệm</rt></ruby>
-						<ruby><rb>&#20315;</rb><rt>phật</rt></ruby>
-					</li>
-				</ol>
-			</section>
-			<section lang="vi">
-				<header><h2>20 điều tâm niệm</h2></header>
-				<ol>
-					<li>Kẻ thù lớn nhất của đời người là chính mình</li>
-					<li>Thất bại lớn nhất của đời người là tự đại</li>
-					<li>Tội lỗi lớn nhất của đời người là sát sinh</li>
-					<li>Ngu xuẩn lớn nhất của đời người là dối trá</li>
-					<li>Đáng ghét nhất của đời người là dâm loạn</li>
-					<li>Đáng thương nhất của đời người là ghen tị</li>
-					<li>Đau khổ lớn nhất của đời người là si mê</li>
-					<li>Nhục nhã lớn nhất của đời người là nịnh hót</li>
-					<li>Nguy hiểm lớn nhất của đời người là tham lam</li>
-					<li>Phiền não lớn nhất của đời người là tranh danh lợi</li>
-					<li>Lương thiện nhất của đời người là dâng hiến</li>
-					<li>Hạnh phúc lớn nhất của đời người là bỏ qua</li>
-					<li>Món nợ lớn nhất của đời người là chịu ơn người khác</li>
-					<li>An ủi lớn nhất của đời người là bố thí</li>
-					<li>Tài sản lớn nhất của đời người là sức khỏe</li>
-					<li>Phá sản lớn nhất của đời người là tuyệt vọng</li>
-					<li>Đáng khâm phục lớn nhất của đời người là vươn lên sau khi ngã</li>
-					<li>Khiếm khuyết lớn nhất của đời người là trí tuệ</li>
-					<li>Hưởng thụ cao nhất của đời người là học Phật</li>
-					<li>Niềm vui lớn nhất của đời người là niệm Phật</li>
-				</ol>
-			</section>
-			<section lang="en">
-				<header><h2>Twenty Foremosts in Life</h2></header>
-				<ol>
-					<li>The foremost enemy in life is oneself.</li>
-					<li>The foremost disease in life is selfishness.</li>
-					<li>The foremost sadness in life is ignorance.</li>
-					<li>The foremost error in life is delusion.</li>
-					<li>The foremost failure in life is arrogance.</li>
-					<li>The foremost defilement in life is desire.</li>
-					<li>The foremost ignorance in life is to complain.</li>
-					<li>The foremost worry in life is birth and death.</li>
-					<li>The foremost default in life is infringement.</li>
-					<li>The foremost problem in life is understanding right and wrong.</li>
-					<li>The foremost virtue in life is compassion.</li>
-					<li>The foremost courage in life is to admit mistakes.</li>
-					<li>The foremost reward in life is contentment.</li>
-					<li>The foremost energy in life is religious faith.</li>
-					<li>The foremost possession in life is gratitude.</li>
-					<li>The foremost cultivation in life is magnanimity.</li>
-					<li>The foremost asset in life is dignity.</li>
-					<li>The foremost happiness in life is spiritual joy.</li>
-					<li>The foremost hope in life is peace.</li>
-					<li>The foremost devotion in life is to benefit beings.</li>
-				</ol>
+					<ruby><rb>&#34987;</rb><rt>bí</rt></ruby>
+					<ruby><rb>&#25233;</rb><rt>ức</rt></ruby>
+					<ruby><rb>&#19981;</rb><rt>bất</rt></ruby>
+					<ruby><rb>&#27714;</rb><rt>cầu</rt></ruby>
+					<ruby><rb>&#30003;</rb><rt>thân</rt></ruby>
+					<ruby><rb>&#26126;</rb><rt>minh.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#25233;</rb><rt>ức</rt></ruby>
+					<ruby><rb>&#30003;</rb><rt>thân</rt></ruby>
+					<ruby><rb>&#26126;</rb><rt>minh</rt></ruby>
+					<ruby><rb>&#21063;</rb><rt>tắc</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
+					<ruby><rb>&#26410;</rb><rt>vị</rt></ruby>
+					<ruby><rb>&#24536;</rb><rt>vong.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#20309;</rb><rt>Hà</rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố?</rt></ruby>
+					<ruby><rb>&#65311;</rb><rt></rt></ruby>
+					<ruby><rb>&#23384;</rb><rt>tồn</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân</rt></ruby>
+					<ruby><rb>&#25105;</rb><rt>ngã</rt></ruby>
+					<ruby><rb>&#24517;</rb><rt>tất</rt></ruby>
+					<ruby><rb>&#24616;</rb><rt>oán</rt></ruby>
+					<ruby><rb>&#24680;</rb><rt>hận</rt></ruby>
+					<ruby><rb>&#28363;</rb><rt>tư</rt></ruby>
+					<ruby><rb>&#29983;</rb><rt>sinh.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+					<br />
+					<ruby><rb>&#26159;</rb><rt>Thị</rt></ruby>
+					<ruby><rb>&#25925;</rb><rt>cố</rt></ruby>
+					<ruby><rb>&#22823;</rb><rt>đại</rt></ruby>
+					<ruby><rb>&#32854;</rb><rt>thánh</rt></ruby>
+					<ruby><rb>&#21270;</rb><rt>hoá</rt></ruby>
+					<ruby><rb>&#20154;</rb><rt>nhân:</rt></ruby>
+					<ruby><rb>&#65306;</rb><rt></rt></ruby>
+					<ruby><rb>&#20197;</rb><rt>dĩ</rt></ruby>
+					<ruby><rb>&#21463;</rb><rt>thụ</rt></ruby>
+					<ruby><rb>&#25233;</rb><rt>ức</rt></ruby>
+					<ruby><rb>&#28858;</rb><rt>vi</rt></ruby>
+					<ruby><rb>&#34892;</rb><rt>hành</rt></ruby>
+					<ruby><rb>&#38272;</rb><rt>môn.</rt></ruby>
+					<ruby><rb>&#12290;</rb><rt></rt></ruby>
+				</p>
+				<p lang="vi">
+					Bị oan ức không cần biện bạch.<br />
+					Tại sao? Oan ức mà biện bạch là chưa xả nhân ngã.<br />
+					Vì sao? Còn nhân ngã thì oán hận nảy sanh.<br />
+					Cho nên bậc thánh dạy: Lấy oan ức làm cửa ngõ hành đạo.
+				</p>
+				<p lang="en">Do not ask to have your own oppression immediately removed, for if oppression is immediately removed anger will arise.</p>
 			</section>
 		</article>
 
