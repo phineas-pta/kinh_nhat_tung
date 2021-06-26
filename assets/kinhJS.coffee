@@ -97,10 +97,10 @@ elLangShowHide = (el, checked) ->
 darkToggle = ->
 	if this.checked
 		document.documentElement.setAttribute 'data-theme', dkey # do not set for <body> because it breaks position fixed of sidenav
-		this.nextSibling.textContent = '\uD83C\uDF19' # 🌙 surrogate pair
+		this.nextSibling.textContent = '\uD83C\uDF19' # \u{1F319} 🌙 surrogate pair
 		window.localStorage.setItem dkey, y
 	else
 		document.documentElement.removeAttribute 'data-theme'
-		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ surrogate pair
+		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ with modifier
 		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something random not important
 	return null
