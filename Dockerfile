@@ -3,7 +3,7 @@ FROM ruby:alpine
 RUN apk add --no-cache build-base gcc cmake nodejs
 RUN gem install bundler
 
-COPY --chown=jekyll:jekyll . /srv/jekyll/
+COPY . /srv/jekyll/
 WORKDIR /srv/jekyll
 VOLUME /srv/jekyll
 
