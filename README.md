@@ -48,6 +48,8 @@ additional setup:
 
 # use locally
 
-with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve --no-watch`
+with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve --no-watch --baseurl ''`
 
 with Docker: `docker run -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz`
+
+the site is served at `localhost:4000`
