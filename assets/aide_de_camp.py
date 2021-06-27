@@ -53,7 +53,7 @@ def stanzas(textIAST, esc = True, printed = True):
 
 # %%
 
-Han_punc = list("，、：；．。！？…～／‧•●『』「」（）《》〈〉［］【】〖〗〔〕｛｝")
+Han_punc = list("，、：；．。！？…⋯～／‧•●『』「」（）《》〈〉［］【】〖〗〔〕｛｝")
 punc_search = re.compile("(" + "|".join(Han_punc) + ")")
 
 def combo(textHan, textViet, esc = True, printed = True, debug = False):
