@@ -1,0 +1,13 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+.git/
+.gitattributes
+.github/
+.gitignore
+assets/aide_de_camp.py
+assets/example_heart_sutra.png
+assets/fonts/ARPHICPL.txt
+assets/fonts/OFL.txt
