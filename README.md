@@ -13,7 +13,7 @@
 
 thiền môn nhật tụng Việt bằng nhiều thứ tiếng
 
-to be used in liturgy, please ask for a Vietnamese to guide you
+to be used in liturgy, please ask a Vietnamese for help when using this site, i'll make a proper language switcher when i have time
 
 **DISCLAIMER: this is a work of compilation, not garanted for authenticity**
 
