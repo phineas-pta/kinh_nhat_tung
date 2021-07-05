@@ -1,5 +1,5 @@
-# must use Ruby v2 for jekyll version < 4
-FROM ruby:2-alpine
+# lightweight image
+FROM ruby:alpine
 
 # missing tools
 RUN apk add --no-cache build-base gcc cmake nodejs
