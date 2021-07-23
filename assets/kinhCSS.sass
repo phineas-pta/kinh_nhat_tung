@@ -2,6 +2,13 @@
 # placholder for Jekyll to recognize this file
 ---
 
+// ordering in CSS: outside-in principle
+	Layout Properties: position, float, clear, display
+	Box Model Properties: width, height, margin, padding
+	Visual Properties: color, background, border, box-shadow
+	Typography Properties: font-size, font-family, text-align, text-transform
+	Misc Properties: cursor, overflow, z-index
+
 /* *************************** light & dark mode **************************** */
 
 $background: #FAFAFA
@@ -65,8 +72,8 @@ body
 		margin: inherit
 
 #page-header
-	background-color: $topbar-background
 	padding: .5em
+	background-color: $topbar-background
 
 main
 	padding: .5em
@@ -81,19 +88,21 @@ main
 	font-size: large
 
 #loader
-	font-size: x-large
-	line-height: normal
 	position: fixed
 	left: calc(50% - 40px)
 	top: calc(50% - 60px)
+	font-size: x-large
+	line-height: normal
 	z-index: 1
 
 	&::before // draw border independently to the text
 		content: ''
+
 		position: fixed
 		left: 50%
 		top: 50%
 		z-index: 1
+
 		width: 150px
 		height: 150px
 		margin: -75px 0 0 -75px // 150÷2
@@ -102,6 +111,7 @@ main
 		border-radius: 50%
 		border-color: #f3f3f3
 		border-top-color: #3498db
+
 		animation-name: spin // see below
 		animation-duration: 1s
 		animation-iteration-count: infinite
@@ -137,10 +147,10 @@ h2, h3, .multi-lang, .wait-multi-lang, .mantra-seg
 	font-weight: bold
 
 button
-	cursor: pointer
 	border: none
 	outline: none
 	background-color: inherit
+	cursor: pointer
 
 ul, ol // position of the list-item markers
 	list-style-position: inside
@@ -171,9 +181,9 @@ table.inline-table
 	// indent for wrapped text, if this comment is placed in below SASS raises error
 	td
 		padding-left: 1em
-		text-indent: -1em
 		border-style: solid
 		border-width: thin
+		text-indent: -1em
 
 // links to external sources
 a[target='_blank']
@@ -190,12 +200,13 @@ a[target='_blank']
 /* **************************** ruby annotations **************************** */
 
 ruby
-	overflow-wrap: anywhere
-	word-break: break-all
-	word-wrap: break-word
 	display: inline-flex
 	flex-direction: column-reverse
 	margin-right: 0.5em
+
+	overflow-wrap: anywhere
+	word-break: break-all
+	word-wrap: break-word
 
 // ruby base, if this comment is placed in below SASS raises error
 rb
@@ -205,6 +216,7 @@ rb
 	&:lang(zh-Hant)
 		font-family: 'ChineseFont'
 		font-size: 175% // because this font is so small
+
 	&:lang(sa), &:lang(pi)
 		font-family: 'SiddhamFont'
 		font-size: 125% // because this font is small
@@ -228,11 +240,11 @@ rt
 #hamburger
 	position: sticky
 	top: 0
-	background-color: $topbar-background
-	transition: 0.5s
 	display: flex
+	background-color: $topbar-background
 	justify-content: space-between // items are evenly distributed in the line
 	align-items: center // items are centered in the cross-axis
+	transition: 0.5s
 
 	> button // hamburger button
 		width: 4rem
@@ -269,15 +281,17 @@ input[type='checkbox']
 /* *************************** navigation sidebar *************************** */
 
 #sidenav
-	height: 100%
-	width: 0 // hidden ◄ change this with JavaScript
 	position: fixed // Stay in place
 	z-index: 1 // Stay on top
 	top: 0 // Stay at the top
 	left: 0
-	background-color: $sidenav-background
+
+	height: 100%
+	width: 0 // hidden ◄ change this with JavaScript
 	overflow-x: hidden // Disable horizontal scroll
 	overflow-y: auto
+
+	background-color: $sidenav-background
 	transition: 0.5s
 
 	> ul
@@ -294,8 +308,8 @@ input[type='checkbox']
 		top: 0
 		right: 25px
 		z-index: -1
-		font-size: 2em
 		margin-left: 50px
+		font-size: 2em
 
 	a:hover, button:hover
 		color: $sidenav-links-hover
