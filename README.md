@@ -48,6 +48,8 @@ additional setup:
 
 # use locally
 
+![funny](https://img.shields.io/badge/hosted%20by-localhost-brightgreen?style=for-the-badge&logo=serverless)
+
 with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve --no-watch`
 
 with Docker: `docker run -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz:release`
