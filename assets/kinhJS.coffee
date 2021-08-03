@@ -15,10 +15,7 @@ Element.prototype.isEmpty = -> # new method for all elements
 Element.prototype.toggleShowHide = (boolean) ->
 	this.style.display = if boolean then 'unset' else 'none'
 
-checkbox_change_ev = document.createEvent 'HTMLEvents' # to replace jQuery trigger
-checkbox_change_ev.initEvent 'change', true, false
-
-window.addEventListener 'load', ->
+window.onload = ->
 
 	hamburger = document.getElementById 'hamburger' # save this to avoid repetition
 	hamburgerHeight = hamburger.offsetHeight
@@ -26,11 +23,11 @@ window.addEventListener 'load', ->
 	hamburgerHeight += parseInt(hamburgerStyle.marginTop) + parseInt(hamburgerStyle.marginBottom)
 
 	# hamburger button: open sidenav
-	document.querySelector('#hamburger > button').addEventListener 'click', open_sidenav
+	document.querySelector('#hamburger > button').onclick = open_sidenav
 
 	# close sidenav when clicking a link or the main content: delegate to all children of #sidenav
 	sidenav = document.getElementById 'sidenav' # save this to avoid repetition
-	Array.from(sidenav.children).forEach (el) => el.addEventListener 'click', close_sidenav
+	Array.from(sidenav.children).forEach (el) => el.onclick = close_sidenav
 
 	# langForm checkboxes: show/hide langs
 	langForm = document.getElementById 'langForm' # save this to avoid repetition
@@ -42,16 +39,16 @@ window.addEventListener 'load', ->
 			langForm.querySelector("input[value=#{langg}]").checked = true
 
 	Array.from(langForm.querySelectorAll 'input').forEach (el) ->
-		el.addEventListener 'change', langToggle
-		el.dispatchEvent checkbox_change_ev # check initial state
+		el.onchange = langToggle
+		el.onchange() # check initial state
 
 	# dark mode toggle
 	themeSwitch = document.getElementById 'themeSwitch' # save this to avoid repetition
-	themeSwitch.addEventListener 'change', darkToggle
+	themeSwitch.onchange = darkToggle
 	dstate = window.localStorage.getItem dkey
 	if dstate == y or (not dstate? and window.matchMedia("(prefers-color-scheme: #{dkey})").matches)
 		themeSwitch.checked = true # pre-check the dark-theme checkbox
-	themeSwitch.dispatchEvent checkbox_change_ev # check initial state
+	themeSwitch.onchange() # check initial state
 
 	# remove the loader as page loaded
 	document.getElementsByTagName('main')[0].style.filter = 'none'
@@ -59,12 +56,21 @@ window.addEventListener 'load', ->
 
 	return null
 
-window.addEventListener 'scroll', -> # when scroll down, hide the topbar, when scroll up, show the topbar
+window.onscroll = -> # when scroll down, hide the topbar, when scroll up, show the topbar
 	currentScrollPos = document.documentElement.scrollTop
 	effectScrollPos = if currentScrollPos > 500 then currentScrollPos else 0 # meaningful only
 	pxToHide = if prevScrollPos > effectScrollPos then '0' else "-#{hamburgerHeight}px"# value def below
 	hamburger.style.top = pxToHide # cannot use toggle because of sticky position
 	prevScrollPos = effectScrollPos
+	return null
+
+window.onpopstate = (e) -> # event: click back/forward button in browser
+	# change url without reloading
+	fetch window.location.pathname
+		.then (response) => response.text()
+		.then (newPageHTML) => # ATTENTION no window.history.pushState
+			document.body.innerHTML = newPageHTML
+			window.onload()
 	return null
 
 open_sidenav = ->
