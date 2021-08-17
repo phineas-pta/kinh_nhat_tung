@@ -26,6 +26,8 @@ defaults: # make setup for all HTML, no need to do for each file
 
 collections_dir: texts
 collections:
+  posts: # 1st collection is always `posts`
+    output: false
   than-chu:
     collname: Các thần chú
     order: 1
