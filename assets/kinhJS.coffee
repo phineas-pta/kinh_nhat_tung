@@ -7,7 +7,7 @@
 y = 'yesssss' # to save some data
 dkey = 'dark' # keyword for dark theme
 prevScrollPos = hamburgerHeight = 0 # placeholder global value
-langElemMap = new Map() # cache all elem of each lang
+langElemMap = new Map # cache all elem of each lang
 
 Element.prototype.isEmpty = -> # new method for all elements
 	return this.textContent.trim() == "" # cleaning + make sure it's empty
