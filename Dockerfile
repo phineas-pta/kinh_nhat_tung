@@ -9,7 +9,6 @@ RUN apk add --no-cache build-base gcc cmake nodejs \
 # working dir
 COPY . /srv/jekyll/
 WORKDIR /srv/jekyll
-VOLUME /srv/jekyll
 
 RUN bundle install
 
