@@ -111,3 +111,7 @@ darkToggle = ->
 		document.documentElement.removeAttribute 'data-theme'
 		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ with modifier
 		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something random not important
+
+# service worker for PWA
+if 'serviceWorker' in navigator
+	navigator.serviceWorker.register('/kinh_nhat_tung/assets/service-worker.js')
