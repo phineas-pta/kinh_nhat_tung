@@ -15,6 +15,10 @@
 	"icons": [
 		{
 			"src": "/kinh_nhat_tung/assets/favicon.ico"
+		}, {
+			"src": "/kinh_nhat_tung/assets/anh-bia.jpg",
+			"sizes": "512x512",
+			"type": "image/jpeg"
 		}
 	],
 	"shortcuts": []
