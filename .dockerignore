@@ -9,6 +9,5 @@ _site/
 .gitignore
 .editorconfig
 assets/aide_de_camp.py
-assets/images/*.png
 assets/fonts/*.txt
 Gemfile.lock
