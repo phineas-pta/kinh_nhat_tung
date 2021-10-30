@@ -8,16 +8,29 @@
 	"orientation": "any",
 	"scope": "/",
 	"start_url": "/",
+	"prefer_related_applications": false,
 	"background_color": "#BF8F00",
 	"theme_color": "#BF8F00",
 	"categories": [],
 	"icons": [
 		{
-			"src": "/kinh_nhat_tung/assets/anh-bia.png",
+			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}, {
+			"src": "/kinh_nhat_tung/assets/images/anh-bia_x512.png",
 			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/kinh_nhat_tung/assets/images/example_heart_sutra.png",
+			"sizes": "883x624",
 			"type": "image/png"
 		}
 	],
-	"screenshots": [],
 	"shortcuts": []
 }

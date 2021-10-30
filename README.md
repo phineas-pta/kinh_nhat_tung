@@ -25,7 +25,7 @@ many thanks to The Open Buddhist University for sharing my project on [their sit
 
 # web page formatting
 
-| ![Screenshot showing Heart Sutra example](assets/example_heart_sutra.png) |
+| ![Screenshot showing Heart Sutra example](assets/images/example_heart_sutra.png) |
 |:--:|
 | *Screenshot showing Heart Sutra example* |
 
