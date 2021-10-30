@@ -11,7 +11,7 @@
 	"prefer_related_applications": false,
 	"background_color": "#BF8F00",
 	"theme_color": "#BF8F00",
-	"categories": [],
+	"categories": ["buddhism", "vietnamese", "mahayana", "rituals", "liturgy", "translation"],
 	"icons": [
 		{
 			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.png",
