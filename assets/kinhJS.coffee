@@ -55,7 +55,7 @@ window.onload = =>
 	document.getElementById('loader').remove()
 
 	# service worker for PWA
-	navigator.serviceWorker.register '/kinh_nhat_tung/assets/service-worker.js'
+	navigator.serviceWorker.register '/kinh_nhat_tung/service-worker.js'
 
 window.onscroll = => # when scroll down, hide the topbar, when scroll up, show the topbar
 	currentScrollPos = document.documentElement.scrollTop

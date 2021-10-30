@@ -7,7 +7,7 @@
 	"lang": "vi",
 	"orientation": "any",
 	"scope": "/kinh_nhat_tung",
-	"start_url": "/kinh_nhat_tung",
+	"start_url": "/kinh_nhat_tung/",
 	"prefer_related_applications": false,
 	"background_color": "#BF8F00",
 	"theme_color": "#BF8F00",
