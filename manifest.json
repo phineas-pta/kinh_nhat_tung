@@ -1,0 +1,21 @@
+{
+	"background_color": "none",
+	"description": "Vietnamese Mahayana Buddhism rituals in multiple languages",
+	"dir": "ltr",
+	"display": "standalone",
+	"lang": "vi",
+	"name": "Kinh nhật tụng",
+	"orientation": "any",
+	"scope": "/",
+	"short_name": "Kinh nhật tụng",
+	"start_url": "/",
+	"theme_color": "none",
+	"categories": [],
+	"screenshots": [],
+	"icons": [
+		{
+			"src": "/kinh_nhat_tung/assets/favicon.ico"
+		}
+	],
+	"shortcuts": []
+  }
