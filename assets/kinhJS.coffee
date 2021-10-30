@@ -54,6 +54,9 @@ window.onload = =>
 	document.getElementsByTagName('main')[0].style.filter = 'none'
 	document.getElementById('loader').remove()
 
+	# service worker for PWA
+	navigator.serviceWorker.register '/kinh_nhat_tung/assets/service-worker.js'
+
 window.onscroll = => # when scroll down, hide the topbar, when scroll up, show the topbar
 	currentScrollPos = document.documentElement.scrollTop
 	effectScrollPos = if currentScrollPos > 500 then currentScrollPos else 0 # meaningful only
@@ -111,7 +114,3 @@ darkToggle = ->
 		document.documentElement.removeAttribute 'data-theme'
 		this.nextSibling.textContent = '\u2600\uFE0F' # ☀️ with modifier
 		window.localStorage.setItem dkey, 'tdyutrghjtucvghjtc' # something random not important
-
-# service worker for PWA
-if 'serviceWorker' in navigator
-	navigator.serviceWorker.register('/kinh_nhat_tung/assets/service-worker.js')
