@@ -6,8 +6,8 @@
 	"display": "standalone",
 	"lang": "vi",
 	"orientation": "any",
-	"scope": "/kinh_nhat_tung",
-	"start_url": "/kinh_nhat_tung/",
+	"start_url": "/kinh_nhat_tung/index.html",
+	"scope": "/kinh_nhat_tung/",
 	"prefer_related_applications": false,
 	"background_color": "#BF8F00",
 	"theme_color": "#BF8F00",
@@ -17,12 +17,12 @@
 			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.png",
 			"sizes": "192x192",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"purpose": "maskable"
 		}, {
 			"src": "/kinh_nhat_tung/assets/images/anh-bia_x512.png",
 			"sizes": "512x512",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"purpose": "maskable"
 		}
 	],
 	"screenshots": [
