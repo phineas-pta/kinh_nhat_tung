@@ -12,6 +12,12 @@
 	<link rel="apple-touch-icon" href="/kinh_nhat_tung/assets/images/anh-bia_x192.ico" /><!-- for PWA in Apple Safari -->
 	<link rel="stylesheet" href="/kinh_nhat_tung/assets/kinhCSS.css" />
 	<script src="/kinh_nhat_tung/assets/kinhJS.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			console.log('register service worker for pwa');
+			navigator.serviceWorker.register('/kinh_nhat_tung/service-worker.js');
+		}
+	</script>
 	{% seo %}
 </head>
 <body>
