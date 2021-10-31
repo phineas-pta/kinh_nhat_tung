@@ -14,6 +14,11 @@
 	"categories": ["buddhism", "vietnamese", "mahayana", "rituals", "liturgy", "translation"],
 	"icons": [
 		{
+			"src": "/kinh_nhat_tung/assets/images/anh-bia.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		}, {
 			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.png",
 			"sizes": "192x192",
 			"type": "image/png",
