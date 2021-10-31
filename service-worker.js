@@ -39,16 +39,4 @@ self.addEventListener('activate', (e) => {
 // retrieve from server, if offline then retrieve from cache
 self.addEventListener('fetch', (e) => {
 	console.log(`[Servic Worker] fetching resource ${e.request.url}`);
-	e.respondWith(async () => {
-		try {
-			var
-				res = await fetch(e.request),
-				cache = await caches.open(cacheName)
-			;
-			cache.put(e.request, res.clone());
-			return res;
-		} catch (error) {
-			return caches.match(e.request);
-		}
-	});
 });
