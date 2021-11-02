@@ -5,8 +5,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/phineas-pta/kinh_nhat_tung?logo=github)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/phineas-pta/kinh_nhat_tung?logo=github)
 ![GitHub repo size](https://img.shields.io/github/repo-size/phineas-pta/kinh_nhat_tung?logo=github)
-![Docker build](https://img.shields.io/docker/automated/horimiyasanxmiyamurakun/dr.doofenshmirtz?logo=docker)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/phineas-pta/kinh_nhat_tung/Publish%20Docker%20image?logo=docker)
+![GitHub Workflow Status](https://github.com/phineas-pta/kinh_nhat_tung/actions/workflows/docker.yml/badge.svg)
 ![Docker Image Size](https://img.shields.io/docker/image-size/horimiyasanxmiyamurakun/dr.doofenshmirtz?logo=docker)
 
 # Vietnamese Mahayana Buddhist liturgy in multiple languages
