@@ -2,8 +2,9 @@ image: ruby:alpine
 
 pages:
   script:
-  - bundle install
-  - bundle exec jekyll build -d public
+    - apk add --no-cache build-base gcc cmake nodejs
+    - bundle install
+    - bundle exec jekyll build -d public
   artifacts:
     paths:
     - public
