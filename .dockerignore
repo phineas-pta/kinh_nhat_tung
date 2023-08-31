@@ -1,0 +1,13 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+.git/
+.gitattributes
+.github/
+.gitignore
+.editorconfig
+assets/aide_de_camp.py
+assets/fonts/*.txt
+Gemfile.lock

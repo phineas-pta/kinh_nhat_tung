@@ -1,0 +1,75 @@
+# Welcome to Jekyll!
+
+title: Kinh nhật tụng
+author: PTA
+email: phantuananh@hotmail.com.vn
+description: >- # this means to ignore newlines
+  Vietnamese Mahayana Buddhism rituals in multiple languages
+url: "https://phineas-pta.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/kinh_nhat_tung" # the subpath of your site, e.g. /blog
+github_username: phineas-pta
+
+# Build settings
+theme: null
+plugins:
+  - jekyll-sass-converter
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+
+defaults: # make setup for all HTML, no need to do for each file
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: default
+
+collections_dir: texts
+collections:
+  posts: # 1st collection is always `posts`
+    output: false
+  than-chu:
+    collname: Các thần chú
+    order: 1
+    output: true
+    sort_by: numb
+  mo-dau:
+    collname: Kệ mở đầu
+    order: 2
+    output: true
+    sort_by: numb
+  khai-kinh:
+    collname: Kệ khai kinh
+    order: 3
+    output: true
+    sort_by: numb
+  chanh-kinh:
+    collname: Chánh kinh
+    order: 4
+    output: true
+    sort_by: numb
+  thu-kinh:
+    collname: Kệ thu kinh
+    order: 5
+    output: true
+    sort_by: numb
+  ket-thuc:
+    collname: Kệ kết thúc
+    order: 6
+    output: true
+    sort_by: numb
+
+exclude:
+  - .bundle/
+  - .git/
+  - .gitattributes
+  - .github/
+  - .gitignore
+  - assets/aide_de_camp.py
+  - assets/fonts/ARPHICPL.txt
+  - assets/fonts/OFL.txt
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md

@@ -1,3 +1,8 @@
-assets/images/*.png filter=lfs diff=lfs merge=lfs -text
-assets/fonts/*.woff2 filter=lfs diff=lfs merge=lfs -text
-assets/fonts/*.ttf filter=lfs diff=lfs merge=lfs -text
+# exclude multiples HTML files from GitHub stats
+texts/*/*.html linguist-vendored
+quotations.html linguist-vendored
+_includes/*.html linguist-vendored
+_layouts/*.html  linguist-vendored
+
+# DO NOT USE Git LFS for fonts, it mess up files served to service-worker.
+# IF REALLY NEED TO, then must write custom GitHub workflow to deploy

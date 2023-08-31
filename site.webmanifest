@@ -1,0 +1,41 @@
+{
+	"name": "Kinh nhật tụng",
+	"short_name": "Kinh nhật tụng",
+	"description": "Vietnamese Mahayana Buddhism rituals in multiple languages",
+	"dir": "ltr",
+	"display": "standalone",
+	"lang": "vi",
+	"orientation": "any",
+	"start_url": "/kinh_nhat_tung/index.html",
+	"scope": "/kinh_nhat_tung/",
+	"prefer_related_applications": false,
+	"background_color": "#BF8F00",
+	"theme_color": "#BF8F00",
+	"categories": ["buddhism", "vietnamese", "mahayana", "rituals", "liturgy", "translation"],
+	"icons": [
+		{
+			"src": "/kinh_nhat_tung/assets/images/anh-bia.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		}, {
+			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		}, {
+			"src": "/kinh_nhat_tung/assets/images/anh-bia_x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/kinh_nhat_tung/assets/images/example_heart_sutra.png",
+			"sizes": "883x624",
+			"type": "image/png"
+		}
+	],
+	"shortcuts": []
+}

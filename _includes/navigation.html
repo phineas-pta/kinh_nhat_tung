@@ -1,0 +1,36 @@
+<nav lang="vi" id="sidenav"><!-- sidenav content depends on currently selected tab -->
+	<button title="close navigation sidebar menu" type="button">×</button><!-- close button -->
+	<ul>
+		<li><a rel="prev" href="{{ site.baseurl }}/">Giới thiệu</a></li>
+
+		{% assign mycollecs = site.collections | sort: 'order' %}
+		{% for collec in mycollecs offset:1 %}<!-- 1st collec is `posts`, cannot change -->
+			<li>{{ collec.collname }}:<ul>
+				{% assign myitems = collec.docs | sort: 'numb' %}
+				{% for item in myitems %}
+					<li><a
+						{% if page.url == item.url %} {% comment %} detect current page {% endcomment %}
+							style="color: red;"
+						{% else %}
+							rel="next" href="{{ site.baseurl | append: item.url }}"
+						{% endif %}
+					>{{ item.title }}</a></li>
+				{% endfor %}
+			</ul></li>
+		{% endfor %}
+
+	</ul>
+</nav>
+<script>
+	// change url without reloading
+	// not available for quotations.html
+	Array.from(sidenav.querySelectorAll('a')).forEach(el => el.addEventListener('click', function(event) {
+		event.preventDefault(); // prevent loading when clicking
+		fetch(this.href).then(response => response.text()).then(newPageHTML => { // load the new page
+			window.history.pushState(null, null, this.href); // change url
+			document.body.innerHTML = newPageHTML; // load page content
+			window.onload(); // trigger redering
+		})
+		return null;
+	}))
+</script>

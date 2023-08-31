@@ -1,0 +1,315 @@
+---
+# placholder for Jekyll to recognize this file
+---
+
+// ordering in CSS: outside-in principle
+	Layout Properties: position, float, clear, display
+	Box Model Properties: width, height, margin, padding
+	Visual Properties: color, background, border, box-shadow
+	Typography Properties: font-size, font-family, text-align, text-transform
+	Misc Properties: cursor, overflow, z-index
+
+/* *************************** light & dark mode **************************** */
+
+$background: #FAFAFA
+$langs: ('en': #F73B08, 'fr': #3A8098, 'de': #B023F5, 'it': #388256)
+$text-rb: #939597
+$topbar-background: #BF8F00
+$topbar-background-hover: #9C786C
+$sidenav-background: #EBF7E3
+$sidenav-links: #1A3D00
+$sidenav-links-hover: #5EE000
+$lineHeight: calc(1.2em + 1vw) // molten leading
+
+[data-theme='dark'] // do not set for <body> because it breaks position fixed of sidenav
+	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
+	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
+
+// https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf
+@font-face
+	font-family: 'IAST-font'
+	src: url('fonts/Charmonman-Regular.woff2') format('woff2'), url('fonts/Charmonman-Regular.ttf') format('truetype')
+
+// https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
+@font-face
+	font-family: 'SinoViet-font'
+	src: url('fonts/GrenzeGotisch-ExtraBold.woff2') format('woff2'), url('fonts/GrenzeGotisch-ExtraBold.ttf') format('truetype')
+
+// https://github.com/Omnibus-Type/MuseoModerno/blob/master/fonts/ttf/MuseoModerno-Regular.ttf
+@font-face
+	font-family: 'VietFont'
+	src: url('fonts/MuseoModerno-Regular.woff2') format('woff2'), url('fonts/MuseoModerno-Regular.ttf') format('truetype')
+
+// Chinese font: traditional + KaiTi 楷体 khải thư:
+	ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
+@font-face
+	font-family: 'ChineseFont'
+	src: url('fonts/UKaiHK-02.woff2') format('woff2'), url('fonts/UKaiHK-02.ttf') format('truetype')
+// other FLOSS fonts:
+	https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
+	https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
+	https://www.fonts.net.cn/fonts-zh/tag-kaiti-1.html?previewText=摩睺羅迦
+	https://www.sentyfont.com/download.htm
+
+// Siddham script font:
+	https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
+@font-face
+	font-family: 'SiddhamFont'
+	src: url('fonts/NotoSansSiddham-Regular.woff2') format('woff2'), url('fonts/NotoSansSiddham-Regular.ttf') format('truetype')
+// other FLOSS font: https://github.com/MihailJP/Muktamsiddham
+
+/* **************************** page components ***************************** */
+
+body
+	padding: 0
+	margin: 0
+	font-family: Roboto, Helvetica, sans-serif
+	font-size: clamp(16px, calc(1em + 1vw), 5vw) // fluid typography
+	line-height: $lineHeight
+
+	> * // remove all blank gap between elements
+		padding: inherit
+		margin: inherit
+
+#page-header
+	padding: .5em
+	background-color: $topbar-background
+
+main
+	padding: .5em
+	background-color: $background
+	filter: blur(5px) // at preload, to be remove once page loaded
+
+	ul > li::marker
+		content: '\1F449' // 👉
+
+#page-footer
+	background-color: $background
+	font-size: large
+
+#loader
+	position: fixed
+	left: calc(50% - 40px)
+	top: calc(50% - 60px)
+	font-size: x-large
+	line-height: normal
+	z-index: 1
+
+	&::before // draw border independently to the text
+		content: ''
+
+		position: fixed
+		left: 50%
+		top: 50%
+		z-index: 1
+
+		width: 150px
+		height: 150px
+		margin: -75px 0 0 -75px // 150÷2
+		border-width: 16px
+		border-style: solid
+		border-radius: 50%
+		border-color: #f3f3f3
+		border-top-color: #3498db
+
+		animation-name: spin // see below
+		animation-duration: 1s
+		animation-iteration-count: infinite
+
+@keyframes spin
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+
+/* ***************************** HTML elements ****************************** */
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+h1
+	color: $background
+	font-family: 'SinoViet-font'
+h2
+	color: $topbar-background
+h3
+	color: $sidenav-links
+	font-style: italic
+
+// color for each language + change some font style
+h2, h3, .multi-lang, .wait-multi-lang, .mantra-seg
+	@each $name, $color in $langs
+		& > :lang(#{$name})
+			color: $color
+	& > :lang(vi)
+		font-family: 'VietFont'
+		font-size: larger
+.mantra-seg span:lang(vi)
+	font-weight: bold
+
+button
+	border: none
+	outline: none
+	background-color: inherit
+	cursor: pointer
+
+ul, ol // position of the list-item markers
+	list-style-position: inside
+
+.dong-khung
+	border-style: dashed
+	border-width: thin
+	border-radius: 8px
+	padding-top: calc($lineHeight * .75)
+	padding-left: 1rem
+	padding-right: 1rem
+	margin: 1rem 0
+	width: fit-content
+
+.center-text
+	text-align: center
+
+table.inline-table
+	display: inline-table
+	vertical-align: middle
+	border-collapse: collapse
+	margin-bottom: 2em // to align with text line
+
+	tr
+		margin-top: 5px
+		margin-left: 5px
+
+	// indent for wrapped text, if this comment is placed in below SASS raises error
+	td
+		padding-left: 1em
+		border-style: solid
+		border-width: thin
+		text-indent: -1em
+
+// links to external sources
+a[target='_blank']
+	font-family: monospace
+	font-size: smaller
+	overflow-wrap: anywhere
+	word-break: break-all
+	word-wrap: break-word
+
+	&::before
+		content: '\1F517' // 🔗
+		font-size: smaller
+
+/* **************************** ruby annotations **************************** */
+
+// see how it was improved https://codereview.stackexchange.com/q/260732/242219
+
+ruby
+	display: inline-flex
+	flex-direction: column-reverse
+	margin-right: 0.5em
+
+	overflow-wrap: anywhere
+	word-break: break-all
+	word-wrap: break-word
+
+rb
+	display: inline // with infline-flex above
+	color: $text-rb
+
+	&:lang(zh-Hant)
+		font-family: 'ChineseFont'
+		font-size: 175% // because this font is so small
+
+	&:lang(sa), &:lang(pi)
+		font-family: 'SiddhamFont'
+		font-size: 125% // because this font is small
+
+rt
+	display: inline // with infline-flex above
+	line-height: 1.5 // with infline-flex above
+	font-size: inherit // because font unexpectedly got smaller
+	text-align: left // to work together with rb margin
+
+	&:lang(zh-Hant)
+		font-family: 'SinoViet-font'
+		font-size: larger
+
+	&:lang(sa), &:lang(pi)
+		font-family: 'IAST-font'
+
+/* ******************************* topnav bar ******************************* */
+
+#hamburger
+	position: sticky
+	top: 0
+	display: flex
+	background-color: $topbar-background
+	justify-content: space-between // items are evenly distributed in the line
+	align-items: center // items are centered in the cross-axis
+	transition: 0.5s
+
+	> button // hamburger button
+		width: 4rem
+		&:hover
+			background-color: $topbar-background-hover
+
+	> label // darkmode toggle
+		font-size: 2.5rem
+
+#langForm
+	display: none // hide dropdown content
+	color: $background
+	background-color: $topbar-background
+	> label
+		padding: 5px
+
+#dropdown
+	> button
+		color: $background
+		font-family: 'VietFont'
+		font-size: inherit
+		&::after
+			content: '\A0\25BC' // ▼
+
+	&:hover #langForm // show dropdown content
+		display: flex
+		flex-direction: column
+		position: absolute // display out of flexbox #hamburger
+
+// checkbox size
+input[type='checkbox']
+	transform: scale(2)
+
+/* *************************** navigation sidebar *************************** */
+
+#sidenav
+	position: fixed // Stay in place
+	z-index: 1 // Stay on top
+	top: 0 // Stay at the top
+	left: 0
+
+	height: 100%
+	width: 0 // hidden ◄ change this with JavaScript
+	overflow-x: hidden // Disable horizontal scroll
+	overflow-y: auto
+
+	background-color: $sidenav-background
+	transition: 0.5s
+
+	> ul
+		margin: 0.5em
+
+		// navigation menu links, if this comment is placed in below SASS raises error
+		a
+			text-decoration: none
+			color: $sidenav-links
+
+	// Position and style the close button (top right corner), if this comment is placed in below SASS raises error
+	> button
+		position: absolute
+		top: 0
+		right: 25px
+		z-index: -1
+		margin-left: 50px
+		font-size: 2em
+
+	a:hover, button:hover
+		color: $sidenav-links-hover
