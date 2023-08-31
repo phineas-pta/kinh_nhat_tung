@@ -1,12 +1,9 @@
-# Welcome to Jekyll!
-
 title: Kinh nhật tụng
 author: PTA
 email: phantuananh@hotmail.com.vn
-description: >- # this means to ignore newlines
-  Vietnamese Mahayana Buddhism rituals in multiple languages
-url: "https://phineas-pta.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/kinh_nhat_tung" # the subpath of your site, e.g. /blog
+description: Vietnamese Mahayana Buddhism rituals in multiple languages
+url: "https://phineas-pta.github.io"
+# baseurl: "/kinh_nhat_tung" # on local
 github_username: phineas-pta
 
 # Build settings
@@ -69,7 +66,5 @@ exclude:
   - assets/fonts/ARPHICPL.txt
   - assets/fonts/OFL.txt
   - Dockerfile
-  - Gemfile
-  - Gemfile.lock
   - LICENSE
   - README.md
