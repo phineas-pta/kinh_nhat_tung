@@ -3,26 +3,38 @@ author: PTA
 email: phantuananh@hotmail.com.vn
 description: Vietnamese Mahayana Buddhism rituals in multiple languages
 url: "https://phineas-pta.github.io"
-# baseurl: "/kinh_nhat_tung" # on local
+baseurl: "/kinh_nhat_tung" # can be overidden with command line
 github_username: phineas-pta
 
 # Build settings
 theme: null
 plugins:
-  - jekyll-sass-converter
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-coffeescript
 
 defaults: # make setup for all HTML, no need to do for each file
   -
     scope:
       path: "" # an empty string here means all files in the project
     values:
-      layout: default
+      layout: default # html file in layout folder
+  -
+    scope:
+      path: "404.html"
+    values:
+      layout: null
+      search: exclude
+      sitemap: false
+  -
+    scope:
+      path: "quotations.html"
+    values:
+      layout: null
+      search: exclude
+      sitemap: false
 
 collections_dir: texts
-collections:
+collections: # handle how entries are sorted in sidebar in webpage
   posts: # 1st collection is always `posts`
     output: false
   than-chu:
@@ -56,15 +68,19 @@ collections:
     output: true
     sort_by: numb
 
+# do not change Liquid error mode, coz bug with sitemap
+
 exclude:
   - .bundle/
+  - .dockerignore
+  - .editorconfig
   - .git/
   - .gitattributes
   - .github/
   - .gitignore
+  - .gitlab-ci.yml
   - assets/aide_de_camp.py
-  - assets/fonts/ARPHICPL.txt
-  - assets/fonts/OFL.txt
+  - assets/fonts/*.txt
   - Dockerfile
   - LICENSE
   - README.md

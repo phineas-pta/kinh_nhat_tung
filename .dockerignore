@@ -3,11 +3,12 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .bundle/
+.editorconfig
 .git/
 .gitattributes
 .github/
 .gitignore
-.editorconfig
+.gitlab-ci.yml
 assets/aide_de_camp.py
 assets/fonts/*.txt
 Gemfile.lock

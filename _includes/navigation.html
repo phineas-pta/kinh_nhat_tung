@@ -21,16 +21,3 @@
 
 	</ul>
 </nav>
-<script>
-	// change url without reloading
-	// not available for quotations.html
-	Array.from(sidenav.querySelectorAll('a')).forEach(el => el.addEventListener('click', function(event) {
-		event.preventDefault(); // prevent loading when clicking
-		fetch(this.href).then(response => response.text()).then(newPageHTML => { // load the new page
-			window.history.pushState(null, null, this.href); // change url
-			document.body.innerHTML = newPageHTML; // load page content
-			window.onload(); // trigger redering
-		})
-		return null;
-	}))
-</script>

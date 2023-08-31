@@ -1,6 +1,6 @@
 ![License](https://img.shields.io/github/license/phineas-pta/kinh_nhat_tung)
 ![GitHub last commit](https://img.shields.io/github/last-commit/phineas-pta/kinh_nhat_tung?logo=git)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/phineas-pta/kinh_nhat_tung/master?logo=github)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/phineas-pta/kinh_nhat_tung/main?logo=github)
 ![GitHub deployments](https://img.shields.io/github/deployments/phineas-pta/kinh_nhat_tung/github-pages?logo=jekyll&label=Github%20page)
 ![GitHub language count](https://img.shields.io/github/languages/count/phineas-pta/kinh_nhat_tung?logo=github)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/phineas-pta/kinh_nhat_tung?logo=github)

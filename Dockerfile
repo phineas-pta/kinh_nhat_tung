@@ -2,9 +2,9 @@
 FROM ruby:alpine
 
 # missing tools
-RUN apk add --no-cache build-base gcc cmake nodejs \
- && gem update \
- && gem install bundler
+RUN apk add --no-cache build-base gcc cmake nodejs &&\
+    gem update &&\
+    gem install bundler
 
 # working dir
 COPY . /srv/jekyll/

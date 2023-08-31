@@ -14,27 +14,23 @@
 	"categories": ["buddhism", "vietnamese", "mahayana", "rituals", "liturgy", "translation"],
 	"icons": [
 		{
-			"src": "/kinh_nhat_tung/assets/images/anh-bia.png",
-			"sizes": "512x512",
-			"type": "image/png",
+			"src": "/kinh_nhat_tung/assets/images/anh-bia-goc.jpg",
+			"sizes": "any",
 			"purpose": "any"
 		}, {
-			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.png",
+			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.jpg",
 			"sizes": "192x192",
-			"type": "image/png",
 			"purpose": "maskable"
 		}, {
-			"src": "/kinh_nhat_tung/assets/images/anh-bia_x512.png",
+			"src": "/kinh_nhat_tung/assets/images/anh-bia_x512.jpg",
 			"sizes": "512x512",
-			"type": "image/png",
 			"purpose": "maskable"
 		}
 	],
 	"screenshots": [
 		{
 			"src": "/kinh_nhat_tung/assets/images/example_heart_sutra.png",
-			"sizes": "883x624",
-			"type": "image/png"
+			"sizes": "any"
 		}
 	],
 	"shortcuts": []

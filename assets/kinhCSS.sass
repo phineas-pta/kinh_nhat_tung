@@ -2,7 +2,7 @@
 # placholder for Jekyll to recognize this file
 ---
 
-// ordering in CSS: outside-in principle
+/* ordering in CSS: outside-in principle
 	Layout Properties: position, float, clear, display
 	Box Model Properties: width, height, margin, padding
 	Visual Properties: color, background, border, box-shadow
@@ -40,18 +40,18 @@ $lineHeight: calc(1.2em + 1vw) // molten leading
 	font-family: 'VietFont'
 	src: url('fonts/MuseoModerno-Regular.woff2') format('woff2'), url('fonts/MuseoModerno-Regular.ttf') format('truetype')
 
-// Chinese font: traditional + KaiTi 楷体 khải thư:
+/* Chinese font: traditional + KaiTi 楷体 khải thư:
 	ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
 @font-face
 	font-family: 'ChineseFont'
 	src: url('fonts/UKaiHK-02.woff2') format('woff2'), url('fonts/UKaiHK-02.ttf') format('truetype')
-// other FLOSS fonts:
+/* other FLOSS fonts:
 	https://freehkfonts.opensource.hk/fonts/Free-HK-Kai_4700-v1.02.ttf
 	https://github.com/l10n-tw/cwtex-q-fonts-TTFs/blob/master/ttf/cwTeXQKaiZH-Medium.ttf
 	https://www.fonts.net.cn/fonts-zh/tag-kaiti-1.html?previewText=摩睺羅迦
 	https://www.sentyfont.com/download.htm
 
-// Siddham script font:
+/* Siddham script font:
 	https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
 @font-face
 	font-family: 'SiddhamFont'
@@ -106,15 +106,17 @@ main
 		width: 150px
 		height: 150px
 		margin: -75px 0 0 -75px // 150÷2
-		border-width: 16px
-		border-style: solid
-		border-radius: 50%
-		border-color: #f3f3f3
-		border-top-color: #3498db
+		border:
+			width: 16px
+			style: solid
+			radius: 50%
+			color: #f3f3f3
+			top-color: #3498db
 
-		animation-name: spin // see below
-		animation-duration: 1s
-		animation-iteration-count: infinite
+		animation:
+			name: spin // see below
+			duration: 1s
+			iteration-count: infinite
 
 @keyframes spin
 	0%
@@ -152,16 +154,19 @@ button
 	background-color: inherit
 	cursor: pointer
 
-ul, ol // position of the list-item markers
+// change position of the list-item markers
+ul, ol
 	list-style-position: inside
 
 .dong-khung
-	border-style: dashed
-	border-width: thin
-	border-radius: 8px
-	padding-top: calc($lineHeight * .75)
-	padding-left: 1rem
-	padding-right: 1rem
+	border:
+		style: dashed
+		width: thin
+		radius: 8px
+	padding:
+		top: calc($lineHeight * .75)
+		left: 1rem
+		right: 1rem
 	margin: 1rem 0
 	width: fit-content
 
