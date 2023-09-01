@@ -79,23 +79,24 @@ def convertHanViet(textHan: str, printed: bool=True) -> str:
 	if printed: print(res)
 	else: return res
 
-Han_punc = list("，、：；．。！？…⋯～／‧•●『』「」（）《》〈〉［］【】〖〗〔〕｛｝")
-punc_search = re.compile("(" + "|".join(Han_punc) + ")")
+Han_punc = "，、：；．。！？…⋯～／‧•●『』「」（）《》〈〉［］【】〖〗〔〕｛｝"
+punc_search = str.maketrans("", "", Han_punc)
 
 def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug: bool=False) -> str:
 	test0 = textHan.replace(" ", "") # remove spaces
-	test1 = punc_search.sub("", test0) # without punc
+	test1 = test0.translate(punc_search) # remove punctuation
 	test2, test3 = list(test0), list(test1) # split each character: with & without punc
-	if debug: print("ckpt1:", test2, test3)
-
 	textViet_ = uni_norm("NFC", textViet).replace("-", " ").split(" ")
-	if debug: print("ckpt2:", textViet_)
-	if len(test3) != len(textViet_): raise ValueError("Han-Viet divergence")
+	if debug:
+		print("ckpt0:", test2)
+		print("ckpt1:", test3)
+		print("ckpt2:", textViet_)
+		print(len(test3), len(textViet_))
 
 	res, i, j = "", 0, 0 # combine punctuation character with a loop (see below)
 	while (n := i+j) < len(test2):
 		x = test2[n] # to be processed
-		if debug: print("ckpt3:", x)
+		if debug: print("ckpt3:", x, end=" - ")
 		y = escapeHTML(x) if esc else x
 		if x in Han_punc:
 			res += f"<ruby><rb>{y}</rb>"
@@ -103,13 +104,15 @@ def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug
 			res += "<rt></rt></ruby>\n"
 			j += 1
 		else:
-			if debug: print("ckpt4:", test3[i])
+			if debug: print("ckpt4:", test3[i], end=" - ")
 			if x != test3[i]: raise ValueError("punctuation error")
-			if debug: print("ckpt5:", textViet_[i])
+			if debug: print("ckpt5:", textViet_[i], end=" - ")
 			res += f"<ruby><rb>{y}</rb>"
 			res += f"<!-- {x} -->" if esc else ""
 			res += f"<rt>{textViet_[i]}</rt></ruby>\n"
 			i += 1
+		if debug: print()
+	if len(test3) != len(textViet_): raise ValueError("Han-Viet divergence")
 
 	if printed: print(res)
 	else: return res

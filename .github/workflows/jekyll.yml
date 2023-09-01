@@ -3,6 +3,18 @@ name: Build Jekyll site
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - .dockerignore
+      - .editorconfig
+      - .gitattributes
+      - .github/docker.yml
+      - .gitignore
+      - .gitlab-ci.yml
+      - assets/aide_de_camp.py
+      - assets/fonts/*.txt
+      - Dockerfile
+      - LICENSE
+      - README.md
 
 permissions:
   contents: read
