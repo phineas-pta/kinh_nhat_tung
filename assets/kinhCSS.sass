@@ -82,6 +82,7 @@ main
 
 	ul > li::marker
 		content: '\1F449' // 👉
+		font-size: 70%
 
 #page-footer
 	background-color: $background
@@ -124,7 +125,7 @@ main
 	100%
 		transform: rotate(360deg)
 
-/* ***************************** HTML elements ****************************** */
+/* ***************************** body elements ****************************** */
 
 h1, h2, h3, h4, h5, h6
 	margin: 0
@@ -200,7 +201,16 @@ a[target='_blank']
 
 	&::before
 		content: '\1F517' // 🔗
-		font-size: smaller
+		font-size: 70%
+
+details
+	font-size: 70%
+	ul, li
+		margin-top: 0
+		margin-left: 0
+		padding-left: 0
+	li::marker
+		content: none !important
 
 /* **************************** ruby annotations **************************** */
 
