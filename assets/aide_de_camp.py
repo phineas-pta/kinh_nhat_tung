@@ -2,6 +2,7 @@
 
 import re, os, html, json, requests as req
 from unicodedata import normalize as uni_norm
+from aksharamukha import transliterate
 
 def escapeHTML(txt: str) -> str:
 	"""transform Unicode character -> DEC numerical entity"""
@@ -27,7 +28,7 @@ headers = {"User-Agent": "kinh_nhat_tung/6.3.2 (https://github.com/phineas-pta/k
 # API conversion multiple scripts
 aksha_url = "https://aksharamukha-plugin.appspot.com/api/public"
 aksha_reqdict = {"source": "IAST", "target": "Siddham"} # "IAST", "IPA", "ISO", "Devanagari"
-def toSiddham(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
+def toSiddham_legacy(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
 	"""convert romanized text to Siddham script"""
 	# some typo when copied from Digital Sanskrit Buddhist
 	textIASTbis = textIAST.replace("|", ".").replace(" .", ".").replace(" ?", "?")
@@ -40,6 +41,17 @@ def toSiddham(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
 		else: res = textSidd
 	return res
 
+def toSiddham(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
+	"""convert romanized text to Siddham script"""
+	# some typo when copied from Digital Sanskrit Buddhist
+	textIASTbis = textIAST.replace("|", ".").replace(" .", ".").replace(" ?", "?")
+	textSidd = transliterate.process("IAST", "Siddham", textIASTbis) # "IAST", "IPA", "ISO", "Devanagari"
+	if ruby: # replace after to have special Siddham punctuation
+		res = pali(textSidd, textIASTbis.replace("..", "."), esc)
+	else:
+		if esc: res = escapeHTML(textSidd)
+		else: res = textSidd
+	return res
 while True: print(toSiddham(input("text IAST: ")), "\n")
 
 def stanzas(textIAST: str, esc: bool=True, printed: bool=True):
@@ -76,7 +88,7 @@ def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug
 	test2, test3 = list(test0), list(test1) # split each character: with & without punc
 	if debug: print("ckpt1:", test2, test3)
 
-	textViet_ = textViet.split(" ") # split each word
+	textViet_ = uni_norm("NFC", textViet).replace("-", " ").split(" ")
 	if debug: print("ckpt2:", textViet_)
 	if len(test3) != len(textViet_): raise ValueError("Han-Viet divergence")
 
@@ -104,12 +116,13 @@ def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug
 
 while True: print(combo(input("text Hant: "), input("text Viet: ")), "\n")
 
-def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=True) -> str:
+def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug: bool=False) -> str:
 	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
 	res = ""
 	for i in range(len(text1)):
-		res += combo(text1[i], text2[i], esc, False, False) + "<br />\n"
+		if debug: print(i)
+		res += combo(text1[i], text2[i], esc, False, debug) + "<br />\n"
 	res = res[:-7]
 	if printed: print(res)
 	else: return res

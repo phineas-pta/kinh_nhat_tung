@@ -1,12 +1,23 @@
+---
+layout: none
+search: exclude
+sitemap: false
+---
+
 "use strict";
 
 // placeholder global value
+const y = "yesssss", dkey = "dark"; // keyword for dark theme
 var sidenav, // used in open_sidenav & close_sidenav
-    y = "yesssss", // to save some data
-    dkey = "dark", // keyword for dark theme
     prevScrollPos = 0,
     hamburgerHeight = 0, // used in onscroll
     langElemMap = new Map; // cache all elem of each lang
+
+// PWA things
+if ("serviceWorker" in navigator) navigator.serviceWorker
+	.register("{{ site.baseurl }}/service-worker.js")
+	.then(() => console.log("register service worker for pwa"))
+	.catch(() => console.error("pwa failed"));
 
 // when everything ready
 window.onload = () => {
@@ -136,8 +147,8 @@ function darkToggle() {
 function noHistoryChange(event) {
 	event.preventDefault(); // prevent loading when clicking
 	fetch(this.href)
-		.then(response => response.text())
-		.then(newPageHTML => { // load the new page
+		.then((response) => response.text())
+		.then((newPageHTML) => { // load the new page
 			window.history.pushState(null, null, this.href); // change url
 			document.body.innerHTML = newPageHTML; // load page content
 			window.onload(); // trigger redering

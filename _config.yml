@@ -18,20 +18,6 @@ defaults: # make setup for all HTML, no need to do for each file
       path: "" # an empty string here means all files in the project
     values:
       layout: default # html file in layout folder
-  -
-    scope:
-      path: "404.html"
-    values:
-      layout: null
-      search: exclude
-      sitemap: false
-  -
-    scope:
-      path: "quotations.html"
-    values:
-      layout: null
-      search: exclude
-      sitemap: false
 
 collections_dir: texts
 collections: # handle how entries are sorted in sidebar in webpage

@@ -1,35 +1,41 @@
+---
+layout: none
+search: exclude
+sitemap: false
+---
+
 {
-	"name": "Kinh nhật tụng",
-	"short_name": "Kinh nhật tụng",
+	"name": "{{ site.title }}",
+	"short_name": "{{ site.title }}",
 	"description": "Vietnamese Mahayana Buddhism rituals in multiple languages",
 	"dir": "ltr",
 	"display": "standalone",
 	"lang": "vi",
 	"orientation": "any",
-	"start_url": "/kinh_nhat_tung/index.html",
-	"scope": "/kinh_nhat_tung/",
+	"start_url": "{{ site.baseurl }}/index.html",
+	"scope": "{{ site.baseurl }}/",
 	"prefer_related_applications": false,
 	"background_color": "#BF8F00",
 	"theme_color": "#BF8F00",
 	"categories": ["buddhism", "vietnamese", "mahayana", "rituals", "liturgy", "translation"],
 	"icons": [
 		{
-			"src": "/kinh_nhat_tung/assets/images/anh-bia-goc.jpg",
+			"src": "{{ site.baseurl }}/assets/images/anh-bia-goc.jpg",
 			"sizes": "any",
 			"purpose": "any"
 		}, {
-			"src": "/kinh_nhat_tung/assets/images/anh-bia_x192.jpg",
+			"src": "{{ site.baseurl }}/assets/images/anh-bia_x192.jpg",
 			"sizes": "192x192",
 			"purpose": "maskable"
 		}, {
-			"src": "/kinh_nhat_tung/assets/images/anh-bia_x512.jpg",
+			"src": "{{ site.baseurl }}/assets/images/anh-bia_x512.jpg",
 			"sizes": "512x512",
 			"purpose": "maskable"
 		}
 	],
 	"screenshots": [
 		{
-			"src": "/kinh_nhat_tung/assets/images/example_heart_sutra.png",
+			"src": "{{ site.baseurl }}/assets/images/example_heart_sutra.png",
 			"sizes": "any"
 		}
 	],

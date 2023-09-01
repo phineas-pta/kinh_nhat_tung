@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html lang="mul"><!-- Multiple languages -->
+<html lang="vi">
 <head>
 	<title>{{ page.title }} | {{ site.title }}</title>
 	<meta charset="UTF-8" />
-	<meta name="author" content="PTA" />
+	<meta name="author" content="{{ site.author }}" />
+	<meta name="description" content="{{ site.description }}" />
 	<meta name="keywords" content="buddhism, vietnamese, mahayana, rituals, liturgy, translation" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" /><!-- typical mobile-optimized site -->
-	<meta http-equiv="Permissions-Policy" content="interest-cohort=()"><!-- because of Chrome vs GitHub Pages -->
+	<meta http-equiv="Permissions-Policy" content="interest-cohort=()" /><!-- because of Chrome vs GitHub Pages -->
 	<meta name="google-site-verification" content="vCTcDhJZfixdl9M1bHZeg1214kmgM14IGKdNmk4jGkU" /><!-- set up Google Search Console -->
-	<meta name="theme-color" content="#BF8F00"/><!-- for PWA -->
+	<meta name="theme-color" content="#BF8F00" /><!-- for PWA -->
 	<link rel="manifest" href="{{ site.baseurl }}/site.webmanifest" /><!-- for PWA -->
 	<link rel="icon" href="{{ site.baseurl }}/assets/images/favicon.ico" />
-	<link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/anh-bia_x192.ico" /><!-- for PWA in Apple Safari -->
 	<link rel="stylesheet" href="{{ site.baseurl }}/assets/kinhCSS.css" />
 	<script src="{{ site.baseurl }}/assets/kinhJS.js"></script>
-	<script>
-		if ('serviceWorker' in navigator) {
-			console.log('register service worker for pwa');
-			navigator.serviceWorker.register('{{ site.baseurl }}/service-worker.js');
-		}
-	</script>
 	{% seo %}
 </head>
 <body>
