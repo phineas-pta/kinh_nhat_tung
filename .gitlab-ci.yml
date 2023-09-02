@@ -1,23 +1,28 @@
-image: ruby:alpine
-
-before_script:
-  - apk add --no-cache build-base gcc cmake nodejs
-  - bundle install
-
-test:
-  stage: test
-  script:
-    - bundle exec jekyll build -d test
-  artifacts:
-    paths:
-      - test
+image: ruby:latest
 
 pages:
   stage: deploy
+
+  only:
+  - main
+  except:
+    changes:
+      - .dockerignore
+      - .editorconfig
+      - .gitattributes
+      - .github/*
+      - .gitignore
+      - assets/aide_de_camp.py
+      - assets/fonts/*.txt
+      - Dockerfile
+      - LICENSE
+      - README.md
+
   script:
-    - bundle exec jekyll build -d public
+  - bundle install
+  - bundle exec jekyll build --destination public
+  # GitLab Pages only publish files in this folder
+
   artifacts:
     paths:
     - public
-  only:
-  - main

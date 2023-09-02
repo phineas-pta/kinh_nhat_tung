@@ -1,12 +1,8 @@
 ![License](https://img.shields.io/github/license/phineas-pta/kinh_nhat_tung)
 ![GitHub last commit](https://img.shields.io/github/last-commit/phineas-pta/kinh_nhat_tung?logo=git)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/phineas-pta/kinh_nhat_tung/main?logo=github)
 ![GitHub deployments](https://img.shields.io/github/deployments/phineas-pta/kinh_nhat_tung/github-pages?logo=jekyll&label=Github%20page)
-![GitHub language count](https://img.shields.io/github/languages/count/phineas-pta/kinh_nhat_tung?logo=github)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/phineas-pta/kinh_nhat_tung?logo=github)
 ![GitHub repo size](https://img.shields.io/github/repo-size/phineas-pta/kinh_nhat_tung?logo=github)
-![GitHub Workflow Status](https://github.com/phineas-pta/kinh_nhat_tung/actions/workflows/docker.yml/badge.svg)
-![Docker Image Size](https://img.shields.io/docker/image-size/horimiyasanxmiyamurakun/dr.doofenshmirtz?logo=docker)
 
 # Vietnamese Mahayana Buddhist liturgy in multiple languages
 
@@ -14,13 +10,15 @@ thiền môn nhật tụng Việt bằng nhiều thứ tiếng
 
 to be used in liturgy, please ask a Vietnamese for help when using this site, i'll make a proper language switcher when i have time
 
-**DISCLAIMER: this is a work of compilation, not garanted for authenticity**
+**DISCLAIMER: this is a hobby project, academic accuracy not guaranteed**
 
 feel free to contact me if you need more detailed references
 
-the site is online here: https://phineas-pta.github.io/kinh_nhat_tung/
-
 many thanks to The Open Buddhist University for sharing my project on [their site](https://buddhistuniversity.net/content/reference/kinh-nhat-tung_phineas-pta)
+
+the site is online here: https://phineas-pta.github.io/kinh_nhat_tung/ — backup: https://phineas-pta.gitlab.io/kinh_nhat_tung/
+
+main source code: https://github.com/phineas-pta/kinh_nhat_tung — backup: https://gitlab.com/phineas-pta/kinh_nhat_tung
 
 # web page formatting
 
@@ -28,7 +26,9 @@ many thanks to The Open Buddhist University for sharing my project on [their sit
 |:--:|
 | *Screenshot showing Heart Sutra example* |
 
-some selected sutras include Sanskrit version in Siddham script
+no cookies nor external JavaScript libraries
+
+some selected sutras include Sanskrit text in Siddham script & romanized (IAST)
 
 option to show/hide languages
 
@@ -43,14 +43,19 @@ additional setup:
  - Grenze Gotisch font: https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
  - MuseoModerno font: https://github.com/Omnibus-Type/MuseoModerno/blob/master/fonts/ttf/MuseoModerno-Regular.ttf, under the [SIL OFL v1.1](assets/fonts/OFL.txt)
 
+convert `.ttf` → `.woff2` using https://github.com/google/woff2
+
+UKaiHK font: originally `.ttc` → use FontForge to extract `.ttf` № 2 (KaiTi)
+
 *additional file*: `quotations.html`: predecessor of the site
 
 # use locally
 
 ![funny](https://img.shields.io/badge/hosted%20by-localhost-brightgreen?style=for-the-badge&logo=serverless)
+![Docker Image Size](https://img.shields.io/docker/image-size/horimiyasanxmiyamurakun/dr.doofenshmirtz/kinh_phat?style=for-the-badge&logo=docker)
 
 with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve --no-watch`
 
-with Docker: `docker run -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz:release`
+with Docker: `docker run -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz:kinh_phat`
 
 the site is served at `localhost:4000/kinh_nhat_tung/`
