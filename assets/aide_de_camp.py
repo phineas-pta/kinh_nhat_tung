@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import re, os, html, json, requests as req
+import re, os, html, json, requests
 from unicodedata import normalize as uni_norm
 from aksharamukha import transliterate
 
@@ -23,7 +23,7 @@ def pali(textDeva: str, textLatn: str, esc: bool=True) -> str:
 		res += f"<ruby><rb>{textDeva_[i]}</rb><rt>{textLatn_[i]}</rt></ruby>\n"
 	return res
 
-headers = {"User-Agent": "kinh_nhat_tung/6.3.2 (https://github.com/phineas-pta/kinh_nhat_tung) Python/3.11"}
+headers = {"User-Agent": "kinh_nhat_tung/7.x (https://github.com/phineas-pta/kinh_nhat_tung) Python/3.x"}
 
 # API conversion multiple scripts
 aksha_url = "https://aksharamukha-plugin.appspot.com/api/public"
@@ -33,7 +33,7 @@ def toSiddham_legacy(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
 	# some typo when copied from Digital Sanskrit Buddhist
 	textIASTbis = textIAST.replace("|", ".").replace(" .", ".").replace(" ?", "?")
 	aksha_reqdict["text"] = textIASTbis
-	textSidd = req.get(aksha_url, headers=headers, params=aksha_reqdict).text
+	textSidd = requests.get(aksha_url, headers=headers, params=aksha_reqdict).text
 	if ruby: # replace after to have special Siddham punctuation
 		res = pali(textSidd, textIASTbis.replace("..", "."), esc)
 	else:
@@ -52,7 +52,8 @@ def toSiddham(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
 		if esc: res = escapeHTML(textSidd)
 		else: res = textSidd
 	return res
-while True: print(toSiddham(input("text IAST: ")), "\n")
+
+# while True: print(toSiddham(input("text IAST: ")), "\n")
 
 def stanzas(textIAST: str, esc: bool=True, printed: bool=True):
 	"""stanzas of Siddham"""
@@ -117,7 +118,7 @@ def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug
 	if printed: print(res)
 	else: return res
 
-while True: print(combo(input("text Hant: "), input("text Viet: ")), "\n")
+# while True: print(combo(input("text Hant: "), input("text Viet: "), printed=False), "\n")
 
 def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug: bool=False) -> str:
 	"""combine text (multiple lines) into ruby annotation in HTML"""
@@ -130,15 +131,7 @@ def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=Tru
 	if printed: print(res)
 	else: return res
 
-while True:
-	textIAST = input("text IAST: ")
-	textHan = input("text Han: ")
-	textViet = input("text Viet: ")
-	print()
-	print(toSiddham(textIAST))
-	print()
-	print(combo(textHan, textViet, printed=False))
-	print()
+# while True: print(toSiddham(input("text IAST: ")), end="\n\n"); print(combo(input("text IAST: "), input("text Viet: "), printed=False), end="\n\n")
 
 # %% batch escape/unescape HTML & unicode entities
 
@@ -155,7 +148,7 @@ ruby_sub = lambda txt: ruby_base.sub(esc_fn, txt)
 
 han_ruby = re.compile(r"<rb>&#[^7]\d+;</rb>")
 def unesc_han_fn(matchobj: re.Match) -> str:
-	x = matchobj.group(0)[4:-5] # because len("<rb>") = 4 and len("</rb>") = 5
+	x = matchobj.group(0)[4:-5] # because len("<rb>") == 4 and len("</rb>") == 5
 	y = html.unescape(x)
 	return f"<rb>{x}</rb><!-- {y} -->"
 han_ruby.sub(unesc_han_fn, test_txt) # example

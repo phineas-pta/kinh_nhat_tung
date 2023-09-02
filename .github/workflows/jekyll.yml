@@ -1,4 +1,4 @@
-name: Build Jekyll site
+name: build Jekyll site
 
 on:
   push:
@@ -35,10 +35,11 @@ jobs:
         with:
           ruby-version: "3.2"
           bundler-cache: true
-      - id: setup_pages
-        uses: actions/configure-pages@v3
-      - run: bundle exec jekyll build --baseurl "${{ steps.setup_pages.outputs.base_path }}"
+      - name: Install dependencies & build
         # to have jekyll v4 do not use actions/jekyll-build-pages
+        run: |
+          bundle install
+          bundle exec jekyll build --baseurl "/${{ github.event.repository.name }}"
       - uses: actions/upload-pages-artifact@v2
 
   deploy:
