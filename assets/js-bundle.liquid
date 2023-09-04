@@ -1,0 +1,13 @@
+---
+permalink: assets/kinhJS.js
+layout: null
+search: exclude
+sitemap: false
+---
+{% include kinhJS.js %}
+
+// PWA things
+if ("serviceWorker" in navigator) navigator.serviceWorker
+	.register("{{ site.baseurl }}/service-worker.js")
+	.then(() => console.log("register service worker for pwa"))
+	.catch(() => console.error("pwa failed"));

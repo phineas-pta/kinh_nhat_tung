@@ -1,9 +1,3 @@
----
-layout: none
-search: exclude
-sitemap: false
----
-
 "use strict";
 
 // placeholder global value
@@ -13,11 +7,7 @@ var sidenav, // used in open_sidenav & close_sidenav
     hamburgerHeight = 0, // used in onscroll
     langElemMap = new Map; // cache all elem of each lang
 
-// PWA things
-if ("serviceWorker" in navigator) navigator.serviceWorker
-	.register("{{ site.baseurl }}/service-worker.js")
-	.then(() => console.log("register service worker for pwa"))
-	.catch(() => console.error("pwa failed"));
+// PWA register thing go liquid
 
 // when everything ready
 window.onload = () => {

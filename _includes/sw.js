@@ -1,20 +1,4 @@
----
-layout: none
-search: exclude
-sitemap: false
----
-
-// this file somehow must be at root dir
-
-const cacheName = "mycache-v1", // update ver to update cache
-      cacheContent = [
-      	"{{ site.baseurl }}/index.html",
-      	"{{ site.baseurl }}/assets/kinhJS.js",
-      	"{{ site.baseurl }}/assets/kinhCSS.css",
-      	{% for file in site.static_files %} {% if file.extname == ".woff2" %}
-      	"{{ file.path | prepend: site.baseurl }}",
-      	{% endif %} {% endfor %}
-      ];
+// cache name define in liquid
 
 // initialize the cache and add files to it for offiline use
 self.addEventListener("install", (e) => {

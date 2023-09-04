@@ -7,7 +7,7 @@ on:
       - .dockerignore
       - .editorconfig
       - .gitattributes
-      - .github/docker.yml
+      - .github/workflows/docker.yml
       - .gitignore
       - .gitlab-ci.yml
       - assets/aide_de_camp.py

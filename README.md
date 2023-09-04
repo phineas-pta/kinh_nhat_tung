@@ -1,6 +1,7 @@
-![License](https://img.shields.io/github/license/phineas-pta/kinh_nhat_tung)
+![License](https://img.shields.io/github/license/phineas-pta/kinh_nhat_tung?logo=unlicense)
+![Jekyll](https://img.shields.io/badge/made%20with-Jekyll-blue?logo=jekyll)
 ![GitHub last commit](https://img.shields.io/github/last-commit/phineas-pta/kinh_nhat_tung?logo=git)
-![GitHub deployments](https://img.shields.io/github/deployments/phineas-pta/kinh_nhat_tung/github-pages?logo=jekyll&label=Github%20page)
+![GitHub deployments](https://img.shields.io/github/deployments/phineas-pta/kinh_nhat_tung/github-pages?logo=githubactions&label=Github%20page)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/phineas-pta/kinh_nhat_tung?logo=github)
 ![GitHub repo size](https://img.shields.io/github/repo-size/phineas-pta/kinh_nhat_tung?logo=github)
 
@@ -20,7 +21,7 @@ the site is online here: https://phineas-pta.github.io/kinh_nhat_tung/ — backu
 
 main source code: https://github.com/phineas-pta/kinh_nhat_tung — backup: https://gitlab.com/phineas-pta/kinh_nhat_tung
 
-# web page formatting
+## web page formatting
 
 | ![Screenshot showing Heart Sutra example](assets/images/example_heart_sutra.png) |
 |:--:|
@@ -49,13 +50,23 @@ UKaiHK font: originally `.ttc` → use FontForge to extract `.ttf` № 2 (KaiTi)
 
 *additional file*: `quotations.html`: predecessor of the site
 
-# use locally
+## use locally
 
 ![funny](https://img.shields.io/badge/hosted%20by-localhost-brightgreen?style=for-the-badge&logo=serverless)
 ![Docker Image Size](https://img.shields.io/docker/image-size/horimiyasanxmiyamurakun/dr.doofenshmirtz/kinh_phat?style=for-the-badge&logo=docker)
 
 with Jekyll: `bundle install` to install all dependencies then `bundle exec jekyll serve --no-watch`
 
-with Docker: `docker run -p 4000:4000 horimiyasanxmiyamurakun/dr.doofenshmirtz:kinh_phat`
-
 the site is served at `localhost:4000/kinh_nhat_tung/`
+
+with Docker: `docker run -p 8000:8000 horimiyasanxmiyamurakun/dr.doofenshmirtz:kinh_phat`
+
+the site is served at `localhost:8000`
+
+## misc
+
+![](https://tokei.rs/b1/github/phineas-pta/kinh_nhat_tung?category=files)
+![](https://tokei.rs/b1/github/phineas-pta/kinh_nhat_tung?category=lines)
+![](https://tokei.rs/b1/github/phineas-pta/kinh_nhat_tung?category=code)
+![](https://tokei.rs/b1/github/phineas-pta/kinh_nhat_tung?category=comments)
+![](https://tokei.rs/b1/github/phineas-pta/kinh_nhat_tung?category=blanks)

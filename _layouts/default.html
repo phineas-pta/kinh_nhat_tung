@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-	<title>{{ page.title }} | {{ site.title }}</title>
-	<meta charset="UTF-8" />
-	<meta name="author" content="{{ site.author }}" />
-	<meta name="description" content="{{ site.description }}" />
-	<meta name="keywords" content="buddhism, vietnamese, mahayana, rituals, liturgy, translation" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" /><!-- typical mobile-optimized site -->
-	<meta http-equiv="Permissions-Policy" content="interest-cohort=()" /><!-- because of Chrome vs GitHub Pages -->
-	<meta name="google-site-verification" content="vCTcDhJZfixdl9M1bHZeg1214kmgM14IGKdNmk4jGkU" /><!-- set up Google Search Console -->
-	<meta name="theme-color" content="#BF8F00" /><!-- for PWA -->
-	<link rel="manifest" href="{{ site.baseurl }}/site.webmanifest" /><!-- for PWA -->
-	<link rel="icon" href="{{ site.baseurl }}/assets/images/favicon.ico" />
-	<link rel="stylesheet" href="{{ site.baseurl }}/assets/kinhCSS.css" />
-	<script src="{{ site.baseurl }}/assets/kinhJS.js"></script>
-	{% seo %}
-</head>
+{% include header.liquid %}
 <body>
 	<div lang="en" id="loader" class="center-text"><br />loading…<br />better in<br />landscape</div><!-- preloader, created with CSS, to be removed once page loaded -->
-	{% include header.html %}
-	{% include navigation.html %}
+	{% include nav.liquid %}
 	<main><article>
 		{{ content }}
 	</article></main>
 	<hr />
-	{% include footer.html %}
+	{% include footer.liquid %}
 </body>
 </html>

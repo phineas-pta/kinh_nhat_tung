@@ -1,5 +1,11 @@
 image: ruby:latest
 
+stages:
+  - deploy
+
+variables:
+  GIT_DEPTH: 1
+
 pages:
   stage: deploy
 
@@ -20,7 +26,7 @@ pages:
 
   script:
   - bundle install
-  - bundle exec jekyll build --destination public
+  - bundle exec jekyll build --destination='public' --baseurl="/$CI_PROJECT_NAME"
   # GitLab Pages only publish files in this folder
 
   artifacts:
