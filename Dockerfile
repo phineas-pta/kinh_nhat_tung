@@ -1,6 +1,23 @@
-###############################################################################
+# using multi-stage: 2 build steps auto run in parallel
 
-FROM ruby:latest AS build
+###############################################################################
+# super lightweight webserver
+
+FROM ubuntu:latest AS serverbuilder
+
+WORKDIR /home
+
+# assembler to binary
+RUN apt update &&\
+    apt install -y git make yasm as31 nasm binutils &&\
+    git clone --depth=1 https://github.com/nemasu/asmttpd.git &&\
+    cd asmttpd &&\
+    make release
+
+###############################################################################
+# jekyll build
+
+FROM ruby:latest AS pagebuilder
 
 WORKDIR /home
 
@@ -13,18 +30,19 @@ COPY . .
 RUN bundle exec jekyll build --baseurl ''
 
 ###############################################################################
+# run
 
-FROM python:alpine
+FROM scratch
 
 LABEL name="Kinh nhật tụng"
 LABEL description="Vietnamese Mahayana Buddhism rituals in multiple languages"
 LABEL author="PTA"
 
-WORKDIR /home
+COPY --from=serverbuilder /home/asmttpd/asmttpd /
+COPY --from=pagebuilder /home/_site /web_root
+# default dir name of asmttpd
 
-COPY --from=build /home/_site .
-
-# default python port
+# any port of choice, here python default port
 EXPOSE 8000
 
-CMD ["python", "-m", "http.server"]
+CMD ["/asmttpd", "/web_root", "8000"]

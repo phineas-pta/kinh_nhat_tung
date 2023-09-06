@@ -1,13 +1,15 @@
 "use strict";
 
-// placeholder global value
-const y = "yesssss", dkey = "dark"; // keyword for dark theme
+// PWA register thing go liquid
+
+const parser = new DOMParser(), // to deal with raw html
+      y = "yesssss", dkey = "dark"; // keyword for dark theme
+
+// placeholder for various html element
 var sidenav, // used in open_sidenav & close_sidenav
     prevScrollPos = 0,
     hamburgerHeight = 0, // used in onscroll
     langElemMap = new Map; // cache all elem of each lang
-
-// PWA register thing go liquid
 
 // when everything ready
 window.onload = () => {
@@ -76,10 +78,8 @@ window.onscroll = () => {
 window.onpopstate = (e) => {
 	fetch(window.location.pathname)
 		.then((response) => response.text())
-		.then((newPageHTML) => { // ATTENTION no window.history.pushState
-			document.body.innerHTML = newPageHTML;
-			window.onload();
-		});
+		.then(replaceHTML); // def below
+		// ATTENTION no window.history.pushState
 };
 
 function open_sidenav() {
@@ -140,8 +140,14 @@ function noHistoryChange(event) {
 		.then((response) => response.text())
 		.then((newPageHTML) => { // load the new page
 			window.history.pushState(null, null, this.href); // change url
-			document.body.innerHTML = newPageHTML; // load page content
-			window.onload(); // trigger redering
+			replaceHTML(newPageHTML);
 		})
 	return null;
+}
+
+function replaceHTML(txt) { // don’t use document.write() coz doesn’t trigger window.onload() properly
+	var htmlDoc = parser.parseFromString(txt, "text/html");
+	document.head.innerHTML = htmlDoc.head.innerHTML;
+	document.body.innerHTML = htmlDoc.body.innerHTML;
+	window.onload(); // trigger rendering
 }

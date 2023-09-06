@@ -46,7 +46,7 @@ additional setup:
 
 convert `.ttf` → `.woff2` using https://github.com/google/woff2
 
-UKaiHK font: originally `.ttc` → use FontForge to extract `.ttf` № 2 (KaiTi)
+UKai font: originally `.ttc` → use FontForge to extract HK `.ttf` (№ 2)
 
 *additional file*: `quotations.html`: predecessor of the site
 

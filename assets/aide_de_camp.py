@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""stupid helper script"""
+
 import re, os, html, json, requests
 from unicodedata import normalize as uni_norm
 from aksharamukha import transliterate
@@ -60,8 +62,8 @@ def stanzas(textIAST: str, esc: bool=True, printed: bool=True):
 	textSidd = toSiddham(textIAST, ruby=False)
 	textIAST_, textSidd_ = textIAST.split("\n"), textSidd.split("\n")
 	res = ""
-	for i in range(len(textIAST_)):
-		res += pali(textSidd_[i], textIAST_[i], esc) + "<br />\n"
+	for x, y in zip(textSidd_, textIAST_):
+		res += pali(x, y, esc) + "<br />\n"
 	res = res[:-7]
 	if printed: print(res)
 	else: return res
@@ -124,9 +126,8 @@ def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=Tru
 	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
 	res = ""
-	for i in range(len(text1)):
-		if debug: print(i)
-		res += combo(text1[i], text2[i], esc, False, debug) + "<br />\n"
+	for x, y in zip(text1, text2):
+		res += combo(x, y, esc, False, debug) + "<br />\n"
 	res = res[:-7]
 	if printed: print(res)
 	else: return res
