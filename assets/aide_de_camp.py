@@ -1,6 +1,18 @@
 # -*- coding: utf-8 -*-
 
-"""stupid helper script"""
+"""
+stupid helper script
+how to use:
+
+from aide_de_camp import toSiddham, combo, verse_HanViet
+
+while True: print(toSiddham(input("text IAST: ")), "\n")
+while True: print(combo(input("text Hant: "), input("text Viet: "), printed=False), "\n")
+while True: print(toSiddham(input("text IAST: ")), end="\n\n"); print(combo(input("text IAST: "), input("text Viet: "), printed=False), end="\n\n")
+
+import pyperclip
+pyperclip.copy(toSiddham(input("text IAST: ")))
+"""
 
 import re, os, html, json, requests
 from unicodedata import normalize as uni_norm
@@ -30,6 +42,7 @@ headers = {"User-Agent": "kinh_nhat_tung/7.x (https://github.com/phineas-pta/kin
 # API conversion multiple scripts
 aksha_url = "https://aksharamukha-plugin.appspot.com/api/public"
 aksha_reqdict = {"source": "IAST", "target": "Siddham"} # "IAST", "IPA", "ISO", "Devanagari"
+
 def toSiddham_legacy(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
 	"""convert romanized text to Siddham script"""
 	# some typo when copied from Digital Sanskrit Buddhist
@@ -54,8 +67,6 @@ def toSiddham(textIAST: str, ruby: bool=True, esc: bool=True) -> str:
 		if esc: res = escapeHTML(textSidd)
 		else: res = textSidd
 	return res
-
-# while True: print(toSiddham(input("text IAST: ")), "\n")
 
 def stanzas(textIAST: str, esc: bool=True, printed: bool=True):
 	"""stanzas of Siddham"""
@@ -120,8 +131,6 @@ def combo(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug
 	if printed: print(res)
 	else: return res
 
-# while True: print(combo(input("text Hant: "), input("text Viet: "), printed=False), "\n")
-
 def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=True, debug: bool=False) -> str:
 	"""combine text (multiple lines) into ruby annotation in HTML"""
 	text1, text2 = textHan.split("\n"), textViet.split("\n")
@@ -131,8 +140,6 @@ def verse_HanViet(textHan: str, textViet: str, esc: bool=True, printed: bool=Tru
 	res = res[:-7]
 	if printed: print(res)
 	else: return res
-
-# while True: print(toSiddham(input("text IAST: ")), end="\n\n"); print(combo(input("text IAST: "), input("text Viet: "), printed=False), end="\n\n")
 
 # %% batch escape/unescape HTML & unicode entities
 
@@ -154,13 +161,3 @@ def unesc_han_fn(matchobj: re.Match) -> str:
 	return f"<rb>{x}</rb><!-- {y} -->"
 han_ruby.sub(unesc_han_fn, test_txt) # example
 unesc_han_sub = lambda txt: han_ruby.sub(unesc_han_fn, txt)
-
-basepath = "pathtodir/DataFiles/"
-for filename in os.listdir(basepath):
-	print(filename)
-	if filename.endswith(".html"):
-		my_file = basepath + "/" + filename
-		with open(my_file, mode="r", encoding="utf-8") as file:
-			tmp = file.readlines()
-		with open(my_file, mode="w", encoding="utf-8") as file:
-			file.writelines(map(unesc_han_sub, tmp)) # doesn't need list object

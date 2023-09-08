@@ -149,5 +149,6 @@ function replaceHTML(txt) { // don’t use document.write() coz doesn’t trigge
 	var htmlDoc = parser.parseFromString(txt, "text/html");
 	document.head.innerHTML = htmlDoc.head.innerHTML;
 	document.body.innerHTML = htmlDoc.body.innerHTML;
+	window.scrollTo(0, 0); // reset scroll position
 	window.onload(); // trigger rendering
 }
