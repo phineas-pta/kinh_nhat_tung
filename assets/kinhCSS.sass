@@ -12,7 +12,7 @@
 /* *************************** light & dark mode **************************** */
 
 $background: #FAFAFA
-$langs: ('en': #F73B08, 'fr': #3A8098, 'de': #B023F5, 'it': #388256)
+$langs: ("en": #F73B08, "fr": #3A8098, "de": #B023F5, "it": #388256)
 $text-rb: #939597
 $topbar-background: #BF8F00
 $topbar-background-hover: #9C786C
@@ -21,34 +21,37 @@ $sidenav-links: #1A3D00
 $sidenav-links-hover: #5EE000
 $lineHeight: calc(1.2em + 1vw) // molten leading
 
-[data-theme='dark'] // do not set for <body> because it breaks position fixed of sidenav
+[data-theme="dark"] // do not set for <body> because it breaks position fixed of sidenav
 	word-spacing: .05em // more readable against dark backgrounds: a tiny amount of extra space
 	filter: invert(1) hue-rotate(180deg) // photoshop trick: inverted luminance
 
 // https://github.com/cadsondemak/Charmonman/blob/master/fonts/Charmonman-Regular.ttf
 @font-face
-	font-family: 'IAST-font'
-	src: url('fonts/Charmonman-Regular.woff2') format('woff2'), url('fonts/Charmonman-Regular.ttf') format('truetype')
+	font-family: "IAST-font"
+	src: url("fonts/Charmonman-Regular.woff2") format("woff2"), url("fonts/Charmonman-Regular.ttf") format("truetype")
 
+// https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/webfonts/GrenzeGotisch-ExtraBold.woff2
 // https://github.com/Omnibus-Type/Grenze-Gotisch/blob/master/fonts/ttf/GrenzeGotisch-ExtraBold.ttf
 @font-face
-	font-family: 'SinoViet-font'
-	src: url('fonts/GrenzeGotisch-ExtraBold.woff2') format('woff2'), url('fonts/GrenzeGotisch-ExtraBold.ttf') format('truetype')
+	font-family: "SinoViet-font"
+	src: url("fonts/GrenzeGotisch-ExtraBold.woff2") format("woff2"), url("fonts/GrenzeGotisch-ExtraBold.ttf") format("truetype")
 
+// https://github.com/Omnibus-Type/MuseoModerno/blob/master/fonts/webfonts/MuseoModerno-Regular.woff2
 // https://github.com/Omnibus-Type/MuseoModerno/blob/master/fonts/ttf/MuseoModerno-Regular.ttf
 @font-face
-	font-family: 'VietFont'
-	src: url('fonts/MuseoModerno-Regular.woff2') format('woff2'), url('fonts/MuseoModerno-Regular.ttf') format('truetype')
+	font-family: "VietFont"
+	src: url("fonts/MuseoModerno-Regular.woff2") format("woff2"), url("fonts/MuseoModerno-Regular.ttf") format("truetype")
 
 // ttf extracted from https://github.com/SilentByte/fonts-arphic-ukai/blob/master/fonts-arphic-ukai/ukai.ttc
 @font-face
-	font-family: 'ChineseFont'
-	src: url('fonts/UKaiHK-02.woff2') format('woff2'), url('fonts/UKaiHK-02.ttf') format('truetype')
+	font-family: "ChineseFont"
+	src: url("fonts/UKaiHK-02.woff2") format("woff2"), url("fonts/UKaiHK-02.ttf") format("truetype")
 
+// https://fonts.googleapis.com/css2?family=Noto+Sans+Siddham
 // https://github.com/googlefonts/noto-fonts/blob/master/hinted/ttf/NotoSansSiddham/NotoSansSiddham-Regular.ttf
 @font-face
-	font-family: 'SiddhamFont'
-	src: url('fonts/NotoSansSiddham-Regular.woff2') format('woff2'), url('fonts/NotoSansSiddham-Regular.ttf') format('truetype')
+	font-family: "SiddhamFont"
+	src: url("fonts/NotoSansSiddham-Regular.woff2") format("woff2"), url("fonts/NotoSansSiddham-Regular.ttf") format("truetype")
 
 /* **************************** page components ***************************** */
 
@@ -73,7 +76,7 @@ main
 	filter: blur(5px) // at preload, to be remove once page loaded
 
 	ul > li::marker
-		content: '\1F449' // 👉
+		content: "\1F449" // 👉
 		font-size: 70%
 
 #page-footer
@@ -89,7 +92,7 @@ main
 	z-index: 1
 
 	&::before // draw border independently to the text
-		content: ''
+		content: ""
 
 		position: fixed
 		left: 50%
@@ -123,7 +126,7 @@ h1, h2, h3, h4, h5, h6
 	margin: 0
 h1
 	color: $background
-	font-family: 'SinoViet-font'
+	font-family: "SinoViet-font"
 h2
 	color: $topbar-background
 h3
@@ -136,7 +139,7 @@ h2, h3, .multi-lang, .wait-multi-lang, .mantra-seg
 		& > :lang(#{$name})
 			color: $color
 	& > :lang(vi)
-		font-family: 'VietFont'
+		font-family: "VietFont"
 		font-size: larger
 .mantra-seg span:lang(vi)
 	font-weight: bold
@@ -184,7 +187,7 @@ table.inline-table
 		text-indent: -1em
 
 // links to external sources
-a[target='_blank']
+a[target="_blank"]
 	font-family: monospace
 	font-size: smaller
 	overflow-wrap: anywhere
@@ -192,15 +195,14 @@ a[target='_blank']
 	word-wrap: break-word
 
 	&::before
-		content: '\1F517' // 🔗
+		content: "\1F517" // 🔗
 		font-size: 70%
 
 details
 	font-size: 70%
+	margin-top: 1rem
 	ul, li
 		margin-top: 0
-		margin-left: 0
-		padding-left: 0
 	li::marker
 		content: none !important
 
@@ -222,11 +224,11 @@ rb
 	color: $text-rb
 
 	&:lang(zh-Hant)
-		font-family: 'ChineseFont'
+		font-family: "ChineseFont"
 		font-size: 175% // because this font is so small
 
 	&:lang(sa), &:lang(pi)
-		font-family: 'SiddhamFont'
+		font-family: "SiddhamFont"
 		font-size: 125% // because this font is small
 
 rt
@@ -236,11 +238,11 @@ rt
 	text-align: left // to work together with rb margin
 
 	&:lang(zh-Hant)
-		font-family: 'SinoViet-font'
+		font-family: "SinoViet-font"
 		font-size: larger
 
 	&:lang(sa), &:lang(pi)
-		font-family: 'IAST-font'
+		font-family: "IAST-font"
 
 /* ******************************* topnav bar ******************************* */
 
@@ -271,10 +273,10 @@ rt
 #dropdown
 	> button
 		color: $background
-		font-family: 'VietFont'
+		font-family: "VietFont"
 		font-size: inherit
 		&::after
-			content: '\A0\25BC' // ▼
+			content: "\A0\25BC" // ▼
 
 	&:hover #langForm // show dropdown content
 		display: flex
@@ -282,7 +284,7 @@ rt
 		position: absolute // display out of flexbox #hamburger
 
 // checkbox size
-input[type='checkbox']
+input[type="checkbox"]
 	transform: scale(2)
 
 /* *************************** navigation sidebar *************************** */
