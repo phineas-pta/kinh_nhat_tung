@@ -9,26 +9,26 @@ variables:
 pages:
   stage: deploy
 
-  only:
-  - main
-  except:
-    changes:
-      - .dockerignore
-      - .editorconfig
-      - .gitattributes
-      - .github/*
-      - .gitignore
-      - assets/aide_de_camp.py
-      - assets/fonts/*.txt
-      - Dockerfile
-      - LICENSE
-      - README.md
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - .dockerignore
+        - .editorconfig
+        - .gitattributes
+        - .github/*
+        - .gitignore
+        - assets/aide_de_camp.py
+        - assets/fonts/*.txt
+        - Dockerfile
+        - LICENSE
+        - README.md
+      when: never
 
   script:
-  - bundle install
-  - bundle exec jekyll build --destination='public' --baseurl="/$CI_PROJECT_NAME"
-  # GitLab Pages only publish files in this folder
+    - bundle install
+    - bundle exec jekyll build --destination='public' --baseurl="/$CI_PROJECT_NAME"
+    # GitLab Pages only publish files in this folder
 
   artifacts:
     paths:
-    - public
+      - public
